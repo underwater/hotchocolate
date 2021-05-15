@@ -93,6 +93,7 @@ module.exports = {
       {
         docs: {
           routeBasePath: "docs/hotchocolate",
+          path: "docs/hotchocolate",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: repoUrl + "/edit/main/website2/",
           showLastUpdateAuthor: true,
