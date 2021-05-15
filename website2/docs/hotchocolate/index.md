@@ -1,6 +1,6 @@
 ---
 title: Introduction
-id: intro
+id: hotchocolate-intro
 ---
 
 Hot Chocolate is a .NET GraphQL platform that can help you build a GraphQL layer over your existing and new infrastructure.
@@ -293,5 +293,4 @@ In order to get you even faster started we are providing templates for the dotne
 
 ![Banana Cake Pop](/img/bcp_6.png)
 
-<!-- todo: this is not working yet -->
-<!-- [Learn more](/docs/bananacakepop) -->
+[Learn more](../bananacakepop/index.md)

@@ -92,8 +92,8 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          routeBasePath: "docs/hotchocolate",
-          path: "docs/hotchocolate",
+          routeBasePath: "docs",
+          path: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: repoUrl + "/edit/main/website2/",
           showLastUpdateAuthor: true,
