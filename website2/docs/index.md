@@ -34,7 +34,7 @@ var executor = schema.MakeExecutable();
 Console.WriteLine(executor.Execute("{ hello }").ToJson());
 ```
 
-[Learn more](/docs/hotchocolate/v10/code-first)
+[Learn more](code-first.md)
 
 ## Schema-First approach
 
@@ -64,7 +64,7 @@ var executor = schema.MakeExecutable();
 Console.WriteLine(executor.Execute("{ hello }").ToJson());
 ```
 
-[Learn more](/docs/hotchocolate/v10/schema-first)
+[Learn more](schema-first.md)
 
 ## Mix it all together
 
@@ -104,13 +104,13 @@ var executor = schema.MakeExecutable();
 Console.WriteLine(executor.Execute("{ hello foo }").ToJson());
 ```
 
-[Learn more](/docs/hotchocolate/v10/schema)
+[Learn more](schema/index.md)
 
 ## Support for Custom Scalars
 
 We provide built-in support for GraphQL defined Scalar Types. Moreover, you can also define your own scalar types to make your schemas even richer.
 
-[Learn more](/docs/hotchocolate/v10/schema/custom-scalar-types)
+[Learn more](schema/custom-scalar-types.md)
 
 ## Support for DataLoader
 
@@ -129,7 +129,7 @@ public class PersonResolvers
 }
 ```
 
-[Learn more](/docs/hotchocolate/v10/data-fetching)
+[Learn more](data-fetching/index.md)
 
 ## Support for Custom Directives
 
@@ -147,7 +147,7 @@ type Employee @json {
 }
 ```
 
-[Learn more](/docs/hotchocolate/v10/schema/directives)
+[Learn more](schema/directives.md)
 
 ## Built-in Authorization Directives
 
@@ -175,7 +175,7 @@ public class QueryType : ObjectType<Query>
 }
 ```
 
-[Learn more](/docs/hotchocolate/v10/security#authorization)
+[Learn more](security/index.md#authorization)
 
 ## Built-in Support for Filters
 
@@ -204,7 +204,7 @@ query filterPersons {
 }
 ```
 
-[Learn more](/docs/hotchocolate/v10/data-fetching/filters)
+[Learn more](data-fetching/filters.md)
 
 ## Built-in Support for Relay Paging
 
@@ -232,19 +232,19 @@ query filterPersons {
 }
 ```
 
-[Learn more](/docs/hotchocolate/v10/data-fetching/pagination)
+[Learn more](data-fetching/pagination.md)
 
 ## Support for GraphQL Subscriptions
 
 Subscriptions allow GraphQL clients to observe specific events and receive updates from the server in real-time.
 
-[Learn more](/docs/hotchocolate/v10/execution-engine/subscriptions)
+[Learn more](execution-engine/subscriptions.md)
 
 ## Schema Stitching
 
 Schema stitching will give you the capability to build small GraphQL services and stitch them together into one rich schema. This gives you flexibility in your development process and confidence once you are ready to deploy. Update only parts of your schema without the need to deploy always everything.
 
-[Learn more](/docs/hotchocolate/v10/stitching)
+[Learn more](stitching.md)
 
 ## Batching
 
@@ -273,7 +273,7 @@ query StoryComments {
 }
 ```
 
-[Learn more](/docs/hotchocolate/v10/execution-engine/batching)
+[Learn more](execution-engine/batching.md)
 
 ## GraphQL Server
 
@@ -281,16 +281,17 @@ We support ASP.NET Core and ASP.NET Framework and constantly update these implem
 
 Furthermore, you can host Hot Chocolate as an Azure Function or AWS Lambda.
 
-[Learn more](/docs/hotchocolate/v10/server)
+[Learn more](server/index.md)
 
 ## dotnet CLI Templates
 
 In order to get you even faster started we are providing templates for the dotnet CLI which lets you setup a .NET GraphQL server in less than 10 seconds.
 
-[Learn more](/docs/hotchocolate/v10/advanced/dotnet-cli)
+[Learn more](advanced/dotnet-cli.md)
 
 ## We provide awesome tooling so you can test your server.
 
 ![Banana Cake Pop](/img/bcp_6.png)
 
-[Learn more](/docs/bananacakepop)
+<!-- todo: this is not working yet -->
+<!-- [Learn more](/docs/bananacakepop) -->

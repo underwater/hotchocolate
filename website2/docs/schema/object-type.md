@@ -234,7 +234,7 @@ public class PersonType
 }
 ```
 
-> More about resolvers can be read [here](/docs/hotchocolate/v10/schema/resolvers).
+> More about resolvers can be read [here](schema/resolvers.md).
 
 # Extension
 

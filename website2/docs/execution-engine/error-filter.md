@@ -8,7 +8,7 @@ Moreover, you can throw a `QueryException` that will be be caught by the query e
 
 One further way to raise an error are non-terminating field errors. This can be raised by using `IResolverContext.RaiseError`. So, with this you can provide a result and raise an error for your current field.
 
-> If you do want to log errors head over to our diagnostic source [documentation](/docs/hotchocolate/v10/execution-engine/instrumentation) and see how you can hook up your logging framework of choice to it.
+> If you do want to log errors head over to our diagnostic source [documentation](execution-engine/instrumentation.md) and see how you can hook up your logging framework of choice to it.
 
 # Error Builder
 
@@ -79,22 +79,22 @@ SchemaBuilder.New()
     });
 ```
 
- ## Customizable IErrors 
+## Customizable IErrors
 
 Hot Chocolate provides some methods in Error to help add or remove messages,
 codes, locations, paths and more, making error messages more readable
 
- - `RemoveCode()`
- - `RemoveException()`
- - `RemoveExtension(string key)`
- - `RemoveExtensions()`
- - `RemoveLocations()`
- - `RemovePath()`
- - `SetExtension(string key, object? value)`
- - `WithCode(string? code)`
- - `WithException(Exception? exception)`
- - `WithExtensions(IReadOnlyDictionary<string, object?> extensions)`
- - `WithLocations(IReadOnlyList<Location>? locations)`
- - `WithMessage(string message)`
- - `WithPath(IReadOnlyList<object>? path)`
- - `WithPath(Path? path)`
+- `RemoveCode()`
+- `RemoveException()`
+- `RemoveExtension(string key)`
+- `RemoveExtensions()`
+- `RemoveLocations()`
+- `RemovePath()`
+- `SetExtension(string key, object? value)`
+- `WithCode(string? code)`
+- `WithException(Exception? exception)`
+- `WithExtensions(IReadOnlyDictionary<string, object?> extensions)`
+- `WithLocations(IReadOnlyList<Location>? locations)`
+- `WithMessage(string message)`
+- `WithPath(IReadOnlyList<object>? path)`
+- `WithPath(Path? path)`

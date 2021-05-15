@@ -217,7 +217,7 @@ services.AddStitchedSchema(builder => builder
   }));
 ```
 
-> More information about our scalars can be found [here](/docs/hotchocolate/v10/schema/custom-scalar-types).
+> More information about our scalars can be found [here](schema/custom-scalar-types.md).
 
 With this in place our stitched schema now looks like the following:
 
@@ -356,7 +356,7 @@ Currently this variable has four scopes:
 
 The context data can be used to map custom properties into our GraphQL resolvers. In our case we will use it to map the internal user ID from the user claims into our context data map. This allows us to have some kind of abstraction between the actual HttpRequest and the data that is needed to process a GraphQL request.
 
-> Documentation on how to add custom context data from a http request can be found [here](/docs/hotchocolate/v10/execution-engine/custom-context)
+> Documentation on how to add custom context data from a http request can be found [here](execution-engine/custom-context-data.md)
 
 OK, let\`s sum this up, with the `delegate` directive we are able to create powerful stitching resolvers without writing one line of c# code. Furthermore, we are able to create new types that make the API richer without those types having any representation in any of the remote schemas.
 
@@ -688,7 +688,7 @@ services.AddStitchedSchema(builder => builder
   })
 ```
 
-> We could also declare a field middleware as class. More about what can be done with a field middleware can be found [here](/docs/hotchocolate/v10/execution-engine/middleware).
+> We could also declare a field middleware as class. More about what can be done with a field middleware can be found [here](execution-engine/index.md).
 
 With all of this in place we can now rewrite our `Message` type extension and access the `createdById` from the scoped context data:
 
@@ -734,7 +734,7 @@ var path = new SelectionPathComponent(
 field.AddDelegationPath("schemaName", path);
 ```
 
-> Information about our parser can be found [here](/docs/hotchocolate/v10/advanced).
+> Information about our parser can be found [here](advanced/index.md).
 
 ## Merged Schema Rewriter
 
@@ -803,7 +803,7 @@ serviceCollection.AddStitchedSchema(builder =>
         }));
 ```
 
-> More about error filter can be found [here](/docs/hotchocolate/v10/execution-engine/error-filter).
+> More about error filter can be found [here](execution-engine/error-filter.md).
 
 # Authentication
 

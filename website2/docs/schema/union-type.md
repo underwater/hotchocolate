@@ -57,4 +57,4 @@ public class FooBarBaz
 
 In this case the set is inferred from the types in the schema.
 
-The individual `ObjectType` types that participate in the union can have a custom logic defined to indicate whether or not the resolved type is a specific type. To implement this, use the `descriptor.IsOfType()` logic [explained here](/docs/hotchocolate/v10/schema/code-first-object-type#isoftype)
+The individual `ObjectType` types that participate in the union can have a custom logic defined to indicate whether or not the resolved type is a specific type. To implement this, use the `descriptor.IsOfType()` logic [explained here](code-first-object-type.md#isoftype)

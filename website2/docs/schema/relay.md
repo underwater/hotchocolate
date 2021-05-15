@@ -85,7 +85,7 @@ public class QueryType
 }
 ```
 
-**We have a lot more documentation on pagination [here](/docs/hotchocolate/v10/data-fetching/pagination).**
+**We have a lot more documentation on pagination [here](../data-fetching/pagination.md).**
 
 # Mutations
 

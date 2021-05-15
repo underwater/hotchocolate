@@ -12,7 +12,7 @@ Since we have two major approaches with Hot Chocolate to define a schema, we als
 
 It is important to know that we can mix both approaches. Moreover, resolvers are integrated as a component into the field-middleware-pipeline. A field-middleware is more complex but can also open up more scenarios. One could for instance write a middleware that resolves the data for multiple fields of a certain well-defined data source.
 
-> More about what a field-middleware can do can be found [here](/docs/hotchocolate/v10/execution-engine).
+> More about what a field-middleware can do can be found [here](execution-engine/index.md).
 
 # Schema-First
 

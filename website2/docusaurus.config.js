@@ -45,8 +45,8 @@ module.exports = {
           title: "Docs",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "Hot Chocolate",
+              to: "/docs/hotchocolate/intro",
             },
           ],
         },
@@ -82,6 +82,9 @@ module.exports = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+    },
+    prism: {
+      additionalLanguages: ["csharp"],
     },
   },
   presets: [
