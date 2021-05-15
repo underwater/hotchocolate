@@ -21,4 +21,4 @@ We have built in some options that limit the execution engine in order to protec
 
 _\* Performance tracing is based on Apollo Tracing. The specification can be found [here](https://github.com/apollographql/apollo-tracing)._
 
-_\*\* The exception details that are included into GraphQL errors can also be modified by implementing an `IErrorFilter`. See more about that [here](execution-engine/error-filter.md)._
+_\*\* The exception details that are included into GraphQL errors can also be modified by implementing an `IErrorFilter`. See more about that [here](error-filter.md)._

@@ -36,7 +36,7 @@ ISchema schema = SchemaBuilder.New()
 
 Hot Chocolate provides a collection of conventions and attributes to express a schema with POCOs. In many cases the default conventions should be enough, but from version 9 on we have centralised these conventions into two classes. If you do not like our default conventions or if you want to bring your own set of custom attributes, then you can overwrite or extend the default conventions.
 
-> If you want to read more about conventions head over [here](schema/conventions.md).
+> If you want to read more about conventions head over [here](conventions.md).
 
 The second way to express a schema in code-first is to declare schema types. Schema types allow us to exactly express the structure and properties of our schema:
 
@@ -88,7 +88,7 @@ type Query {
 
 Hot Chocolate will always try to figure the provided schema out, that means that we will infer the fields from the provided types. Also, we can extend those types by declaring further fields. As with everything we can opt out of this behavior.
 
-> In order to see more about what capabilities our ObjectType has head over [here](schema/object-type.md).
+> In order to see more about what capabilities our ObjectType has head over [here](../schema/object-type.md).
 
 As I mentioned earlier, we can mix and match our approach and also extend schema-first fields with code-first:
 

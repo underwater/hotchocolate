@@ -46,7 +46,7 @@ module.exports = {
           items: [
             {
               label: "Hot Chocolate",
-              to: "/docs/hotchocolate/intro",
+              to: "/docs/hotchocolate/hotchocolate-intro",
             },
           ],
         },

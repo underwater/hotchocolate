@@ -162,7 +162,7 @@ The executer will write the results to the stream as soon as they are available.
 
 By default, we are serializing the result as a JSON array, but you can change the format to make it work better with your client implementation.
 
-More about batching can be found [here](execution-engine/batching.md).
+More about batching can be found [here](../execution-engine/batching.md).
 
 # WebSocket Support
 
@@ -187,7 +187,7 @@ services.AddGraphQL(
         .AddType<CharacterType>())
 ```
 
-> More about the schema builder can be found [here](schema/index.md).
+> More about the schema builder can be found [here](../schema/index.md).
 
 After we have setup the schema and its services, we now have to configure the middleware components.
 
@@ -226,7 +226,7 @@ services.AddGraphQL(
         .AddType<CharacterType>())
 ```
 
-> More about the schema builder can be found [here](schema/index.md).
+> More about the schema builder can be found [here](../schema/index.md).
 
 After we have setup the schema and its services, we now have to configure the middleware components.
 

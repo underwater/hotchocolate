@@ -234,7 +234,7 @@ public class PersonType
 }
 ```
 
-> More about resolvers can be read [here](schema/resolvers.md).
+> More about resolvers can be read [here](../schema/resolvers.md).
 
 # Extension
 
