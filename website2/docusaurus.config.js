@@ -9,8 +9,8 @@ module.exports = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "ChilliCream", // Usually your GitHub org/user name.
-  projectName: "hotchocolate", // Usually your repo name.
+  organizationName: "ChilliCream",
+  projectName: "hotchocolate",
   themeConfig: {
     navbar: {
       title: "My Site",
@@ -106,7 +106,6 @@ module.exports = {
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl: repoUrl + "/edit/main/website2/blog/",
         },
         theme: {
