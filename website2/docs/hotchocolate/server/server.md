@@ -1,5 +1,6 @@
 ---
 title: ASP.Net
+slug: ./
 ---
 
 Hot Chocolate supports ASP.Net Core and ASP.Net Framework out of the box. This means you can get started very quickly with both variants. There are example projects for both in our [repository](https://github.com/ChilliCream/hotchocolate/tree/master/examples) on GitHub.
@@ -187,7 +188,7 @@ services.AddGraphQL(
         .AddType<CharacterType>())
 ```
 
-> More about the schema builder can be found [here](../schema/index.md).
+> More about the schema builder can be found [here](../schema/schema.md).
 
 After we have setup the schema and its services, we now have to configure the middleware components.
 
@@ -226,7 +227,7 @@ services.AddGraphQL(
         .AddType<CharacterType>())
 ```
 
-> More about the schema builder can be found [here](../schema/index.md).
+> More about the schema builder can be found [here](../schema/schema.md).
 
 After we have setup the schema and its services, we now have to configure the middleware components.
 

@@ -20,8 +20,7 @@ module.exports = {
       },
       items: [
         {
-          type: "doc",
-          docId: "intro",
+          to: "/docs/hotchocolate",
           position: "left",
           label: "Hot Chocolate",
         },
@@ -46,7 +45,7 @@ module.exports = {
           items: [
             {
               label: "Hot Chocolate",
-              to: "/docs/hotchocolate/hotchocolate-intro",
+              to: "/docs/hotchocolate",
             },
           ],
         },
@@ -84,7 +83,8 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
     prism: {
-      additionalLanguages: ["csharp"],
+      additionalLanguages: ["csharp", "graphql", "json", "bash", "sql"],
+      theme: require("prism-react-renderer/themes/vsDark"),
     },
   },
   presets: [

@@ -1,5 +1,6 @@
 ---
 title: Schema
+slug: ./
 ---
 
 Every GraphQL service defines a set of types which completely describe the set of possible data you can query on that service. Incoming queries are validated and executed against that schema.

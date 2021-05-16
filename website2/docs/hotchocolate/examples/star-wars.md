@@ -1,5 +1,6 @@
 ---
 title: Star Wars
+slug: ./
 ---
 
 We have created the Star Wars sample in different versions in order to show different ways to build your GraphQL server off.

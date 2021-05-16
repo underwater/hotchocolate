@@ -1,5 +1,6 @@
 ---
 title: Data Loaders
+slug: ./
 ---
 
 If you want to read more about _DataLoader_ in general, you can head over to Facebook's [GitHub repository](https://github.com/facebook/dataloader).

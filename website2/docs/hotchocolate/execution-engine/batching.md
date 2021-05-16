@@ -61,7 +61,7 @@ Batching combined with `@export` becomes really interesting if you think about m
 
 With operation batching you basically send in the same request as before. You can either opt to send plain GraphQL or send in the GraphQL-JSON-request.
 
-> More about the request structure can be read [here](../server/index.md).
+> More about the request structure can be read [here](../server/server.md).
 
 Since we are sending in multiple operations, we specify the sequence with as a query parameter:
 

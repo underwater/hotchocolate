@@ -149,14 +149,14 @@ public class Query
 
 This was just a quick introduction - There is a lot more that we can do with _pure code-first_ and _code-first_. In order to learn more, head over to the following documentation articles:
 
-- If you want to read more about the `SchemaBuilder` head over [here/index.md).
+- If you want to read more about the `SchemaBuilder` head over [here](schema/schema.md).
 
 - If you are interested about resolvers in more detail [this](schema/resolvers.md) might be the right place for you.
 
 - If you want to know how to split up types then [this](schema/extending-types.md) might be what you are looking for.
 
-You are all fired up and want to get started with a little tutorial walking you through an end-to-end example with `MongoDB` as your database? [Follow me](tutorials/index.md)!
+You are all fired up and want to get started with a little tutorial walking you through an end-to-end example with `MongoDB` as your database? [Follow me](tutorials/tutorial.md)!
 
-OK, OK, you already have an idea on what to do and you are just looking for a way to setup this whole thing with ASP.NET Core? [This](server/index.md) is where you find more on that.
+OK, OK, you already have an idea on what to do and you are just looking for a way to setup this whole thing with ASP.NET Core? [This](server/server.md) is where you find more on that.
 
 If you want to set Hot Chocolate up with AWS Lambda or Azure Functions head over to our slack channel, we do not yet have documentation on that but there are example projects showing how to do that. We are constantly adding to our documentation and will include documentation on that soon.

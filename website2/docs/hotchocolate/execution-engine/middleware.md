@@ -1,5 +1,6 @@
 ---
 title: Middleware
+slug: ./
 ---
 
 Hot Chocolate has three kinds of middleware. The query middleware which allows to extend or rewrite the processing of a query request, the field middleware which allows to extend or rewrite the processing of field resolvers and the directive middleware which allows basically to add a field middleware to fields that are annotated with a specific directive.

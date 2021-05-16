@@ -60,7 +60,7 @@ public class Startup
 }
 ```
 
-> More about configuring ASP.NET Core can be found [here](../server/index.md).
+> More about configuring ASP.NET Core can be found [here](../server/server.md).
 
 Once this is setup, subscriptions are generally available. In order to define subscriptions we have to create a subscription type. The subscription type is just a regular `ObjectType`, so we create it like any other root type.
 

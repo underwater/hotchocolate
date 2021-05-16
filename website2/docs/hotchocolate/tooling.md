@@ -6,7 +6,7 @@ title: "Tooling"
 
 Banana Cake Pop is our brand new GraphQL IDE which works well with Hot Chocolate and any other GraphQL server.
 
-[Learn more](../bananacakepop/index.md)
+[Learn more](../bananacakepop/introduction.md)
 
 # Visual Studio Integration
 

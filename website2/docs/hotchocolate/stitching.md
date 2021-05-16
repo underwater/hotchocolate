@@ -688,7 +688,7 @@ services.AddStitchedSchema(builder => builder
   })
 ```
 
-> We could also declare a field middleware as class. More about what can be done with a field middleware can be found [here](execution-engine/index.md).
+> We could also declare a field middleware as class. More about what can be done with a field middleware can be found [here](execution-engine/middleware.md).
 
 With all of this in place we can now rewrite our `Message` type extension and access the `createdById` from the scoped context data:
 
@@ -734,7 +734,7 @@ var path = new SelectionPathComponent(
 field.AddDelegationPath("schemaName", path);
 ```
 
-> Information about our parser can be found [here](advanced/index.md).
+> Information about our parser can be found [here](advanced/parser.md).
 
 ## Merged Schema Rewriter
 

@@ -1,6 +1,6 @@
 ---
 title: Introduction
-id: hotchocolate-intro
+slug: ./
 ---
 
 Hot Chocolate is a .NET GraphQL platform that can help you build a GraphQL layer over your existing and new infrastructure.
@@ -104,7 +104,7 @@ var executor = schema.MakeExecutable();
 Console.WriteLine(executor.Execute("{ hello foo }").ToJson());
 ```
 
-[Learn more](schema/index.md)
+[Learn more](schema/schema.md)
 
 ## Support for Custom Scalars
 
@@ -129,7 +129,7 @@ public class PersonResolvers
 }
 ```
 
-[Learn more](data-fetching/index.md)
+[Learn more](data-fetching/data-loaders.md)
 
 ## Support for Custom Directives
 
@@ -175,7 +175,7 @@ public class QueryType : ObjectType<Query>
 }
 ```
 
-[Learn more](security/index.md#authorization)
+[Learn more](security/authorization.md#authorization)
 
 ## Built-in Support for Filters
 
@@ -281,7 +281,7 @@ We support ASP.NET Core and ASP.NET Framework and constantly update these implem
 
 Furthermore, you can host Hot Chocolate as an Azure Function or AWS Lambda.
 
-[Learn more](server/index.md)
+[Learn more](server/server.md)
 
 ## dotnet CLI Templates
 
@@ -293,4 +293,4 @@ In order to get you even faster started we are providing templates for the dotne
 
 ![Banana Cake Pop](/img/bcp_6.png)
 
-[Learn more](../bananacakepop/index.md)
+[Learn more](../bananacakepop/introduction.md)
