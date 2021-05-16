@@ -1,0 +1,242 @@
+{
+  "version-v10.5/hotchocolateSidebar": [
+    {
+      "type": "doc",
+      "id": "version-v10.5/hotchocolate/introduction"
+    },
+    {
+      "type": "doc",
+      "id": "version-v10.5/hotchocolate/code-first"
+    },
+    {
+      "type": "doc",
+      "id": "version-v10.5/hotchocolate/schema-first"
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Schema",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/schema"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/object-type"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/interface-type"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/union-type"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/input-object-type"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/enum-type"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/descriptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/custom-scalar-types"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/descriptor-attributes"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/extending-types"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/directives"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/resolvers"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/relay"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/conventions"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/schema/options"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Data Fetching",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/data-fetching/data-loaders"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/data-fetching/pagination"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/data-fetching/filters"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Security",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/security/authorization"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/security/security"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Execution Engine",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/middleware"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/validation-rules"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/instrumentation"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/apollo-tracing"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/batching"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/persisted-queries"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/custom-context-data"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/subscriptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/type-conversion"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/error-filter"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/execution-engine/execution-options"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Server",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/server/asp-net"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/server/dependency-injection"
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "version-v10.5/hotchocolate/stitching"
+    },
+    {
+      "type": "doc",
+      "id": "version-v10.5/hotchocolate/tooling"
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Advanced",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/advanced/parser"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/advanced/dotnet-cli"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Tutorials",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/tutorials/entity-framework"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Examples",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/examples/star-wars"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/examples/slack-clone"
+        },
+        {
+          "type": "doc",
+          "id": "version-v10.5/hotchocolate/examples/other-examples"
+        }
+      ]
+    }
+  ],
+  "version-v10.5/bananacakepopSidebar": [
+    {
+      "type": "doc",
+      "id": "version-v10.5/bananacakepop/introduction"
+    }
+  ]
+}

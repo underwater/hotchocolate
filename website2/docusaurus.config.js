@@ -2,34 +2,41 @@ const repoUrl = "https://github.com/ChilliCream/hotchocolate";
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "ChilliCream GraphQL Platform",
+  tagline: "We're building the ultimate GraphQL platform",
+  url: "https://chillicream.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  onBrokenMarkdownLinks: "throw",
+  favicon: "img/favicon.png",
   organizationName: "ChilliCream",
   projectName: "hotchocolate",
   themeConfig: {
     navbar: {
-      title: "My Site",
+      // todo: text in custom font
+      title: "ChilliCream",
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
+        alt: "ChilliCream Logo",
+        // todo: animation is not working
+        src: "img/chillicream-winking.svg",
       },
       items: [
         {
           to: "/docs/hotchocolate",
           position: "left",
-          label: "Hot Chocolate",
+          label: "Docs",
         },
         { to: "/blog", label: "Blog", position: "left" },
-        // {
-        //   type: "docsVersionDropdown",
-        //   position: "left",
-        //   dropdownActiveClassDisabled: true,
-        // },
+        {
+          label: `Shop`,
+          to: `https://shop.chillicream.com`,
+          position: "left",
+        },
+        {
+          type: "docsVersionDropdown",
+          position: "left",
+          dropdownActiveClassDisabled: true,
+        },
         {
           href: repoUrl,
           label: "GitHub",
@@ -80,7 +87,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} ChilliCream`,
     },
     prism: {
       additionalLanguages: ["csharp", "graphql", "json", "bash", "sql"],
