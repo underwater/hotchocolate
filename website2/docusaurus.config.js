@@ -59,15 +59,6 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
-          items: [
-            {
-              label: "Hot Chocolate",
-              to: "/docs/hotchocolate",
-            },
-          ],
-        },
-        {
           title: "Community",
           items: [
             {
@@ -84,21 +75,7 @@ module.exports = {
             },
           ],
         },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
-            {
-              label: "GitHub",
-              href: repoUrl,
-            },
-          ],
-        },
       ],
-      copyright: `© ${new Date().getFullYear()} ChilliCream`,
     },
     prism: {
       additionalLanguages: ["csharp", "graphql", "json", "bash", "sql"],
