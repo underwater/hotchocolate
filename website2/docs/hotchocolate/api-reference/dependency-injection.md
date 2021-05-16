@@ -106,7 +106,9 @@ services
 
 This also benefits the execution engine since it knows which services are used and how to optimize execution.
 
-> Note: For method-level dependency injection we also allow to reuse the `FromServicesAttribute` from ASP.NET core.
+:::note
+For method-level dependency injection we also allow to reuse the `FromServicesAttribute` from ASP.NET core.
+:::
 
 ## Custom Dependency Injection Container
 

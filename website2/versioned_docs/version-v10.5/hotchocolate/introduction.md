@@ -11,13 +11,19 @@ Our API will let you start very quickly with pre-built templates that let you st
 
 Here you will find a list of the most interesting features of Hot Chocolate.
 
+:::note
+Make sure to add the following usings to your project in order to get the `Execute` extension method:
+
+```csharp
+using HotChocolate;
+using HotChocolate.Execution;
+```
+
+:::
+
 ### Code-First approach
 
 Use your favorite .NET language to define your schema.
-
-> Make sure to add the following usings to your project in order to get the `Execute` extension method:
-> using HotChocolate;
-> using HotChocolate.Execution;
 
 ```csharp
 public class Query
@@ -39,10 +45,6 @@ Console.WriteLine(executor.Execute("{ hello }").ToJson());
 ### Schema-First approach
 
 Use the GraphQL schema definition language to define your schema and bind simple methods or whole types to it.
-
-> Make sure to add the following usings to your project in order to get the `Execute` extension method:
-> using HotChocolate;
-> using HotChocolate.Execution;
 
 ```csharp
 public class QueryResolver
@@ -69,10 +71,6 @@ Console.WriteLine(executor.Execute("{ hello }").ToJson());
 ### Mix it all together
 
 With the Hot Chocolate `SchemaBuilder` you can declare types however you want. Define a type schema-first and extend that same type with code-first.
-
-> Make sure to add the following usings to your project in order to get the `Execute` extension method:
-> using HotChocolate;
-> using HotChocolate.Execution;
 
 **What ever makes you happy!**
 

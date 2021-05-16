@@ -64,8 +64,11 @@ Instead of doing that we can now just specify the request like the following:
 }
 ```
 
-> Read more about how to do persisted queries with [Relay](https://relay.dev/docs/en/persisted-queries.html).
-> Read more about how to do persisted queries with [Apollo](https://blog.apollographql.com/persisted-graphql-queries-with-apollo-client-119fd7e6bba5).
+:::note
+Read more about how to do persisted queries with [Relay](https://relay.dev/docs/en/persisted-queries.html).
+
+Read more about how to do persisted queries with [Apollo](https://blog.apollographql.com/persisted-graphql-queries-with-apollo-client-119fd7e6bba5).
+:::
 
 ## Active Query Persistence
 
@@ -90,7 +93,9 @@ If the server can find the query in the query storage the server will execute it
 }
 ```
 
-> The error message and properties can be modified by adding a `IErrorFilter` that handles the specified error-code.
+:::tip
+The error message and properties can be modified by adding a `IErrorFilter` that handles the specified error-code.
+:::
 
 When the client receives this error message, the client will issue a full JSON request with the GraphQL query and the query hash.
 
@@ -155,5 +160,8 @@ services.AddFileSystemQueryStorage("/usr/temp/queries");
 
 OK that’s it.
 
-> We are currently working on enabling this flow with _Relay_. Stay tuned for updates on this one.
-> Read more about how to do active persisted queries with [Apollo](https://medium.com/open-graphql/graphql-dynamic-persisted-queries-eb259700f1d3).
+:::note
+We are currently working on enabling this flow with _Relay_. Stay tuned for updates on this one.
+
+Read more about how to do active persisted queries with [Apollo](https://medium.com/open-graphql/graphql-dynamic-persisted-queries-eb259700f1d3).
+:::

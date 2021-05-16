@@ -2,7 +2,9 @@
 title: "Persisted Queries"
 ---
 
-> We are still working on the documentation for Strawberry Shake so help us by finding typos, missing things or write some additional docs with us.
+:::note
+We are still working on the documentation for Strawberry Shake, so help us by finding typos, missing things or write some additional docs with us.
+:::
 
 This guide will walk you through how persisted queries work and how you can set them up with Strawberry Shake.
 

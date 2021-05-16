@@ -114,7 +114,9 @@ ValueKind kind = context.ArgumentKind("bar");
 
 The value kind will tell us by which kind of literal the argument is represented.
 
-> An integer literal can still contain a long value and a float literal could be a decimal but it also could just be a float.
+:::caution
+An integer literal can still contain a long value and a float literal could be a decimal but it also could just be a float.
+:::
 
 ```csharp
 public enum ValueKind

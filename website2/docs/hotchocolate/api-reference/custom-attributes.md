@@ -20,7 +20,9 @@ This is where descriptor attributes come in. Descriptor attributes allow us to p
 
 We have prepared the following set of built-in descriptor attributes.
 
-> ⚠️ **Note:** As middleware comprises the stages of a sequential _pipeline_, the ordering is important. The correct order to use is `UsePaging`, `UseFiltering`, `UseSorting`.
+:::caution
+As middleware comprises the stages of a sequential _pipeline_, the ordering is important. The correct order to use is `UsePaging`, `UseFiltering`, `UseSorting`.
+:::
 
 ### UsePagingAttribute
 
@@ -52,7 +54,9 @@ public class Query
 }
 ```
 
-> ⚠️ **Note**: Be sure to install the `HotChocolate.Types.Filters` NuGet package.
+:::caution
+Be sure to install the `HotChocolate.Types.Filters` NuGet package.
+:::
 
 ### UseSortingAttribute
 
@@ -69,7 +73,9 @@ public class Query
 }
 ```
 
-> ⚠️ **Note**: Be sure to install the `HotChocolate.Types.Sorting` NuGet package.
+:::caution
+Be sure to install the `HotChocolate.Types.Sorting` NuGet package.
+:::
 
 ### AuthorizeAttribute
 

@@ -29,7 +29,9 @@ var resolver = (User parent) => parent.Name;
 
 It's not exactly how it's implemented in Hot Chocolate, but it serves here basically as a simplified illustration. The key takeaway is that there is always a resolver for every field in place.
 
-> **Note:** The parent value represents the parent resolver's inner value, or in the case of a root resolver, the root value, which means the root type's value (query, mutation, or subscription). It has nothing to do with the result type of a resolver and is specific to the business logic.
+:::note
+The parent value represents the parent resolver's inner value, or in the case of a root resolver, the root value, which means the root type's value (query, mutation, or subscription). It has nothing to do with the result type of a resolver and is specific to the business logic.
+:::
 
 ### Resolver Tree
 
@@ -86,8 +88,6 @@ Excellent, now that we know what resolvers are and how they work in a bigger pic
 ## Defining a resolver
 
 A resolver is a function that takes zero or many arguments and returns one value. The simplest resolver to write is a resolver that takes zero arguments and returns a simple value type (e.g., a string). For simplicity, we will do precisely that in our first example. Creating a resolver named `Say` with no arguments, which returns just a static string value `Hello World!`.
-
-> **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](../api-reference/coding-approaches.md).
 
 ### Basic resolver example
 

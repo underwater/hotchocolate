@@ -171,7 +171,9 @@ We have implemented the [GraphQL over WebSocket Protocol](https://github.com/apo
 
 ## SignalR Support
 
-> We are still working on SignalR support and will publish the documentation once we are finished.
+:::note
+We are still working on SignalR support and will publish the documentation once we are finished.
+:::
 
 ## ASP.Net Core
 
@@ -188,7 +190,9 @@ services.AddGraphQL(
         .AddType<CharacterType>())
 ```
 
-> More about the schema builder can be found [here](../schema/schema.md).
+:::note
+More about the schema builder can be found [here](../schema/schema.md).
+:::
 
 After we have setup the schema and its services, we now have to configure the middleware components.
 
@@ -214,7 +218,9 @@ Instead of using `UseGraphQL` you can opt with these packages to use specific mi
 
 The ASP.Net Framework implementation is implemented modular on top of OWIN. This means that each protocol that we have implemented is represented by a specific middleware that is provided as a separate package. Fear not we also provide a meta-package that bundles all the middleware components together.
 
-> Currently there is no support for the subscription websockets protocol an ASP.Net Framework
+:::caution
+Currently there is no support for the subscription websockets protocol an ASP.Net Framework
+:::
 
 If you just want to get started adding the `HotChocolate.AspNetClassic` package.
 
@@ -227,7 +233,9 @@ services.AddGraphQL(
         .AddType<CharacterType>())
 ```
 
-> More about the schema builder can be found [here](../schema/schema.md).
+:::note
+More about the schema builder can be found [here](../schema/schema.md).
+:::
 
 After we have setup the schema and its services, we now have to configure the middleware components.
 

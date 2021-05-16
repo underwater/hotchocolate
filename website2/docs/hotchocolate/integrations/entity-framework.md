@@ -28,8 +28,11 @@ once the resolver is completed. This has a smaller memory impact, as creating a 
 services.AddPooledDbContextFactory<SomeDbContext>(b => b /*your configuration */)
 ```
 
-> ⚠️ **Note:** The configuration of `AddPooledDbContextFactory` replaces the `OnConfiguring` method of the `DBContext`.
-> You have to move the configuration to the factory method if you use `OnConfiguring`
+:::caution
+The configuration of `AddPooledDbContextFactory` replaces the `OnConfiguring` method of the `DBContext`.
+
+You have to move the configuration to the factory method if you use `OnConfiguring`
+:::
 
 ## Using the DBContext
 
@@ -72,9 +75,13 @@ public class QueryType : ObjectType
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support DbContext integration!
+:::caution
+Schema-first does currently not support DbContext integration!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
 
-> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UseDbContext > UsePaging > UseProjections > UseFiltering > UseSorting
+:::caution
+If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UseDbContext > UsePaging > UseProjections > UseFiltering > UseSorting
+:::

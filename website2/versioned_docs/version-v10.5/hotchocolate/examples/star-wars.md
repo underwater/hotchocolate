@@ -45,7 +45,9 @@ dotnet run --project StarWars/StarWars.csproj -c release
 
 The service should start-up and run on the port 5000. In order to test your server and send queries head over to our playground endpoint: `http://127.0.0.1:5000/graphql/playground`
 
-> Note: The port may vary depending on if you start this project from the console with `dotnet run` or from Visual Studio.
+:::note
+The port may vary depending on if you start this project from the console with `dotnet run` or from Visual Studio.
+:::
 
 Try a query like the following to get started:
 

@@ -95,12 +95,16 @@ public class QueryType : ObjectType<Query>
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support filtering!
+:::caution
+Schema-first does currently not support filtering!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
 
-> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+:::caution
+If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+:::
 
 ## Customization
 
@@ -194,7 +198,9 @@ public class QueryType : ObjectType<Query>
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support filtering!
+:::caution
+Schema-first does currently not support filtering!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -226,7 +232,8 @@ query {
 }
 ```
 
-**⚠️ OR does not work when you use it like this: **
+:::caution
+OR does not work when you use it like this:
 
 ```graphql
 query {
@@ -245,6 +252,7 @@ query {
 ```
 
 In this case the filters are applied like `title.Contains("John") && title.Contains("Doe")` rather than `title.Contains("John") || title.Contains("Doe")` how you probably intended it.
+:::
 
 ### Removing AND / OR
 

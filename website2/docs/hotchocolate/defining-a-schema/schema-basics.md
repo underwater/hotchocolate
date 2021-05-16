@@ -5,7 +5,9 @@ slug: ./
 
 import { ExampleTabs } from '@site/src/components/ExampleTabs';
 
-> We are still working on the documentation for Hot Chocolate 11.1 so help us by finding typos, missing things or write some additional docs with us.
+:::note
+We are still working on the documentation for Hot Chocolate, so help us by finding typos, missing things or write some additional docs with us.
+:::
 
 The schema in GraphQL represents the type system and exposes your business model in a strong and rich way. The schema fully describes the shape of your data and how you can interact with it.
 
@@ -42,8 +44,6 @@ type Book {
 ```
 
 In Hot Chocolate, there are three ways to define an object type.
-
-> **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](../api-reference/coding-approaches.md).
 
 <ExampleTabs>
 <ExampleTabs.Tab value="annotation-based" value="annotation-based">

@@ -2,7 +2,9 @@
 title: "Tooling"
 ---
 
-> We are still working on the documentation for Strawberry Shake, so help us by finding typos, missing things, or write some additional docs with us.
+:::note
+We are still working on the documentation for Strawberry Shake, so help us by finding typos, missing things or write some additional docs with us.
+:::
 
 StrawberryShake comes with some tools that integrate into the dotnet CLI and help to setup a project or update the schema of a project.
 

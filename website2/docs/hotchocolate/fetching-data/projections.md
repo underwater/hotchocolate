@@ -11,7 +11,9 @@ to the database.
 Projections operate on `IQueryable` by default, but it is possible to create custom providers for projections
 to support a specific database driver.
 
-> ⚠️ **Note:** Projections currently need a public setter on fields they operate on in order to function correctly. Otherwise the default constructed value will be returned upon query.
+:::caution
+Projections currently need a public setter on fields they operate on in order to function correctly. Otherwise the default constructed value will be returned upon query.
+:::
 
 ```graphql
 {
@@ -86,12 +88,16 @@ public class Query
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support projections!
+:::caution
+Schema-first does currently not support projections!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
 
-> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjection > UseFiltering > UseSorting
+:::caution
+If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjection > UseFiltering > UseSorting
+:::
 
 ## FirstOrDefault / SingleOrDefault
 
@@ -234,7 +240,9 @@ public class UserType : ObjectType<User>
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support projections!
+:::caution
+Schema-first does currently not support projections!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -292,7 +300,9 @@ public class UserType : ObjectType<User>
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support projections!
+:::caution
+Schema-first does currently not support projections!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>

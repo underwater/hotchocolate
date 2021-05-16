@@ -3,7 +3,9 @@ title: "Blazor"
 slug: ./
 ---
 
-> We are still working on the documentation for Strawberry Shake so help us by finding typos, missing things or write some additional docs with us.
+:::note
+We are still working on the documentation for Strawberry Shake, so help us by finding typos, missing things or write some additional docs with us.
+:::
 
 In this tutorial we will walk you through the basics of adding a Strawberry Shake GraphQL client to a Blazor for WebAssembly project. For this example we will create a Blazor for WebAssembly application and fetch some simple data from our demo backend.
 

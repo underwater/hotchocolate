@@ -158,7 +158,9 @@ dotnet add package HotChocolate.AspNetCore.Subscriptions
 
 Now that our GraphQL server is ready we can start to configure the endpoints of our remote schemas.
 
-> Remote schemas are what we call the GraphQL schemas that we want to include into our merged schema. Remote schemas can be any GraphQL Spec compliant server (Apollo, Sangria, Hot Chocolate etc.) that serves its schema over HTTP. Also we can include local schemas that are created with the Hot Chocolate .NET API.
+:::note
+Remote schemas are what we call the GraphQL schemas that we want to include into our merged schema. Remote schemas can be any GraphQL Spec compliant server (Apollo, Sangria, Hot Chocolate etc.) that serves its schema over HTTP. Also we can include local schemas that are created with the Hot Chocolate .NET API.
+:::
 
 The endpoints are declared by using a named `HttpClient` via the HttpClient factory that is included with ASP.NET core.
 
@@ -179,7 +181,9 @@ services.AddHttpClient("analytics", (sp, client) =>
 
 Now let\`s remove the parts from the server template that we don't need and add subscriptions support.
 
-> We will show some strategies of how to handle authenticated services later on.
+:::note
+We will show some strategies of how to handle authenticated services later on.
+:::
 
 ```csharp
 services.AddDataLoaderRegistry();
@@ -217,7 +221,9 @@ services.AddStitchedSchema(builder => builder
   }));
 ```
 
-> More information about our scalars can be found [here](schema/custom-scalar-types.md).
+:::note
+More information about our scalars can be found [here](schema/custom-scalar-types.md).
+:::
 
 With this in place our stitched schema now looks like the following:
 
@@ -356,7 +362,9 @@ Currently this variable has four scopes:
 
 The context data can be used to map custom properties into our GraphQL resolvers. In our case we will use it to map the internal user ID from the user claims into our context data map. This allows us to have some kind of abstraction between the actual HttpRequest and the data that is needed to process a GraphQL request.
 
-> Documentation on how to add custom context data from a http request can be found [here](execution-engine/custom-context-data.md)
+:::note
+Documentation on how to add custom context data from a http request can be found [here](execution-engine/custom-context-data.md)
+:::
 
 OK, let\`s sum this up, with the `delegate` directive we are able to create powerful stitching resolvers without writing one line of c# code. Furthermore, we are able to create new types that make the API richer without those types having any representation in any of the remote schemas.
 
@@ -490,7 +498,9 @@ services.AddStitchedSchema(builder => builder
   })
 ```
 
-> There are also methods for renaming types and fields where the stitching engine will take care that the schema is consitently rewritten so that all the type references will refer to the corrent new type/field name.
+:::note
+There are also methods for renaming types and fields where the stitching engine will take care that the schema is consitently rewritten so that all the type references will refer to the corrent new type/field name.
+:::
 
 With that we have removed the types from our stitched schema. Now, let us move on to extend our message type.
 
@@ -523,7 +533,9 @@ services.AddStitchedSchema(builder => builder
   })
 ```
 
-> It is important to now that the document- and type-rewriters are executed before the schemas are merged and the extensions integrated.
+:::note
+It is important to know that the document- and type-rewriters are executed before the schemas are merged and the extensions integrated.
+:::
 
 Our new schema now looks like the following:
 
@@ -650,7 +662,9 @@ Query delegation rewriters are registered with the dependency injection and not 
 services.AddQueryDelegationRewriter<AddCreatedByIdQueryRewriter>();
 ```
 
-> Query delegation rewriters are hosted as scoped services and can be injected with `IStitchingContext` and `ISchema` in order to access the remote schemas or the stitched schema for advanced type information.
+:::note
+Query delegation rewriters are hosted as scoped services and can be injected with `IStitchingContext` and `ISchema` in order to access the remote schemas or the stitched schema for advanced type information.
+:::
 
 With that in place, the stitching engine will always fetch the requested field for us whenever a `Message` object is requested.
 
@@ -688,7 +702,9 @@ services.AddStitchedSchema(builder => builder
   })
 ```
 
-> We could also declare a field middleware as class. More about what can be done with a field middleware can be found [here](execution-engine/middleware.md).
+:::note
+We could also declare a field middleware as class. More about what can be done with a field middleware can be found [here](execution-engine/middleware.md).
+:::
 
 With all of this in place we can now rewrite our `Message` type extension and access the `createdById` from the scoped context data:
 
@@ -734,7 +750,9 @@ var path = new SelectionPathComponent(
 field.AddDelegationPath("schemaName", path);
 ```
 
-> Information about our parser can be found [here](advanced/parser.md).
+:::note
+Information about our parser can be found [here](advanced/parser.md).
+:::
 
 ### Merged Schema Rewriter
 
@@ -803,7 +821,9 @@ serviceCollection.AddStitchedSchema(builder =>
         }));
 ```
 
-> More about error filter can be found [here](execution-engine/error-filter.md).
+:::note
+More about error filter can be found [here](execution-engine/error-filter.md).
+:::
 
 ## Authentication
 
@@ -941,7 +961,9 @@ Query resolvers are executed in parallel when possible. All fields of a query ha
 
 [GraphQL June 2018 Specification](https://facebook.github.io/graphql/June2018/#sec-Normal-and-Serial-Execution)
 
-> Normally the executor can execute the entries in a grouped field set in whatever order it chooses (normally in parallel). Because the resolution of fields other than top‐level mutation fields must always be side effect‐free and idempotent, the execution order must not affect the result, and hence the server has the freedom to execute the field entries in whatever order it deems optimal.
+:::note
+Normally the executor can execute the entries in a grouped field set in whatever order it chooses (normally in parallel). Because the resolution of fields other than top‐level mutation fields must always be side effect‐free and idempotent, the execution order must not affect the result, and hence the server has the freedom to execute the field entries in whatever order it deems optimal.
+:::
 
 The top‐level mutation fields are executed serially which guarantees that the top-level fields are executed one after the other.
 

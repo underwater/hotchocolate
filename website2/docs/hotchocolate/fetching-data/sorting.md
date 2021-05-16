@@ -106,12 +106,16 @@ public class Query
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support sorting!
+:::caution
+Schema-first does currently not support sorting!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
 
-> ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+:::caution
+If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
+:::
 
 ## Customization
 
@@ -211,7 +215,9 @@ public class Query
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support sorting!
+:::caution
+Schema-first does currently not support sorting!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>

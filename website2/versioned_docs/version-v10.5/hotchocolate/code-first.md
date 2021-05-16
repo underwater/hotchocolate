@@ -10,7 +10,9 @@ Let us get started and have a look at the various approaches that we can use to 
 
 We call the first approach pure code-first since we do not bother about GraphQL schema types, we will just write clean C# code that automatically translates to GraphQL types.
 
-> In order to use this approach in the most effective way opt into C# nullable reference types.
+:::tip
+In order to use this approach in the most effective way opt into C# nullable reference types.
+:::
 
 In GraphQL everything starts with one of the three root types (Query, Mutation or Subscriptions). Root types represent the operations that we can do on our schema.
 

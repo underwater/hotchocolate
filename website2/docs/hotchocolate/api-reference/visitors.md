@@ -21,7 +21,9 @@ To start the visitation of a _GraphQL_ syntax tree, you have to pass the node an
 The syntax walker provides a few methods in addition to the `Enter` and `Leave` methods. For these two methods, there are also convenience methods that are called right _before_ and _after_ the method call. Namely, `OnBeforeEnter`, `OnAfterEnter`, `OnBeforeLeave`, `OnAfterLeave`.
 These methods can modify the current `TContext`. These _before_ and _after_ methods are good places to initialize state that is used in the main _enter_ or _leave_ method. e.g. before entering a `FieldNode`, you may want to peek the latest type from the context and get the instance of the `ObjectField` corresponding to `FieldNode` of this type. You may also want to push this type onto the context to then use it in the `Enter` method.
 
-> **⚠️ NOTE:** In the following sequence diagram the participants do **NOT** represent any object instances. Furthermore, many steps are hidden in this example. The visualization below should just give you provide you visual insight on the order of the methods being called.
+:::caution
+In the following sequence diagram the participants do **NOT** represent any object instances. Furthermore, many steps are hidden in this example. The visualization below should just give you provide you visual insight on the order of the methods being called.
+:::
 
 ```graphql
 query GetFoos {

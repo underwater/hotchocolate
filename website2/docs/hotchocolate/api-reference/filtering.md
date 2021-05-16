@@ -46,9 +46,13 @@ Getting started with filters is very easy, especially if you do not want to expl
 
 Hot Chocolate will infer the filters directly from your .Net Model and then use a Middleware to apply filters to `IQueryable<T>` or `IEnumerable<T>` on execution.
 
-> ⚠️ **Note:** If you use more than middleware, keep in mind that **ORDER MATTERS**.
+:::caution
+If you use more than middleware, keep in mind that **ORDER MATTERS**.
+:::
 
-> ⚠️ **Note:** Be sure to install the `HotChocolate.Types.Filters` NuGet package.
+:::caution
+Be sure to install the `HotChocolate.Types.Filters` NuGet package.
+:::
 
 In the following example, the person resolver returns the `IQueryable` representing the data source. The `IQueryable` represents a not executed database query on which Hot Chocolate can apply filters.
 
@@ -94,7 +98,9 @@ public class Query
 
 **Schema First**
 
-> ⚠️ **Note:** Schema first does currently not support filtering!
+:::caution
+Schema first does currently not support filtering!
+:::
 
 ## Customizing Filters
 
@@ -152,7 +158,9 @@ public class QueryType
 }
 ```
 
-> ⚠️ **Note**: Be sure to install the `HotChocolate.Types.Sorting` NuGet package.
+:::caution
+Be sure to install the `HotChocolate.Types.Sorting` NuGet package.
+:::
 
 If you want to combine for instance paging, filtering, and sorting make sure that the order is like follows:
 
@@ -1165,7 +1173,9 @@ descriptor.Reset();
 
 **Result**
 
-> **⚠ Note:** You will need to add a complete configuration, otherwise the filter will not work as desired!
+:::caution
+You will need to add a complete configuration, otherwise the filter will not work as desired!
+:::
 
 ### Describe with convention
 
@@ -1782,7 +1792,12 @@ public IStringFilterFieldDescriptor Filter(
 
 **Situation**
 
-> **Note:** If you are searching for `NetTopologySuite`, they are already implemented. Have a look at//TODO LINK
+:::note
+
+<!-- todo: missing link -->
+
+If you are searching for `NetTopologySuite`, they are already implemented.
+:::
 
 1. Implicit Binding: `[UseFiltering]` should automagically create `Point` and the corresponding "\_distance"
 2. Explicity Binding: `desc.Filter(x => x.Location).AllowDistance()`

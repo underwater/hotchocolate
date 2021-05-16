@@ -106,7 +106,9 @@ Content-Type: application/json
 }
 ```
 
-> Note: {query} and {operationName} parameters are encoded as raw strings in the query component. Therefore if the query string contained operationName=null then it should be interpreted as the {operationName} being the string "null". If a literal null is desired, the parameter (e.g. {operationName}) should be omitted.
+:::note
+{query} and {operationName} parameters are encoded as raw strings in the query component. Therefore if the query string contained operationName=null then it should be interpreted as the {operationName} being the string "null". If a literal null is desired, the parameter (e.g. {operationName}) should be omitted.
+:::
 
 The GraphQL HTTP GET request is specified [here](https://github.com/graphql/graphql-over-http/blob/master/spec/GraphQLOverHTTP.md#get).
 
@@ -313,7 +315,9 @@ public class Query
 }
 ```
 
-> Note, that the `Upload` scalar can only be used as an input type and does not work on output types.
+:::note
+The `Upload` scalar can only be used as an input type and does not work on output types.
+:::
 
 If you need to upload large files or set custom upload size limits, you can configure those by registering custom [`FormOptions`](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.features.formoptions).
 

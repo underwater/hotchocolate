@@ -53,7 +53,9 @@ QueryExecutionBuilder
     .Build(schema);
 ```
 
-> Since the validation rules are instantiated like a query middleware, you can only access services defined by the `QueryExecutionBuilder`.
+:::note
+Since the validation rules are instantiated like a query middleware, you can only access services defined by the `QueryExecutionBuilder`.
+:::
 
 ## Blogs
 

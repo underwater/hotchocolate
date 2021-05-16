@@ -33,7 +33,9 @@ We currently support the following subscription provider:
 - Redis
   We have an out-of-the-box redis subscription provider that uses the redis publish/subscribe functionality. If we have multiple instances of our server then this provider is our best option.
 
-> We are in the process to add more pub-/sub-provider for Kafka, Redis Streams, Azure EventHub and Azure ServiceBus. We also can help along if you want to implement your own subscription provider.
+:::note
+We are in the process to add more pub-/sub-provider for Kafka, Redis Streams, Azure EventHub and Azure ServiceBus. We also can help along if you want to implement your own subscription provider.
+:::
 
 In order to add the subscription provider to our server add the following service in the `ConfigureServices` method of our `Startup.cs`:
 
@@ -60,7 +62,9 @@ public class Startup
 }
 ```
 
-> More about configuring ASP.NET Core can be found [here](../server/asp-net.md).
+:::note
+More about configuring ASP.NET Core can be found [here](../server/asp-net.md).
+:::
 
 Once this is setup, subscriptions are generally available. In order to define subscriptions we have to create a subscription type. The subscription type is just a regular `ObjectType`, so we create it like any other root type.
 
@@ -126,7 +130,9 @@ public class OnReviewMessage
 }
 ```
 
-> We have a working example for subscription in our Star Wars [example](https://github.com/ChilliCream/hotchocolate/tree/master/examples/AspNetCore.StarWars).
+:::note
+We have a working example for subscription in our Star Wars [example](https://github.com/ChilliCream/hotchocolate/tree/master/examples/AspNetCore.StarWars).
+:::
 
 ## In-Memory Provider
 
@@ -179,7 +185,9 @@ public class Subscription
 }
 ```
 
-> Make sure to use the `IAsyncEnumerable<T>` in the return value, otherwise the Schema Builder will throw an exception.
+:::note
+Make sure to use the `IAsyncEnumerable<T>` in the return value, otherwise the Schema Builder will throw an exception.
+:::
 
 To trigger the subscription we can use the counterpart to the `ITopicEventReceiver`, which is the `ITopicEventSender`. It provides the `SendAsync` method, which takes two parameters:
 

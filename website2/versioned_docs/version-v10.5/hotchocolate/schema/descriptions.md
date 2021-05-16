@@ -189,7 +189,9 @@ Once you've written your documentation, you will need to enable documentation fi
 </PropertyGroup>
 ```
 
-> The `<NoWarn>` element is optional. Including this element prevents the compiler for emitting warnings for any classes, properties, or methods that are missing documentation strings.
+:::note
+The `<NoWarn>` element is optional. Including this element prevents the compiler for emitting warnings for any classes, properties, or methods that are missing documentation strings.
+:::
 
 Should you decide you do not want to use the XML documentation, you have the ability to turn it off by setting the `UseXmlDocumentation` property on the schema's `ISchemaOptions`.
 
@@ -248,7 +250,9 @@ type Query {
 }
 ```
 
-> If the description provided to the `GraphQLDescriptionAttribute` is `null` or made up of only white space Hot Chocolate will use XML documentation strings as a fallback (assuming you have the feature enabled).
+:::note
+If the description provided to the `GraphQLDescriptionAttribute` is `null` or made up of only white space Hot Chocolate will use XML documentation strings as a fallback (assuming you have the feature enabled).
+:::
 
 ### Fluent APIs
 
@@ -333,4 +337,6 @@ type Query {
 }
 ```
 
-> If the `Description()` methods are used they will **always** override any descriptions provided from the previous options, regardless of being `null` or white space values.
+:::note
+If the `Description()` methods are used they will **always** override any descriptions provided from the previous options, regardless of being `null` or white space values.
+:::

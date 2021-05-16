@@ -74,7 +74,9 @@ If we just add the `@authorize`-directive without specifying any arguments the a
 
 If no user is authenticated the field middleware will raise a GraphQL error and the field value is set to null.
 
-> If the field is a non-null field the standard GraphQL non-null violation propagation rule is applied like with any other GraphQL error and the fields along the path are removed until the execution engine reaches a nullable field or the while result was removed.
+:::note
+If the field is a non-null field the standard GraphQL non-null violation propagation rule is applied like with any other GraphQL error and the fields along the path are removed until the execution engine reaches a nullable field or the while result was removed.
+:::
 
 ### Roles
 
@@ -160,7 +162,9 @@ public class PersonType : ObjectType<Person>
 
 In the above example the name field is accessible to all users that fall under the `AllEmployees` policy, whereas the directive on the address field takes precedence over the `@authorize`-directive on the object type. This means that only users that fall under the `SalesDepartment` policy can access the address field.
 
-> It is important to note that _policy-based authorization_ is only available with ASP.NET core.
+:::caution
+It is important to note that _policy-based authorization_ is only available with ASP.NET core.
+:::
 
 The `@authorize`-directive is repeatable, that means that we are able to chain the directives and only if all annotated conditions are true will we gain access to the data of the annotated field.
 

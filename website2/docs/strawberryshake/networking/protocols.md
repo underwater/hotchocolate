@@ -3,7 +3,9 @@ title: "Protocols"
 slug: ./
 ---
 
-> We are still working on the documentation for Strawberry Shake so help us by finding typos, missing things or write some additional docs with us.
+:::note
+We are still working on the documentation for Strawberry Shake, so help us by finding typos, missing things or write some additional docs with us.
+:::
 
 Strawberry Shake supports multiple network protocols to communicate with your GraphQL server. Each transport integration is represented by a specific NuGet package to keep your client size as small as possible.
 

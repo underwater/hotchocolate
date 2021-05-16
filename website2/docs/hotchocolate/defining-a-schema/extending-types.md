@@ -4,7 +4,9 @@ title: "Extending Types"
 
 import { ExampleTabs } from '@site/src/components/ExampleTabs';
 
-> We are still working on the documentation for Hot Chocolate 11.1 so help us by finding typos, missing things or write some additional docs with us.
+:::note
+We are still working on the documentation for Hot Chocolate, so help us by finding typos, missing things or write some additional docs with us.
+:::
 
 In GraphQL we only have one query, mutation, and subscription type. These types can become huge, which makes them hard to maintain. To divide types into separate definitions, GraphQL allows to extend types.
 
@@ -17,8 +19,6 @@ extend type Query {
   bar: String
 }
 ```
-
-> **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](../api-reference/coding-approaches.md).
 
 <ExampleTabs>
 <ExampleTabs.Tab value="annotation-based">
@@ -79,14 +79,17 @@ extend type Query {
 </ExampleTabs.Tab>
 </ExampleTabs>
 
-> Note: Type extensions need to be registered with the GraphQL configuration. If you are using ASP.NET core head over to your `Startup.cs` and add the type extension with `AddTypeExtension` to your schema.
->
-> ```csharp
-> services
->    .AddGraphQLServer()
->    .AddQueryType<Query>()
->    .AddTypeExtension<QueryExtensions>();
-> ```
+:::note
+Type extensions need to be registered with the GraphQL configuration. If you are using ASP.NET core head over to your `Startup.cs` and add the type extension with `AddTypeExtension` to your schema.
+
+```csharp
+services
+   .AddGraphQLServer()
+   .AddQueryType<Query>()
+   .AddTypeExtension<QueryExtensions>();
+```
+
+:::note
 
 ## Extending types with the annotation-based approach
 
@@ -190,4 +193,6 @@ public class SessionResolvers
 }
 ```
 
-> Note, that all of the advanced type extension methods are also possible with code-first.
+:::note
+All of the advanced type extension methods are also possible with code-first.
+:::

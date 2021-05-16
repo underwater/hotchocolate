@@ -234,7 +234,9 @@ public class PersonType
 }
 ```
 
-> More about resolvers can be read [here](../schema/resolvers.md).
+:::note
+More about resolvers can be read [here](../schema/resolvers.md).
+:::
 
 ## Extension
 

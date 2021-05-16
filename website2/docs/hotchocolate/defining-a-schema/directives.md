@@ -90,7 +90,9 @@ sequenceDiagram
     end
 ```
 
-> **Note:** We will have a deep dive on directives' order under the [Middleware](#middleware) section.
+:::note
+We will have a deep dive on directives' order under the [Middleware](#middleware) section.
+:::
 
 Now that we have a basic understanding of what directives are, how they work, and what we can do with them, let's have fun and create a custom directive.
 

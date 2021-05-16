@@ -17,8 +17,6 @@ type Starship {
 An object type in GraphQL consists of a collection of fields. Each object type has to have at least one field declared to be valid. Object fields in GraphQL can have arguments and are more like methods in _C#_. Each field has a distinct type. All field types have to be output types (scalars, enums, objects, unions, or interfaces). The arguments of a field, on the other hand, have to be input types scalars, enums, and input objects) and
 represent raw data that is passed into a field.
 
-> **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](coding-approaches.md).
-
 <ExampleTabs>
 <ExampleTabs.Tab value="annotation-based">
 

@@ -40,7 +40,9 @@ type PageInfo {
 
 You can learn more about this in the [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm).
 
-> Note: _Connections_ are often associated with _cursor-based_ pagination, due to the use of a _cursor_. Since the specification describes the _cursor_ as opague though, it can be used to faciliate an _offset_ as well.
+:::note
+_Connections_ are often associated with _cursor-based_ pagination, due to the use of a _cursor_. Since the specification describes the _cursor_ as opague though, it can be used to faciliate an _offset_ as well.
+:::
 
 ### Usage
 
@@ -101,7 +103,9 @@ descriptor.UsePaging(options: new PagingOptions
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support pagination!
+:::caution
+Schema-first does currently not support pagination!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -175,7 +179,9 @@ If we need to work on an even lower level, we could also use `descriptor.AddPagi
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support pagination!
+:::caution
+Schema-first does currently not support pagination!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -206,7 +212,9 @@ descriptor.UsePaging(options: new PagingOptions
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support pagination!
+:::caution
+Schema-first does currently not support pagination!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -267,7 +275,9 @@ type PageInfo {
 
 ## Offset Pagination
 
-> Note: While we support _offset-based_ pagination, we highly encourage the use of [_Connections_](#connections) instead. _Connections_ provide an abstraction which makes it easier to switch to another pagination mechanism later on.
+:::note
+While we support _offset-based_ pagination, we highly encourage the use of [_Connections_](#connections) instead. _Connections_ provide an abstraction which makes it easier to switch to another pagination mechanism later on.
+:::
 
 Besides _Connections_ we can also expose a more traditional _offset-based_ pagination.
 
@@ -346,7 +356,9 @@ descriptor.UseOffsetPaging(options: new PagingOptions
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support pagination!
+:::caution
+Schema-first does currently not support pagination!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -420,7 +432,9 @@ If we need to work on an even lower level, we could also use `descriptor.AddOffs
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support pagination!
+:::caution
+Schema-first does currently not support pagination!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -451,7 +465,9 @@ descriptor.UseOffsetPaging(options: new PagingOptions
 </ExampleTabs.Tab>
 <ExampleTabs.Tab value="schema-first">
 
-⚠️ Schema-first does currently not support pagination!
+:::caution
+Schema-first does currently not support pagination!
+:::
 
 </ExampleTabs.Tab>
 </ExampleTabs>
@@ -501,7 +517,9 @@ public class Startup
 
 In this section we will look at the most common pagination approaches and their downsides. There are mainly two concepts we find today: _offset-based_ and _cursor-based_ pagination.
 
-> Note: This section is intended as a brief overview and should not be treated as a definitive guide or recommendation.
+:::caution
+This section is intended as a brief overview and should not be treated as a definitive guide or recommendation.
+:::
 
 ### Offset Pagination
 
