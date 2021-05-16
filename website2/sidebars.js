@@ -65,5 +65,38 @@ module.exports = {
       ],
     },
   ],
+  strawberryshakeSidebar: [
+    "strawberryshake/introduction",
+    {
+      "Get Started": [
+        "strawberryshake/get-started/blazor",
+        "strawberryshake/get-started/xamarin",
+        "strawberryshake/get-started/console",
+      ],
+    },
+    "strawberryshake/subscriptions",
+    "strawberryshake/tooling",
+    {
+      Caching: [
+        "strawberryshake/caching/overview",
+        "strawberryshake/caching/entities",
+        "strawberryshake/caching/invalidation",
+      ],
+    },
+    {
+      Performance: [
+        "strawberryshake/performance/overview",
+        "strawberryshake/performance/persisted-queries",
+        "strawberryshake/performance/persisted-state",
+      ],
+    },
+    {
+      Networking: [
+        "strawberryshake/networking/protocols",
+        "strawberryshake/networking/authentication",
+      ],
+    },
+    "strawberryshake/scalars",
+  ],
   bananacakepopSidebar: ["bananacakepop/introduction"],
 };

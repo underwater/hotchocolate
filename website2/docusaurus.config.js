@@ -110,6 +110,9 @@ module.exports = {
             current: {
               label: "Next 🚧",
             },
+            [versions[0]]: {
+              label: `${versions[0]} (latest)`,
+            },
           },
           lastVersion: versions[0],
         },
