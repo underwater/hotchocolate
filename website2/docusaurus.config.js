@@ -23,6 +23,11 @@ module.exports = {
       },
       items: [
         {
+          label: `Platform`,
+          to: `/platform`,
+          position: "left",
+        },
+        {
           to: "/docs/hotchocolate",
           position: "left",
           label: "Docs",
@@ -33,7 +38,6 @@ module.exports = {
           position: "left",
         },
         { to: "/blog", label: "Blog", position: "left" },
-
         {
           label: `Shop`,
           to: `https://shop.chillicream.com`,

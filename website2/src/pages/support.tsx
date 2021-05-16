@@ -17,10 +17,7 @@ export default function SupportPage() {
   const areaTitle = "Service & Support";
 
   return (
-    <Layout
-      title={areaTitle}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout title={areaTitle}>
       {/* todo: insert this globally into the layout */}
       <GlobalStyle />
 
