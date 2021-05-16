@@ -27,7 +27,13 @@ module.exports = {
           position: "left",
           label: "Docs",
         },
+        {
+          label: `Support`,
+          to: `/support`,
+          position: "left",
+        },
         { to: "/blog", label: "Blog", position: "left" },
+
         {
           label: `Shop`,
           to: `https://shop.chillicream.com`,
