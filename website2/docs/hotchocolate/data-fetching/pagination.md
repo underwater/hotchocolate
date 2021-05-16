@@ -10,7 +10,7 @@ There are various ways to implement pagination in your server and you can basica
 
 However, there are two models that you see in most GraphQL server implementations and we have some specific helpers for the later one.
 
-# Offset-based
+## Offset-based
 
 Offset-based pagination — also called numbered pages — is a very common pattern.
 
@@ -42,7 +42,7 @@ public class Query
 }
 ```
 
-# Relay-style cursor pagination
+## Relay-style cursor pagination
 
 In cursor-based pagination, a cursor is used to keep track of where in the data set the next items should be fetched from. The cursor can contain various information like the index of the record within the set and properties that the server can use to recreate the set.
 
@@ -50,7 +50,7 @@ Relay’s support for pagination relies on the GraphQL server exposing connectio
 
 Hot Chocolate provides many helpers to make implementing a relay-style cursor pagination a simple task.
 
-## Pagination support through `IQueryable<T>`
+### Pagination support through `IQueryable<T>`
 
 Let us start with something simple and then drill deeper into more complex solutions. For our first example let us assume we have an in-memory list of strings that we do want to expose as paginated list.
 
@@ -165,7 +165,7 @@ public class QueryType
 
 The `UsePaging` extension provides an overload in which you can pass in a factory that creates a connection resolver.
 
-## Pagination support for stored procedures and other sources
+### Pagination support for stored procedures and other sources
 
 In case you want to provide pagination support for stored procedures or other data sources Hot Chocolate allows you to do that as well.
 

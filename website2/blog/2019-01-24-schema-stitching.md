@@ -32,7 +32,7 @@ The stitching layer is not limited to two schemas, you can actually stitch toget
 
 So, let's say our customer schema looks something like the following:
 
-```graphql
+```sdl
 type Query {
   customer(id: ID!): Customer
   consultant(id: ID!): Consultant
@@ -54,7 +54,7 @@ In real life this schema would boast a lot more information about our customer b
 
 And our second schema dealing with the insurance contracts looks like the following:
 
-```graphql
+```sdl
 type Query {
   contract(contractId: ID!): Contract
   contracts(customerId: ID!): [Contract!]
@@ -77,7 +77,7 @@ type SomeOtherContract implements Contract {
 
 Imagine we have two servers serving up those schemas. The schema that we actually want for our UI team should look like the following:
 
-```graphql
+```sdl
 type Query {
   customer(id: ID!): Customer
 }
@@ -115,7 +115,7 @@ Before we start, we have to give our schemas some names, these names will be use
 
 Let's name the customer schema `customers` and the contract schema `contracts`. With that let's decorate our desired schema.
 
-```graphql
+```sdl
 type Query {
   customer(id: ID!): Customer @schema(name: "customer") @delegate
 }

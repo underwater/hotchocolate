@@ -24,7 +24,7 @@ GraphQL is very flexible in the way you can request data. This flexibility also 
 
 In order to depict the issue that DataLoaders solve in this context, let me introduce a little GraphQL schema:
 
-```graphql
+```sdl
 type Query {
   person(id: ID): Person
 }

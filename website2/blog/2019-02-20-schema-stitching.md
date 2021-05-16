@@ -38,7 +38,7 @@ Moreover, let us assume we have three teams working on internal micro-/domain-se
 
 The first service is handling the message stream and has the following schema:
 
-```graphql
+```sdl
 type Query {
   messages(userId: ID!): [Message!]
   message(messageId: ID!): Message
@@ -68,7 +68,7 @@ type NewMessagePayload {
 
 The second service is handling the users of the services and has the following schema:
 
-```graphql
+```sdl
 type Query {
   user(userId: ID!): User!
   users: [User!]
@@ -105,7 +105,7 @@ type User {
 
 Last but not least we have a third service handling the message analytics. In our example case we keep it simple and our analytics service just tracks three different counters per message. The schema for this service looks like the following:
 
-```graphql
+```sdl
 type Query {
   analytics(messageId: ID!, type: CounterType!): MessageAnalytics
 }
@@ -224,7 +224,7 @@ services.AddStitchedSchema(builder => builder
 
 With this in place our stitched schema now looks like the following:
 
-```graphql
+```sdl
 type Query {
   messages(userId: ID!): [Message!]
   message(messageId: ID!): Message
@@ -314,7 +314,7 @@ Further, the user type should expose the message stream of the user, this way we
 
 In order to extend types in a stitched schema we can use the new GraphQL extend syntax that was introduced with the 2018 spec.
 
-```graphql
+```sdl
 extend type Query {
   me: User! @delegate(schema: "users", path: "user(id: $contextData:UserId)")
 }
@@ -381,7 +381,7 @@ services.AddStitchedSchema(builder => builder
 
 Now with all of this in place our schema looks like the following:
 
-```graphql
+```sdl
 type Query {
   me: User!
   messages(userId: ID!): [Message!]
@@ -456,7 +456,7 @@ enum CounterType {
 
 Though this is nice, we would like to go even further and enhance our `Message` type like the following:
 
-```graphql
+```sdl
 type Message {
   id: ID!
   text: String!
@@ -497,7 +497,7 @@ services.AddStitchedSchema(builder => builder
 
 With that we have removed the types from our stitched schema. Now, let us move on to extend our message type.
 
-```graphql
+```sdl
 extend type Message {
   createdBy: User!
     @delegate(schema: "users", path: "user(id: $fields:createdById)")
@@ -530,7 +530,7 @@ services.AddStitchedSchema(builder => builder
 
 Our new schema now looks like the following:
 
-```graphql
+```sdl
 type Query {
   me: User!
   messages(userId: ID!): [Message!]
@@ -695,7 +695,7 @@ services.AddStitchedSchema(builder => builder
 
 With all of this in place we can now rewrite our `Message` type extension and access the `createdById` from the scoped context data:
 
-```graphql
+```sdl
 extend type Message {
   createdBy: User!
     @delegate(schema: "users", path: "user(id: $scopedContextData:createdById)")
@@ -787,7 +787,7 @@ How you want to implement authentication strongly depends on your needs. With th
 
 The stitching layer transparently batches queries to the remote schemas. So, if you extend types like the following:
 
-```graphql
+```sdl
 extend type Message {
   views: Int! @delegate(schema: "analytics", path: "analytics(id: $fields:id)")
   likes: Int! @delegate(schema: "analytics", path: "analytics(id: $fields:id)")
@@ -884,7 +884,7 @@ Or, even simpler put, only fields that are declared on the mutation type can del
 
 Let's put that in a context.
 
-```graphql
+```sdl
 type Mutation {
   newUser(input: NewUserInput!): NewUserPayload! @delegate(schema: "users")
 }
@@ -910,7 +910,7 @@ In the above example we have a mutation that delegates the `newUser` field to th
 
 This also means that we cannot group mutations like we could group queries. So, something like the following would not work since it is not spec-compliant:
 
-```graphql
+```sdl
 type Mutation {
   userMutations: UserMutations
 }

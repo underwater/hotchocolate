@@ -10,17 +10,17 @@ As a developer using Hot Chocolate we can subscribe to those events and delegate
 
 This allows us to just take the information we need for a certain logging solution and for instance craft the events provided by Hot Chocolate into logging messages that fit our project.
 
-# Events
+## Events
 
 First let us have a look at what events Hot Chocolate currently provides and what they mean. Later we will walk you through how to setup an `IDiagnosticObserver`.
 
-## Query Events
+### Query Events
 
 Query events are raised per request. This means that for each query request that we fire up against a Hot Chocolate one query event is raised.
 
 The following query events are available:
 
-## Start Query
+### Start Query
 
 The start event is raised once the query engine receives a request.
 
@@ -34,7 +34,7 @@ public void BeginQueryExecute(IQueryContext context)
 
 The query context that we provide as payload with the event is the full query context on which the query middleware operates. This enables us to pick and choose the information that we want.
 
-## Stop Query
+### Stop Query
 
 The stop event is raised once the query engine has completed processing the request. This event is even called if an error has occurred. Additional to the `IQueryContext` the event also provides the `IExecutionResult`.
 
@@ -48,7 +48,7 @@ public void EndQueryExecute(
 }
 ```
 
-## Query Error
+### Query Error
 
 The error event is raised should there be an unhandled exception on the query middleware level. This event is not raised whenever a validation or field error is thrown.
 
@@ -62,11 +62,11 @@ public virtual void OnQueryError(
 }
 ```
 
-## Parser Events
+### Parser Events
 
 The parser events are raised when the parser middleware is invoked. It is important to know that the Hot Chocolate server caches queries. This means that only the first time a query is executed, we can measure the parsing time.
 
-## Start Parsing
+### Start Parsing
 
 The start event is raised once the parser middleware is invoked.
 
@@ -78,7 +78,7 @@ public void BeginParsing(IQueryContext context)
 }
 ```
 
-## Stop Parsing
+### Stop Parsing
 
 The stop event is raised once the parser finished. It is important to know that the stop event is even raised if a `SyntaxException` is thrown. The `Document` property on the `IQueryContext` will be null in this case. The parser middleware will add a property to the context data indicating if the query was retrieved from the cache: `DocumentRetrievedFromCache`.
 
@@ -90,15 +90,15 @@ public void EndParsing(IQueryContext context)
 }
 ```
 
-## Parsing Errors
+### Parsing Errors
 
 The parser will throw a `SyntaxException` if the query is not syntactically correct. The `SyntaxException` will cause a query error.
 
-## Validation Events
+### Validation Events
 
 The validation events are raised whenever the validation middleware is invoked. Like with the parsing middleware the validation middleware will cache validation results. This means that only the first validation of a query document can be used to measure the validation duration. The context property `DocumentRetrievedFromCache` can also be used in this case to detect if the validation result was pulled from the internal cache or if it was computed.
 
-## Validation Start
+### Validation Start
 
 The validation start event is called once the validation middleware is invoked.
 
@@ -110,7 +110,7 @@ public void BeginValidation(IQueryContext context)
 }
 ```
 
-## Validation Stop
+### Validation Stop
 
 The stop event is raised once the validation finished. It is important to know that the stop event is even raised if a validation error is raised.
 
@@ -122,7 +122,7 @@ public void EndValidation(IQueryContext context)
 }
 ```
 
-## Validation Errors
+### Validation Errors
 
 The validation error event will be raised for each query document analysis that yields at least one error.
 
@@ -136,13 +136,13 @@ public void OnValidationError(
 }
 ```
 
-## Operation Events
+### Operation Events
 
 Operation events represent the execution of the operation by the query engine. At this point all information about the operation have been resolved and can be accessed.
 
 The following operation events are available:
 
-## Start Operation
+### Start Operation
 
 ```csharp
 [DiagnosticName("HotChocolate.Execution.Operation.Start")]
@@ -152,7 +152,7 @@ public void BeginOperationExecute(IQueryContext context)
 }
 ```
 
-## Stop Operation
+### Stop Operation
 
 ```csharp
 [DiagnosticName("HotChocolate.Execution.Operation.Stop")]
@@ -164,13 +164,13 @@ public void EndOperationExecute(
 }
 ```
 
-## Resolver Events
+### Resolver Events
 
 Resolver events are raised for every single resolver that is invoked. This is the perfect event to subscribe to if you want to add performance analysis or other resolver tracing solutions.
 
 > Have a look at our [ApolloTracingDiagnosticObserver](https://github.com/ChilliCream/hotchocolate/blob/master/src/Core/Core/Execution/Instrumentation/ApolloTracingDiagnosticObserver.cs) to get an idea of how to implement a performance analysis solution.
 
-## Resolver Start
+### Resolver Start
 
 The resolver start event is raised for each invocation of a resolver pipeline. The resolver pipeline is made-up of multiple field middleware components. The exact composition of such a pipeline varies on your setup.
 
@@ -182,7 +182,7 @@ public void BeginResolveField(IResolverContext context)
 }
 ```
 
-## Resolver Stop
+### Resolver Stop
 
 The resolver stop event is raised once the execution of the resolver pipeline is completed. The provided result is the not completed result of the resolver. This means that the actual result that is integrated into the query result can differ since type converter and serialization are applied during field value completion.
 
@@ -196,7 +196,7 @@ public void EndResolveField(
 }
 ```
 
-## Resolver Error
+### Resolver Error
 
 The resolver error event is raised should one or more resolver errors occurs.
 
@@ -210,7 +210,7 @@ public void OnResolverError(
 }
 ```
 
-# How to subscribe
+## How to subscribe
 
 In order to subscribe to the Hot Chocolate instrumentation events, you have to create a class that implements the marker interface `IDiagnosticObserver`.
 
@@ -330,7 +330,7 @@ QueryExecutionBuilder
     .Populate(services);
 ```
 
-# Examples
+## Examples
 
 We have created a little example project that demonstrates how you can delegate Hot Chocolate events to the ASP.NET core logger API.
 
@@ -340,6 +340,6 @@ We also have an implementation that we use in production that builds upon Micros
 
 [ETW Example](https://github.com/ChilliCream/thor-client/tree/master/src/Clients/HotChocolate)
 
-# Blogs
+## Blogs
 
 [Tracing with Hot Chocolate](https://chillicream.com/blog/2019/03/19/logging-with-hotchocolate)

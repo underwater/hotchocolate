@@ -14,7 +14,7 @@ Hot Chocolate GraphQL server.
 
 <!--truncate-->
 
-# Just Show Me the Code
+## Just Show Me the Code
 
 You can find all the code from this article in this Github repository.
 
@@ -213,7 +213,7 @@ Notice the execution time shows as 162 milliseconds. If you execute the query ag
 Now, for a little more details on what's actually happening here, as well as how to log your queries using the very useful
 <a href="https://miniprofiler.com/dotnet/AspDotNetCore" target="_blank">MiniProfiler for ASP.NET Core</a>.
 
-# What is Really Going on Here
+## What is Really Going on Here
 
 Adding console logging is really quite simple in what is going on. It's straight forward usage of both the ASP.NET Core <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection" target="_blank">Dependency Injection</a> and <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware" target="_blank">Middleware</a> implementations.
 
@@ -261,7 +261,7 @@ public void Dispose()
 
 You don't really need to understand all these details to use the logger, and likely, in the future you would probably get this from another `nuget` package. For now, it's interesting to see how straight forward it is to hook directly into the processing of your GraphQL request.
 
-# Logging Requests to MiniProfiler
+## Logging Requests to MiniProfiler
 
 Console logs are nice, but can get pretty cluttered and become unmanageable quickly. Luckily for us, there is very useful open source project that we can include for free in our apps called <a href="https://miniprofiler.com/dotnet/AspDotNetCore" target="_blank">MiniProfiler</a> and there is an implementation specifically written for <a href="https://docs.microsoft.com/en-us/aspnet/core" target="_blank">ASP.NET Core</a>.
 
@@ -351,7 +351,7 @@ That's it! Now, when you run your app and do some GraphQL queries, you can brows
 
 Just a side note. You can run both the console logger and the MiniProfiler at the same time and both logs will work as adding listeners is additive.
 
-# Possibilities For Logging SQL and Entity Framework
+## Possibilities For Logging SQL and Entity Framework
 
 It's worth mentioning that <a href="https://miniprofiler.com" target="_blank">MiniProfiler</a> has been around for a long time and there are many configuring profiles available including ones for <a href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-overview" target="_blank">ADO.NET</a> as well as <a href="https://docs.microsoft.com/en-us/ef/" target="_blank">Entity Framework Core</a>.
 
@@ -374,7 +374,7 @@ Then, when you execute a GraphQL query that uses Entity Framework Core, you'll g
 
 ![](2021-01-10-hot-chocolate-logging/MiniProfiler-Detail-EF-640.png)
 
-# Wrap
+## Wrap
 
 Once you have logging enabled in your Hot Chocolate GraphQL server, you'll wonder how you ever worked without it. It's easy to setup and does not get in the way at all while you're building your apps.
 

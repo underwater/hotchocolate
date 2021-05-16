@@ -38,7 +38,7 @@ public class Query
 
 ... is now correctly inferred to:
 
-```graphql
+```sdl
 type Query {
   "This field says hello."
   sayHello(name: String): String!
@@ -87,7 +87,7 @@ SchemaBuilder.New()
     .Create();
 ```
 
-```graphql
+```sdl
 type Query {
   "Get my pet :)"
   pet(id: Int!): IPet

@@ -10,7 +10,7 @@ This is one of the main features of GraphQL but also poses one of the main chall
 
 Hot Chocolate provides you with some basic strategies to make your backend more predictable and protect against queries that have a to high complexity and thus would pose a headache for your backend.
 
-# Pagination Amount
+## Pagination Amount
 
 The first and most simple way to protect your api is to define how many items a page can have when you are using pagination. We added for this the scalar type `PaginationAmount`.
 
@@ -27,13 +27,13 @@ After doing this, you'll want to "bind back" `IntType` as the default `int` repr
   .BindClrType<int, IntType>
 ```
 
-# Execution Timeout
+## Execution Timeout
 
 The first strategy and the simplest one is using a timeout to protect your backend against large queries. Basically, if a query exceeds the allowed amount of execution time it will be aborted and a GraphQL error is returned.
 
 _By default a query is limited to 30 seconds._
 
-# Query Depth
+## Query Depth
 
 Many GraphQL schemas expose cyclic graphs allowing for recursive queries like the following:
 
@@ -71,7 +71,7 @@ It is important to know that the query will be validated before any execution is
 
 The query will be rejected when any of the provided operations exceeds the allowed query depth.
 
-# Query Complexity
+## Query Complexity
 
 Query complexity is a very complex and useful tool to make your API secure. The query complexity assigns by default every field a complexity of `1`. The complexity of all fields in one of the operations of a query document is not allowed to be greater than `MaxOperationComplexity` defined in the `QueryExecutionOptions`.
 

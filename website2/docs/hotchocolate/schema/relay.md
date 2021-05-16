@@ -8,7 +8,7 @@ Relay makes three assumptions about the backend which you have to abide by in or
 
 We recommend that you abide to the relay server specifications even if you do not plan to use relay since even _Apollo_ supports these specifications and they are really good guidelines that lead to a better schema design.
 
-# Object Identification
+## Object Identification
 
 The first specification is called [Relay Global Object Identification Specification](https://facebook.github.io/relay/graphql/objectidentification.htm) and defines that object identifiers are specified in a standardized way. Moreover, it defines that all identifier is schema unique and that we can refetch any object just by providing that identifier.
 
@@ -66,7 +66,7 @@ On the descriptor we mark the object as a node with `AsNode` after that we speci
 
 There are more variants possible and you can even write custom resolvers and do not have to bind to an explicit property.
 
-# Connections
+## Connections
 
 The pagination specification is called [Relay Cursor Connections Specification](https://facebook.github.io/relay/graphql/connections.htm) and contains functionality to make manipulating one-to-many relationships easy, using a standardized way of expressing these one-to-many relationships. This standard connection model offers ways of slicing and paginating through the connection.
 
@@ -87,13 +87,13 @@ public class QueryType
 
 **We have a lot more documentation on pagination [here](../data-fetching/pagination.md).**
 
-# Mutations
+## Mutations
 
 The last specification is called [Relay Input Object Mutations Specification](https://facebook.github.io/relay/graphql/mutations.htm) and it describes how mutations should be specified. This is more a design guideline then something we could help you with APIs with.
 
 Nevertheless, with version 9.1 we will try aide this with some convenience:
 [Automatic Relay InputType](https://github.com/ChilliCream/hotchocolate/issues/773).
 
-# Additional Information
+## Additional Information
 
 The relay server specifications are also summarized and explained [here](https://facebook.github.io/relay/docs/en/graphql-server-specification). Also, if you have further questions head over to our slack channel.

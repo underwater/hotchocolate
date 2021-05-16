@@ -6,7 +6,7 @@ Execution options are provided when a schema is made executable. The options ran
 
 We have built in some options that limit the execution engine in order to protect the overall performance of your GraphQL Server.
 
-# Members
+## Members
 
 | Member                   | Type     | Default                    | Description                                                                   |
 | ------------------------ | -------- | -------------------------- | ----------------------------------------------------------------------------- |

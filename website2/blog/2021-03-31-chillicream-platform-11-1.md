@@ -19,7 +19,7 @@ Today we are releasing Hot Chocolate server and Strawberry Shake client 11.1. Th
 
 <!--truncate-->
 
-# Strawberry Shake
+## Strawberry Shake
 
 Let us start with the biggest new feature we built for 11.1, which is Strawberry Shake.
 
@@ -45,7 +45,7 @@ So, for version 11.1, we set the focus on .NET frontend developers.
 
 When you ask me now what Strawberry Shake is, I would say it is a state management component.
 
-## State and Entities
+### State and Entities
 
 Strawberry Shake understands your schema and knows what your entities are. When you interact with your data through Strawberry Shake, you are really interacting against a store that holds this data. The data in this store is normalized into entities and can be local data or remote data.
 
@@ -68,7 +68,7 @@ When you write a GraphQL query, we will compile it into C# code. The generated c
 
 ![Data is normalized into entities.](2021-03-31-chillicream-platform-11-1/normalize-entities.png)
 
-## How it works
+### How it works
 
 Let us have a look at how this all works and make some sense of this long introduction.
 
@@ -137,7 +137,7 @@ So, if we introduced a new mutation that changes a session that is in view in ou
 await client.UpdateSessionTitle.ExecuteAsync("U2Vzc2lvbgppMzU=", "Abc 123");
 ```
 
-## Execution Strategies
+### Execution Strategies
 
 Apart from our data's reactivity, we can also use the store to control when data is fetched. By default, Strawberry Shake will always first fetch from the network before it accepts updates to entities it is watching. It would often be more efficient if we first looked at our store and used the data that is already in our memory and at the same time started updating this data. This would lead to a more responsive UI component that has, in most cases, something to display right out of the gate.
 
@@ -155,7 +155,7 @@ using var storeSubscription =
 
 Last but not least we have a third strategy to access data which is called `CacheFirst`. This strategy will look at the store first and use the data we already have. Only if the store has no data for the request we are executing will we go to the network to fetch new data.
 
-## Persistence
+### Persistence
 
 The last aspect that I want to go into is store persistence. The store that we built into Strawberry Shake can also be persisted. We provide out-of-the-box a package to use SQLite to persist your data. Persisting your store can create true offline applications that fetch new data while online and preserve this data while offline. It also allows you to have faster startup times with your online applications since you can combine this with the `CacheAndNetwork` strategy, so whenever your mobile app starts, the user will immediately have data that will be updated in the background without you having to write all this complicated code.
 
@@ -175,7 +175,7 @@ Second, we need to initialize the persistence at which point we load data from t
 await services.GetRequiredService<SQLitePersistence>().InitializeAsync();
 ```
 
-## Outlook
+### Outlook
 
 This is the first real version of Strawberry Shake, and we have planned a lot more for it.
 
@@ -187,19 +187,19 @@ If you want to get started with strawberry shake or read more about its capabili
 
 Strawberry Shake was mostly built by [Pascal], [Fred], [Rafael], and [me].
 
-# Hot Chocolate
+## Hot Chocolate
 
 While we focused on Strawberry Shake for this release, we also invested further into our GraphQL server, Hot Chocolate.
 
-## .NET Support
+### .NET Support
 
 With version 11.1, we started compiling with the .NET 6 SDK, meaning that we target in our ASP.NET core components, .NET 6, .NET 5, and .NET Core 3.1. The GraphQL core and the parsers are still also compiled for .NET Standard 2.0. Further, all our client utilities are compiled for .NET Standard 2.0 as well to let you consume GraphQL in almost any .NET application.
 
-## Performance
+### Performance
 
 As with every release, we are putting a lot of energy into performance. With performance, we mean both execution time and memory usage. For this release, we looked at static memory usage. Essentially the memory footprint of Hot Chocolate when you just create the schema. When we started to work on this, Hot Chocolate used around 380.000 objects to create the GitHub schema. Now with version 11.1, we are only using around 80.000 objects to represent the same schema. We also reduced the schema memory usage by around 40%. We identified a lot more improvements that we can do in this area but where we would need to more substantially change how we build a schema. Beginning with version 12, we will use source generators in a lot of these areas in the server to achieve faster execution and a lower memory footprint.
 
-## GraphQL MultiPart request specification
+### GraphQL MultiPart request specification
 
 With version 11.1, we now support out-of-the-box the [GraphQL MultiPart request specification], which allows handling file streams in GraphQL requests.
 
@@ -255,7 +255,7 @@ type mutation {
 
 Most of the work on this feature was done by [Tobias Tengler], who is one of our community members. He worked like most of us in his free time on this. Thank you, Tobias; we will put your code to good use.
 
-## Scalars, Scalars, Scalars
+### Scalars, Scalars, Scalars
 
 We looked at the wider community and what problems many of you are facing. We often need to build for our specific use-cases new scalars that represent a specific domain need. We found by chance an excellent package of scalars build by [The Guild] for the JavaScript ecosystem. With version 11, we have started porting their scalars one by one over to Hot Chocolate. But fear not, we are not polluting the GraphQL core libraries with these new scalars. If you do not have any need for them, we will not bother you with this amazing set of scalars.
 
@@ -296,7 +296,7 @@ Most of the work on this new library was done by [Gregory], who also put his fre
 
 > More about this topic can be read [here](https://chillicream.com/docs/hotchocolate/defining-a-schema/scalars/).
 
-## Type Extensions
+### Type Extensions
 
 For a long time, we have type extensions that essentially let you split up types into separate type definitions. Until now, they were bound by name and could just provide new fields to existing types. This is quite useful if you want to modularize your schema and have types from different modules extend each other.
 
@@ -476,7 +476,7 @@ It also completes the annotation-based approach further and gives us more tools 
 
 > More about this topic can be read [here](https://chillicream.com/docs/hotchocolate/defining-a-schema/extending-types/).
 
-## MongoDB integration
+### MongoDB integration
 
 As with almost every release, we are further investing in our data integration layer. Version 11.1 is now embracing MongoDB even further with native query support. Until now, you could use MongoDB with filtering, sorting, and projections through their queryable provider. But the queryable provider has many shortcomings and does not support all the features of MongoDB. With the new integration, we are rewriting the GraphQL queries into native MongoDB queries. Meaning we are building up a BSON object representing the query.
 
@@ -538,7 +538,7 @@ This feature was implemented by [Pascal], who is the third person who became a C
 
 > More about this topic can be read [here](https://chillicream.com/docs/hotchocolate/integrations/mongodb/).
 
-## Mutation Transactions
+### Mutation Transactions
 
 Another area where we are making it easier for users is with our new mutation transactions. Mutation transactions are an opt-in feature, so you need to activate it to use it.
 
@@ -594,7 +594,7 @@ services
 
 > More about this topic can be read [here](https://chillicream.com/docs/hotchocolate/defining-a-schema/operations/#mutation-transactions/).
 
-## Directive Introspection
+### Directive Introspection
 
 We are always looking at new GraphQL features very early. But this time, we got in even earlier and picked up an experimental feature that could change entirely or might be dropped. We are following in this GraphQL-Java.
 
@@ -689,7 +689,7 @@ private sealed class UpperDirectiveType : DirectiveType
 
 You can even hide directives on runtime based on the user's permission. But as said before, all of this is experimental, and we will see how far this feature goes or how it will change over time.
 
-# Summing up
+## Summing up
 
 Version 11.1 again is a significant update to the platform and has many more things packed that I did not have the time to list here.
 

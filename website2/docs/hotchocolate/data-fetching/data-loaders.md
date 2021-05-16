@@ -70,7 +70,7 @@ Next, we have to create a _DataLoader_ that now acts as intermediary between a f
 
 You can either implement a _DataLoader_ as class or just provide us with a delegate that represents the fetch logic.
 
-# Class DataLoader
+## Class DataLoader
 
 Let us first look at the class _DataLoader_:
 
@@ -160,11 +160,11 @@ The best case now would be that we only fetch `c`, `d` and `e` since we have alr
 
 This is the second problem class the _DataLoader_ utility helps us with since the _DataLoader_ contains a cache and holds the resolved instances by default for the duration of your request.
 
-# Delegate DataLoader
+## Delegate DataLoader
 
 With the class _DataLoader_ you have full control of how the _DataLoader_ works. But in many cases this control is not needed. We have specified four classes of _DataLoaders_ that can be specified as delegate.
 
-## Batch DataLoader
+### Batch DataLoader
 
 The batch _DataLoader_ collects requests for entities per processing level and send them as a batch request to the data source. Moreover, the _DataLoader_ caches the retrieved entries within a request.
 
@@ -179,7 +179,7 @@ public Task<Person> GetPerson(string id, IResolverContext context, [Service]IPer
 
 _An example with the **Batch Dataloader** can be found [here](https://github.com/ChilliCream/hotchocolate-examples/blob/master/misc/DataLoader/MessageType.cs)._
 
-## Group DataLoader
+### Group DataLoader
 
 The Group _DataLoader_ is also a batch _DataLoader_ but instead of returning one entity per key it returns multiple entities per key. As with the Batch _DataLoader_ retrieved collections are cached within a request.
 
@@ -194,7 +194,7 @@ public Task<IEnumerable<Person>> GetPersonByCountry(string country, IResolverCon
 
 _An example with the **Batch Dataloader** can be found [here](https://github.com/ChilliCream/hotchocolate-examples/blob/master/misc/DataLoader/QueryType.cs)._
 
-## Cache DataLoader
+### Cache DataLoader
 
 The cache _DataLoader_ is basically the easiest to implement since there is no batching involved. So, we can just use the initial `GetPersonById` method. We, do not get the benefits of batching with this one, but if in a query graph the same entity is resolved twice we will load it only once from the data source.
 
@@ -207,7 +207,7 @@ public Task<Person> GetPerson(string id, IResolverContext context, [Service]IPer
 
 _An example with the **Batch Dataloader** can be found [here](https://github.com/ChilliCream/hotchocolate-examples/blob/master/misc/DataLoader/MessageType.cs)._
 
-## Fetch Once
+### Fetch Once
 
 `FetchOnceAsync` is not really a _DataLoader_ like described by facebook. It rather uses the infrastructure of our _DataLoader_ to provide an easy way to provide cache heavy resource calls that shall only be done once per request.
 
@@ -218,7 +218,7 @@ public Task<Person> GetPerson(string id, IResolverContext context, [Service]IPer
 }
 ```
 
-# Stacked DataLoader Calls
+## Stacked DataLoader Calls
 
 This is more like an edge case that is supported than a certain type of _DataLoader_. Sometimes we have more complex resolvers that might first fetch data from one _DataLoader_ and use that to fetch data from the next. With the new _DataLoader_ implementation this is supported and under test.
 
@@ -230,7 +230,7 @@ public Task<IEnumerable<Customer>> GetCustomers(string personId, IResolverContex
 }
 ```
 
-# Global DataLoader
+## Global DataLoader
 
 Global _DataLoader_ are _DataLoader_ that are shared between requests. This can be useful for certain caching strategies.
 
@@ -243,7 +243,7 @@ services.AddDataLoaderRegistry();
 
 It is important to know that you always have to do `AddDataLoaderRegistry` since this also sets up the batch operation that is needed to hook up the execution engine with the _DataLoader_ registry.
 
-# DataLoader Dependency Injection Support
+## DataLoader Dependency Injection Support
 
 It is possible to register a DataLoader with the standard dependency injection container. This enables referencing DataLoaders through interfaces.
 
@@ -268,7 +268,7 @@ public async Task<string> ResolveSomething(IMyDataLoader dataLoader)
 
 I also do not need to use the `[DataLoader]` attribute I the interface implements IDataLoader.
 
-# Custom Data Loaders and Batch Operations
+## Custom Data Loaders and Batch Operations
 
 With the new API we are introducing the `IBatchOperation` interface. The query engine will fetch all batch operations and trigger those once all data resolvers in one batch are running. We have implemented this interface for our _DataLoader_ as well. So, if you want to implement some database batching or integrate a custom _DataLoader_, then this interface is your friend. There is also a look ahead available which will provide you with the fields that have to be fetched.
 

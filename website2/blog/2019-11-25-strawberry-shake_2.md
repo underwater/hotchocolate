@@ -306,7 +306,7 @@ GraphQL allows to extend types with the `extend` keyword in the GraphQL SDL. In 
 
 Now add the following type extension to the GraphQL file `StarWars.Extensions.graphql`:
 
-```graphql
+```sdl
 extend enum Episode {
   NEWHOPE @name(value: "NewHope")
 }
@@ -446,7 +446,7 @@ Let us have a look at how we can bring in a custom scalar. For this example, let
 
 So, in order to give the generator a hint about these things we need to extend our schema. We would need to create a GraphQL file that holds our schema extensions (basically like with the enum example, where we renamed the enum value). The same way we can extend enums we can extend other types. In this case we want to annotate a scalar type.
 
-```graphql
+```sdl
 extend scalar ByteArray
   @runtimeType(name: "System.Byte[]")
   @serializationType(name: "System.String")

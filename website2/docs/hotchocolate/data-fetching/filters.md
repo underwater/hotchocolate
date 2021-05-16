@@ -1,5 +1,5 @@
 ---
-title: Filter and Sorting Support
+title: Filters
 ---
 
 **What are filters?**
@@ -8,7 +8,7 @@ With the Hot Chocolate filters you are able to expose complex filter object thro
 
 The default filter implementation translates filters to expression trees that are applied on `IQueryable`.
 
-# Using Filters
+## Using Filters
 
 Filters by default work on `IQueryable` but you can also easily customize them to use other interfaces.
 
@@ -71,7 +71,7 @@ In the above example the person resolver just returns the `IQueryable` represent
 
 The next thing to note is the `UseFiltering` extension method which adds the filter argument to the field and a middleware that can apply those filters to the `IQueryable`. The execution engine will in the end execute the `IQueryable` and fetch the data.
 
-# Customizing Filters
+## Customizing Filters
 
 The filter objects can be customized and you can rename and remove operations from it or define operations explicitly.
 
@@ -112,7 +112,7 @@ public class QueryType
 }
 ```
 
-# AND / OR Filter
+## AND / OR Filter
 
 There are two built in fields.
 
@@ -157,13 +157,13 @@ query {
 
 In this case the filters are applied like `title_contains: "John" AND title_contains: "Doe"`
 
-# Customizing Filter Transformation
+## Customizing Filter Transformation
 
 With our filter solution you can write your own filter transformation which is fairly easy once you wrapped your head around transforming graphs with visitors.
 
 We provide a `FilterVisitorBase` which is the base of our `QueryableFilterVisitor` and it is basically just implementing an new visitor that walks the filter graph and translates it into any other query syntax.
 
-# Sorting
+## Sorting
 
 Like with filter support you can add sorting support to your database queries.
 

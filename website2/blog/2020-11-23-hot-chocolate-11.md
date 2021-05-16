@@ -29,7 +29,7 @@ This allows you to write very slim input types and get rid of a lot of boilerpla
 
 We have also started exploring how we can use source generators to make Hot Chocolate faster and reduce boilerplate even further. You will see this trickling in with the next dot releases.
 
-# New Configuration API
+## New Configuration API
 
 While .NET 5 support is nice, the most significant change from an API perspective is the new configuration API, which now brings together all the different builders to set up a GraphQL server. This makes the server configuration now very accessible and straightforward to use.
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-# Execution Engine
+## Execution Engine
 
 While the new Configuration API is the first change, you will notice we changed a whole lot more underneath. One of the most significant investments we made was into our new execution engine. The new execution engine uses a new operation optimizer component to create execution plans and optimize executing requests. The first request now is a little slower since we need to essentially compile a query and then execute it. All consecutive requests can now simply execute and no longer need to interpret things like skip, include, defer, and other things.
 
@@ -179,7 +179,7 @@ In our throughput tests, we can see that Hot Chocolate outperforms any node-base
 
 This said, we are not done on performance and pulled the two biggest performance features on the execution side since we could not get them done in time for the 11 release. We already have seen huge potential in improving the overall performance of the server by using source generators. Source generators let us move a lot of the logic into the build process instead of executing resolver compilation at runtime. Also, we pulled a lot of our execution plan optimizers that would rewrite the execution tree to optimize data fetching. These performance improvements will trickle in with the next dot releases and should push Hot Chocolate further.
 
-# Relay
+## Relay
 
 We have invested a lot of time to make it even easier to create relay schemas. One of the things I often found cumbersome was to create entities that implemented the node interface. With Hot Chocolate 10.5, you could not do that with pure code-first (annotation based) and always needed to use code-first with the fluent API or schema-first. This now has changed, and it is much easier to write relay compliant schemas with any schema definition approach.
 
@@ -214,11 +214,11 @@ public class Person
 
 There are more variations and options possible to define a node type; the essence here is that it has become more natural.
 
-# Draft Specification
+## Draft Specification
 
 As always, we try to implement draft specifications early, and we added a couple more draft spec features with Hot Chocolate 11.
 
-## Allow interfaces to implement other interfaces
+### Allow interfaces to implement other interfaces
 
 [GraphQL Spec PR 373](https://github.com/graphql/graphql-spec/pull/373)
 
@@ -283,7 +283,7 @@ type Query {
 }
 ```
 
-## Custom Scalar Specification URLs
+### Custom Scalar Specification URLs
 
 [GraphQL Spec PR 649](https://github.com/graphql/graphql-spec/pull/649)
 
@@ -304,7 +304,7 @@ public class MyScalar : ScalarType
 }
 ```
 
-## Defer and Stream
+### Defer and Stream
 
 [GraphQL Spec PR 742](https://github.com/graphql/graphql-spec/pull/742)
 
@@ -332,7 +332,7 @@ Hot Chocolate Server 11 supports defer. This feature is experimental since the s
 
 ![Banana Cake Pop](2020-11-23-hot-chocolate-11/banana-cake-pop-defer.png)
 
-# Data Integration
+## Data Integration
 
 I know a lot of you love the data integration API, aka filtering. We completely reinvented this API and created a new package called `HotChocolate.Data`. This new package contains the base for automatic database mapping, filtering, sorting, and projections.
 
@@ -370,7 +370,7 @@ This means that you essentially will need to upgrade to the new `HotChocolate.Da
 
 You can read more about the journey on our data integration API in Pascal's blog post [here](/blog/2020/11/18/new-filtering-api).
 
-## Entity Framework
+### Entity Framework
 
 We know that many of you love Entity Framework and that it was quite painful to use Entity Framework with Hot Chocolate. We refined usage of Entity Framework with 10.5 but had to use internal APIs of EF to make it efficient. Hot Chocolate 11 introduces a new package `HotChocolate.Data.EntityFramework`, which integrates seamlessly with the data integration API.
 
@@ -378,7 +378,7 @@ We have a great example with Entity Framework right here:
 
 [GraphQL Workshop](https://github.com/ChilliCream/graphql-workshop)
 
-## Spatial Filtering
+### Spatial Filtering
 
 Apart from the refactoring of the data integration API, we introduced our new GeoJSON based spatial types. These spatial types are not just simple types but can also be used to add spatial filter capabilities to our data integration API.
 
@@ -410,7 +410,7 @@ Let me thank Steve and Pascal for all their work on this feature.
 
 However, we are still developing spatial further, and this feature essentially is still experimental. Meaning, it might change in the next dot releases.
 
-## Support for more providers
+### Support for more providers
 
 We are currently working on more providers for the data integration API like MongoDB native, Neo4J, and Elastic Search, which we will drop with the next dot releases.
 
@@ -418,13 +418,13 @@ The furthest along is our new MongoDB integration. Of course, MongoDB works alre
 
 We expect to release the MongoDB provider with 11.1 in January.
 
-# Schema Stitching
+## Schema Stitching
 
 Schema got a nice upgrade for version 11, although a lot of features were moved to 11.1. We originally wanted to redo the whole stitching execution on top of the new execution engine. In the end, we essentially moved the old stitching engine on top of the new execution engine and integrated the old stitching engine into the new configuration API. This alone already will give you a big upgrade in functionality and usability.
 
 The first thing to note with schema stitching is that it completely integrates with a standard schema. No more is there a separate stitching builder that makes it challenging to add customizations.
 
-```graphql
+```csharp
 services
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))
@@ -436,7 +436,7 @@ services
 
 Essentially now you just merge in types into your schema from anywhere, and you are still able to create local types that are merged with remote types. This gives a lot of control and flexibility to you. With that, any schema could also be a gateway.
 
-```graphql
+```csharp
 services
     .AddGraphQLServer()
     // adds a local query type
@@ -448,7 +448,7 @@ services
     .AddRemoteSchema(Reviews);
 ```
 
-## Federated Schemas
+### Federated Schemas
 
 I mentioned in the beginning that we can now hot-reload schemas, which we designed specifically for schema stitching so that you could distribute the schema configuration and use a federated approach to schema stitching.
 
@@ -467,7 +467,7 @@ We have created some examples that show the various ways to set up schema stitch
 
 But as I said in the beginning, there is a lot more coming with the next dot updates. Like GraphQL over gRPC to improve efficiency between the gateway and the downstream services. Moreover, we are bringing in subscription stitching and full integration with the new execution engine. Furthermore, we will introduce a new fetch directive that will bring much more flexibility to integrating GraphQL schemas and other data sources.
 
-# Extensibility
+## Extensibility
 
 With Hot Chocolate 11, we have invested in adding extensibility points, where our customers and partners who want to extend Hot Chocolate can do so easily and safely. When customizations are created, the creator can be assured that the integrity of Hot Chocolate will be maintained in the future and those extensions will continue to work as designed through minor and major releases of Hot Chocolate. Our existing extensions, `HotChocolate.Data` and `HotChocolate.Stitching` already take advantage of this new extensibility feature.
 
@@ -507,11 +507,11 @@ internal sealed class IntrospectionTypeInterceptor : TypeInterceptor
 
 We will soon have a follow-up post on writing extensions for Hot Chocolate to drill into what you can do.
 
-# Strawberry Shake
+## Strawberry Shake
 
 The one thing missing from this launch is Strawberry Shake, our GraphQL client. We decided in August to pause development for Strawberry Shake in order to focus on the server. Many features in Strawberry Shake depended on Hot Chocolate to bring in new features like defer that really will make Strawberry Shake shine. With this decision, we were able to focus on the server and make it great. We essentially broke the 11 development into two parts. We will start next week to put resources again behind Strawberry Shake and hope to get it done by the end of January.
 
-# General Outlook
+## General Outlook
 
 Where are we going from here? We now essentially are a team of four people, Rafael, Pascal, Fred, and myself. We plan to start focusing for the next three months on three components.
 
@@ -523,7 +523,7 @@ In general, expect a lot more performance improvements to trickle in over the ne
 
 These changes are more iterative, where we complete components and get better. We will also start on a new component that will become a big leap for the whole platform. Rafael and Pascal will focus on this new chapter of ChilliCream and we will start talking about this soon.
 
-# Community
+## Community
 
 The great thing about Hot Chocolate is the people. Every day, I think the best thing we did was to create this slack channel where anybody could join. The slack channel has become the space where the community can congregate and help each other find a solution to a problem.
 

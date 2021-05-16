@@ -7,11 +7,11 @@ Hot Chocolate is a .NET GraphQL platform that can help you build a GraphQL layer
 
 Our API will let you start very quickly with pre-built templates that let you start in seconds.
 
-# Features
+## Features
 
 Here you will find a list of the most interesting features of Hot Chocolate.
 
-## Code-First approach
+### Code-First approach
 
 Use your favorite .NET language to define your schema.
 
@@ -36,7 +36,7 @@ Console.WriteLine(executor.Execute("{ hello }").ToJson());
 
 [Learn more](code-first.md)
 
-## Schema-First approach
+### Schema-First approach
 
 Use the GraphQL schema definition language to define your schema and bind simple methods or whole types to it.
 
@@ -66,7 +66,7 @@ Console.WriteLine(executor.Execute("{ hello }").ToJson());
 
 [Learn more](schema-first.md)
 
-## Mix it all together
+### Mix it all together
 
 With the Hot Chocolate `SchemaBuilder` you can declare types however you want. Define a type schema-first and extend that same type with code-first.
 
@@ -106,13 +106,13 @@ Console.WriteLine(executor.Execute("{ hello foo }").ToJson());
 
 [Learn more](schema/schema.md)
 
-## Support for Custom Scalars
+### Support for Custom Scalars
 
 We provide built-in support for GraphQL defined Scalar Types. Moreover, you can also define your own scalar types to make your schemas even richer.
 
 [Learn more](schema/custom-scalar-types.md)
 
-## Support for DataLoader
+### Support for DataLoader
 
 We have baked-in support for data loaders which makes batching and caching for faster query requests a breeze.
 
@@ -131,7 +131,7 @@ public class PersonResolvers
 
 [Learn more](data-fetching/data-loaders.md)
 
-## Support for Custom Directives
+### Support for Custom Directives
 
 Implement your own directives and change the execution behaviour of your types.
 
@@ -149,7 +149,7 @@ type Employee @json {
 
 [Learn more](schema/directives.md)
 
-## Built-in Authorization Directives
+### Built-in Authorization Directives
 
 Use ASP.NET Core policies on your fields to enable field base authorization.
 
@@ -177,7 +177,7 @@ public class QueryType : ObjectType<Query>
 
 [Learn more](security/authorization.md#authorization)
 
-## Built-in Support for Filters
+### Built-in Support for Filters
 
 We support database filters that offer you rich query capabilities through your GraphQL API.
 
@@ -206,7 +206,7 @@ query filterPersons {
 
 [Learn more](data-fetching/filters.md)
 
-## Built-in Support for Relay Paging
+### Built-in Support for Relay Paging
 
 Our paging support is just plug-and-play :)
 
@@ -234,19 +234,19 @@ query filterPersons {
 
 [Learn more](data-fetching/pagination.md)
 
-## Support for GraphQL Subscriptions
+### Support for GraphQL Subscriptions
 
 Subscriptions allow GraphQL clients to observe specific events and receive updates from the server in real-time.
 
 [Learn more](execution-engine/subscriptions.md)
 
-## Schema Stitching
+### Schema Stitching
 
 Schema stitching will give you the capability to build small GraphQL services and stitch them together into one rich schema. This gives you flexibility in your development process and confidence once you are ready to deploy. Update only parts of your schema without the need to deploy always everything.
 
 [Learn more](stitching.md)
 
-## Batching
+### Batching
 
 Hot Chocolate supports operation and request batching.
 
@@ -275,21 +275,21 @@ query StoryComments {
 
 [Learn more](execution-engine/batching.md)
 
-## GraphQL Server
+### GraphQL Server
 
 We support ASP.NET Core and ASP.NET Framework and constantly update these implementations. Hosting our GraphQL server with one of there frameworks is as easy as eating pie :)
 
 Furthermore, you can host Hot Chocolate as an Azure Function or AWS Lambda.
 
-[Learn more](server/server.md)
+[Learn more](server/asp-net.md)
 
-## dotnet CLI Templates
+### dotnet CLI Templates
 
 In order to get you even faster started we are providing templates for the dotnet CLI which lets you setup a .NET GraphQL server in less than 10 seconds.
 
 [Learn more](advanced/dotnet-cli.md)
 
-## We provide awesome tooling so you can test your server.
+### We provide awesome tooling so you can test your server.
 
 ![Banana Cake Pop](/img/bcp_6.png)
 

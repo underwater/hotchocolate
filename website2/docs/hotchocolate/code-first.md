@@ -6,7 +6,7 @@ The code-first schema approach lets us build GraphQL schemas with .NET types and
 
 Let us get started and have a look at the various approaches that we can use to build a schema. It is important to know that we can mix the various approaches with Hot Chocolate and use the best solution for a specific problem.
 
-# Pure Code-First
+## Pure Code-First
 
 We call the first approach pure code-first since we do not bother about GraphQL schema types, we will just write clean C# code that automatically translates to GraphQL types.
 
@@ -62,7 +62,7 @@ This attribute would add all the necessary filter input types and apply the filt
 
 If you want to read more about how to use or build these attributes head over [here](schema/descriptor-attributes.md).
 
-# Code-First
+## Code-First
 
 The second and original approach to code-first is by using our schema types.
 
@@ -155,8 +155,8 @@ This was just a quick introduction - There is a lot more that we can do with _pu
 
 - If you want to know how to split up types then [this](schema/extending-types.md) might be what you are looking for.
 
-You are all fired up and want to get started with a little tutorial walking you through an end-to-end example with `MongoDB` as your database? [Follow me](tutorials/tutorial.md)!
+You are all fired up and want to get started with a little tutorial walking you through an end-to-end example with `MongoDB` as your database? [Follow me](tutorials/entity-framework.md)!
 
-OK, OK, you already have an idea on what to do and you are just looking for a way to setup this whole thing with ASP.NET Core? [This](server/server.md) is where you find more on that.
+OK, OK, you already have an idea on what to do and you are just looking for a way to setup this whole thing with ASP.NET Core? [This](server/asp-net.md) is where you find more on that.
 
 If you want to set Hot Chocolate up with AWS Lambda or Azure Functions head over to our slack channel, we do not yet have documentation on that but there are example projects showing how to do that. We are constantly adding to our documentation and will include documentation on that soon.

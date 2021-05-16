@@ -4,7 +4,7 @@ title: Object Type
 
 The object type is the most prominent type in GraphQL. There are currently two ways to describe an object type with the code-first approach.
 
-# ObjectType<T\>
+## ObjectType<T\>
 
 The first approach is by using the generic object type class which lets you specify an entity type that shall represent your schema type in .NET. The object type descriptor will then try to automatically infer the GraphQL schema type from your .NET type.
 
@@ -51,7 +51,7 @@ type Query {
 }
 ```
 
-# Object Type Descriptors
+## Object Type Descriptors
 
 The following table shows the object type descriptor options:
 
@@ -65,7 +65,7 @@ The following table shows the object type descriptor options:
 | `Field\<TValue\>(Expression\<Func\<T, TValue\>\> propertyOrMethod)` | Specifies field configuration of a method or property declared in T.                           |
 | `Field(string name)`                                                | Specifies a field that does not exist in T.                                                    |
 
-## Name
+### Name
 
 The object type descriptor will by default resolve the name of the schema type from the provided type argument. If the type is annotated with the GraphQLNameAttribute than the name attribute will take precedence over the type name. The explicitly specified name will take precedence over both.
 
@@ -137,7 +137,7 @@ type Foo123 {
 }
 ```
 
-## Description
+### Description
 
 The description of a type will provide an additional text that describes a type to the schema introspection. This is useful with tools like Banana Cake Pop, Playground or GraphiQL. GraphQL descriptions are defined using the Markdown syntax (as specified by [CommonMark](http://commonmark.org)).
 
@@ -166,7 +166,7 @@ type Bar {
 }
 ```
 
-## IsOfType
+### IsOfType
 
 The object type descriptor will by default use an instance of approach to figure out if a resolver result is of a certain object type. In some cases when you either have no explicit type binding or you use a .NET net type in multiple schema types it is necessary to specify a IsOfType delegate that determines the type of a resolver result.
 
@@ -186,7 +186,7 @@ public class BarType
 }
 ```
 
-## BindFields
+### BindFields
 
 The object type descriptor will by default scan the provided entity type for additional fields. In some cases you might want to specify all the fields explicitly in order to have a more predictable schema. You might not want that a property or method that you add to your types automatically shows up in your schema. In those cases you can change the field binding behaviour to explicit.
 
@@ -214,7 +214,7 @@ type Bar {
 }
 ```
 
-## Field
+### Field
 
 There are two ways to define fields. First you can specify a field configuration by pointing to a property or method that is declared in your .NET type.
 
@@ -265,7 +265,7 @@ type Bar {
 }
 ```
 
-# ObjectType
+## ObjectType
 
 The second approach to describe object types is with the non-generic object type. The non-generic type does not necessarily have a fixed .NET type binding. This means that you have more flexibility in defining your schema type and how the data flows through the query engine.
 

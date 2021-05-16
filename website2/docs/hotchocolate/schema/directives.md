@@ -2,8 +2,6 @@
 title: Directives
 ---
 
-# Introduction
-
 Directives provide a way in GraphQL to add annotations to the type system or query elements. These annotations can be used to provide meta data for code generators or even to change the execution behavior of the query engine on a GraphQL server.
 
 You can specify a directive by inheriting from `DirectiveType`:
@@ -38,7 +36,7 @@ query foo($hideField: Boolean = false) {
 }
 ```
 
-# Repeatable
+## Repeatable
 
 Directives are by default unique, that means that you can annotate a directive just once to an object. If you want to add a specific directive type multiple times you have to specify the directive as repeatable.
 
@@ -55,7 +53,7 @@ public class MyDirective
 }
 ```
 
-# Typed Arguments
+## Typed Arguments
 
 Directive can have arguments that can be used to make them more flexible. So, if we had a directive like the following:
 
@@ -125,7 +123,7 @@ public class FooType
 
 Since, the directive instance that we have added to our type is now a strong .NET type we do not have to fear changes to the directive structure or its name anymore.
 
-# Middleware
+## Middleware
 
 What makes directive with Hot Chocolate very useful is the ability to associate a middleware with it. A middleware can alternate the result or even produce the result of a field. A directive middleware is only added to a field middleware pipeline when the directive was annotated to the object definition, the field definition or the field.
 
@@ -157,7 +155,7 @@ public class MyDirective
 
 Directives with middleware or executable directives can be put on object types and on their field definitions or on the field selection in a query. Executable directives on an object type will replace the field resolver of every field of the annotated object type.
 
-## Order
+### Order
 
 In GraphQL the directive order is significant and with our middleware we use the order of directives to create a resolver pipeline through which the result flows.
 

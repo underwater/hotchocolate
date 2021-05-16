@@ -2,7 +2,7 @@
 title: Subscriptions
 ---
 
-# What are GraphQL subscriptions?
+## What are GraphQL subscriptions?
 
 Subscriptions is a GraphQL feature that allows a server to send data to its clients when a specific event on the server-side occurs.
 
@@ -19,7 +19,7 @@ subscription {
 
 When using GraphQL over HTTP subscriptions are most most likely served over websocket. Hot Chocolate has implemented the Apollo subscriptions protocol in order to serve subscriptions over websocket.
 
-# Getting started
+## Getting started
 
 The subscription type is almost implemented like a simple query. In many cases subscriptions are raised through mutations, but subscriptions could also be raised through other backend systems.
 
@@ -60,7 +60,7 @@ public class Startup
 }
 ```
 
-> More about configuring ASP.NET Core can be found [here](../server/server.md).
+> More about configuring ASP.NET Core can be found [here](../server/asp-net.md).
 
 Once this is setup, subscriptions are generally available. In order to define subscriptions we have to create a subscription type. The subscription type is just a regular `ObjectType`, so we create it like any other root type.
 
@@ -128,7 +128,7 @@ public class OnReviewMessage
 
 > We have a working example for subscription in our Star Wars [example](https://github.com/ChilliCream/hotchocolate/tree/master/examples/AspNetCore.StarWars).
 
-# In-Memory Provider
+## In-Memory Provider
 
 The in-memory subscription provider does not need any configuration and is easily setup:
 
@@ -136,7 +136,7 @@ The in-memory subscription provider does not need any configuration and is easil
 services.AddInMemorySubscriptionProvider();
 ```
 
-# Redis Provider
+## Redis Provider
 
 The redis subscription provider uses Redis as pub/sub system to handle messages, this enables us to run multiple instances of the Hot Chocolate server and handle subscription events reliably.
 
@@ -160,7 +160,7 @@ services.AddRedisSubscriptionProvider(configuration);
 
 Our Redis subscription provider uses the `StackExchange.Redis` Redis client underneath and we have integration tests against the Azure Cache.
 
-# PubSub usage from version 10.x
+## PubSub usage from version 10.x
 
 Since version `10.x` it is possible to create subscriptions in a more convenient fashion using the built-in PubSub System. The setup to get subscriptions running did not change. We may not need to use a specific Subscription Type. The Schema Builder can defer the Subscription Type directly from our method.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial
+title: Entity Framework
 slug: ./
 ---
 

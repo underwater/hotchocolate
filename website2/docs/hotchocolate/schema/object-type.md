@@ -112,7 +112,7 @@ SchemaBuilder.New()
   .Create();
 ```
 
-# Resolvers
+## Resolvers
 
 Schema types will also allow us to add fields that are not on our current model.
 Let\`s say we have the following C# model:
@@ -236,7 +236,7 @@ public class PersonType
 
 > More about resolvers can be read [here](../schema/resolvers.md).
 
-# Extension
+## Extension
 
 The GraphQL SDL supports extending object types, this means that we can add fields to an existing object type without changing the code of our initial type definition.
 

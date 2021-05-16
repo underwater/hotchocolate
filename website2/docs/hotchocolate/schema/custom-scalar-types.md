@@ -6,7 +6,7 @@ Scalar types in GraphQL represent the leaf types of the graph like `String` or `
 
 Scalar values represent the concrete data that is exposed.
 
-# Core Scalar Types
+## Core Scalar Types
 
 Hot Chocolate comes with the following core scalar types that are defined by the GraphQL specification:
 
@@ -18,7 +18,7 @@ Hot Chocolate comes with the following core scalar types that are defined by the
 | `Boolean` | Boolean type representing true or false                     |
 | `ID`      | Unique identifier                                           |
 
-# Extended Scalar Types
+## Extended Scalar Types
 
 Apart from the core scalars we have also added support for an extended set of scalar types:
 
@@ -34,7 +34,7 @@ Apart from the core scalars we have also added support for an extended set of sc
 | `Uuid`     | GUID                                                        |
 | `Any`      | This type can be anything, string, int, list or object etc. |
 
-# Using Scalars
+## Using Scalars
 
 We will automatically detect which of our scalars are being used and only integrate the ones needed.
 
@@ -73,7 +73,7 @@ This will ensure that the type inference works predictable and will by default i
 
 As I said before in most cases we do not need to do anything since Hot Chocolate has default bindings.
 
-# Any Type
+## Any Type
 
 The `Any` scalar is a special type that can be compared to `object` in c#. Any allows us to specify any literal or return any output type.
 
@@ -133,7 +133,7 @@ If we want to access an object in a dynamic way without serializing it to a stro
 
 Lists can be accessed in a generic way by getting them as `IReadOnlyList<object>` or as `ListValueNode`.
 
-# Custom Scalars
+## Custom Scalars
 
 In order to implement a new scalar type extend the type: `ScalarType`.
 

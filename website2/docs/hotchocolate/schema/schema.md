@@ -5,7 +5,7 @@ slug: ./
 
 Every GraphQL service defines a set of types which completely describe the set of possible data you can query on that service. Incoming queries are validated and executed against that schema.
 
-# Declaring a Schema
+## Declaring a Schema
 
 In Hot Chocolate a schema is created by using the `SchemaBuilder`. With the schema builder we can define what types our schema will have and how data is resolved.
 
@@ -121,7 +121,7 @@ type Query {
 
 This is very useful with schema stitching, since this allows us to consume remote schemas and extend them with code-first.
 
-# Binding Types
+## Binding Types
 
 Types in a schema can be bound to a specific .NET type. When the schema builder infers schema types from .NET types it will basically lookup to which schema type a .NET type can be bound. For instance a `string` will be bound to a `StringType`.
 
@@ -143,7 +143,7 @@ ISchema schema = SchemaBuilder.New()
     .Create();
 ```
 
-# Overwriting Schema Properties
+## Overwriting Schema Properties
 
 Like with any type in Hot Chocolate we can inherit from schema in order to provide further logic and details. If we for instance wanted to provide a schema description or decorate the schema with directives, we could do that like the following:
 
@@ -164,7 +164,7 @@ ISchema schema = SchemaBuilder.New()
     .Create();
 ```
 
-# Make it Executable
+## Make it Executable
 
 The schema object that we create with the `SchemaBuilder` describes the set of possible data we can query. In order to actually query data of that schema we have to make it executable.
 

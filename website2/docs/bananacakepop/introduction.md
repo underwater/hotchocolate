@@ -13,7 +13,7 @@ Banana Cake Pop uses 2-phase introspection to tune the IDE to the GraphQL featur
 
 Banana Cake Pop lets you work with large schemas without slowing you down.
 
-# Download
+## Download
 
 Banana Cake Pop is currently in preview and the current version is `1.0.0-preview.3`.
 
@@ -21,7 +21,7 @@ Banana Cake Pop is currently in preview and the current version is `1.0.0-previe
 - [windows Installer](https://blob.chillicream.io/banana/BananaCakePop-1.0.0-preview.3.exe)
 - [ubuntu Installer](https://blob.chillicream.io/banana/BananaCakePop-1.0.0-preview.3.AppImage)
 
-## macOS Catalina
+### macOS Catalina
 
 With macOS Catalina Apple has begun to be stricter regarding apps that are not available through the app store. We are working to get Apple's new app notarization integrated into our build process. For now you have to right-click on the app after you have installed it and then click on open in the context menu.
 

@@ -51,7 +51,7 @@ where: {
 
 As soon as we dived deeper into possible extensions, the problems became more severe, and the API became more inconsistent. A good example of this issue is when we want to filter by the length of a string. We could filter by `foo_length_gt:4` or `foo_length: { is_gt: 4}` or even `foo: { length: { is_gt:4 } }`. All of these approaches would follow the style guide. The first would be like we define filters for the field, the second similar to the list filters, and the last one would be like the object filters.
 
-# The New Filtering
+## The New Filtering
 
 With the new filtering API, there is a fundamental change. Operations and fields are no longer bundled together into one GraphQL field.
 
@@ -103,15 +103,15 @@ where: {
 }
 ```
 
-# THIS IS BREAKING MY API!
+## THIS IS BREAKING MY API!
 
 We know. We had a long discussion about this. We feel confident that this new approach is the right way to go, and it is designed to stay. The 10.X.X filters are still available in version 11. They will be deprecated, though, and will be removed in version 12.
 
-# The Data Package
+## The Data Package
 
 With version 11, we introduce a new package for Hot Chocolate. We created a new package called `HotChocolate.Data`. This package contains `HotChocolate.Data.Filtering`, `HotChocolate.Data.Sorting` and `HotChocolate.Data.Projections`.
 
-# Migrating from 10 to 11
+## Migrating from 10 to 11
 
 We could not avoid conflicts in type names between the old and the new filtering. You can use static imports or fully qualified type names to have the old and the new filtering API in the same file.
 
@@ -119,7 +119,7 @@ If you have full control over the front end, the easiest way to migrate is to re
 
 If this is not an option for you, you will have to declare new fields and deprecate the old ones once they are no longer used. You may even use the filters on the same fields, but you will end up with conflicting argument names.
 
-# Getting started
+## Getting started
 
 You first need to add the new `HotChocolate.Data` package to the project.
 
@@ -156,7 +156,7 @@ public class Query : ObjectType {
 }
 ```
 
-# How does it work?
+## How does it work?
 
 The old filtering was bundling a field and operation together. With the new filtering, this is now separated. The concept of field and operation still exists, though a little different. A field is always used for navigation. You can think of it as a selector. In code first, a field represents a property of a class. An operation is always an action in the context of a field. Semantically you can look at it as a function. This is often a compare operation, like equals or greater than, but it can also be more arbitrary. In spatial data, many functions can be translated to database queries, like `ConvexHull()` or `Distance(Geometry g)`. Filtering on spatial data is something we plan to support soon. Operations are identified by an integer, which is called the operation ID.
 
@@ -183,15 +183,15 @@ input DistanceToFilterInput {
 
 The new version of filtering does not only have a new look and feel at the API level but also comes with lots of changes to the Hot Chocolate core. The data package is now completely separated from the core, and no internal APIs are used. Like most of the things in Hot Chocolate, filtering can roughly be broken down into two parts. Schema building and execution. Something we focused on is the new conventions. The goal was to make it easier for users to extend the capabilities of filtering. It is now a lot easier to create custom filters and providers to add new functionality. Both schema building and execution are configurable with conventions.
 
-# Schema Building
+## Schema Building
 
 Filtering has dedicated input types. `FilterInputType` and `FilterInputType<T>` are extensions of the normal `InputObjectType`. Both filter input types have a similar interface to the normal input type. In addition to `Name`, `Description`, `Directive`, there are a couple of specific descriptors to describe filter capabilities. You can specify fields and operations. There is also `AllowOr` and `AllowAnd`. These two add the special fields needed for these operations. The `FilterInputType` uses the convention for naming and inference of properties. Like the scalar registration on the schema builder, operation types can be bound on the filter convention.
 
-# Execution
+## Execution
 
 To map an incoming GraphQL filter query to the database, Hot Chocolate needs to know how to handle fields and operations. We initially started by having a lookup table. The filter middleware would access this lookup table and search for a matching handler. Since we did a lot of unnecessary work on runtime, we redesigned this to do more of this work at configuration time. During schema initialization, we annotate the matching handler directly from the convention onto the field. For this, we use a new concept call type interceptors. This comes with a few benefits. Firstly, we know during schema creation if all required handlers are registered. In case we do not find a matching handler, we can now fail early and tell the developer what is missing. Secondly, we do not have to do runtime lookups. All handlers are now directly stored on the fields and are available on visitation. We introduced a new concept called type scoping to use more than one filter convention, e.g., MongoDB and SqlServer.
 
-## Type Interceptor
+### Type Interceptor
 
 Type interceptors are one of the new shiny features of version 11. To create an interceptor, you have to extend the class `TypeInterceptor` and register it on the schema builder. You can hook into the schema initialization process and make changes across all types or even introduce new once while rewriting the schema. Countless new possibilities come with these new type interceptors. As an example, use-case, we looked at feature flags. Feature flags can be useful in services that are tenant-based. You may want to hide parts of an API for a specific tenant.
 
@@ -253,13 +253,13 @@ public class ExampleObjectType : ObjectType<Foo> {
 }
 ```
 
-## Scoping
+### Scoping
 
 With this release, we introduce a concept called schema scoping. As we write handlers from the convention directly on to the fields, we would limit filtering to just one convention. In case we need two conventions we need two fields and therefore two different types. Schema scoping makes it possible to branch of a type hierarchy and create multiple types from the same definition and then later even join the two branches back together. This feature works on the type reference level. Type references now have a scope that can change the type reference identity.
 Scoping only really makes sense in combination with a type interceptor. This interceptor picks up a scoped type and then scopes all its dependencies. The type interceptor also has to rename scoped types to avoid name collisions.
 Filtering does the same. In case there is only one filter convention registered, you will not see a difference. As soon as you have multiple conventions registered the name of the convention is added to the type name.
 
-## Conventions
+### Conventions
 
 Conventions will be the configuration interface for extensions on top of the Hot Chocolate core. In version 11 the convention API has been extended. We introduce the named conventions in this release. This way multiple conventions of the same type can be registered on the Schema.
 You may have a filter convention for MongoDB and a filter convention for SqlServer.
@@ -300,7 +300,7 @@ public class Query : ObjectType {
 }
 ```
 
-## What's next?
+### What's next?
 
 The data package is designed for extensibility. There are a few extensions that we will work on. e.g. filtering for spatial data and a MongoDB provider.
 We will as well invest time into documentation and have examples on how to create your own extensions.

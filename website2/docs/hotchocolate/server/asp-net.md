@@ -5,11 +5,11 @@ slug: ./
 
 Hot Chocolate supports ASP.Net Core and ASP.Net Framework out of the box. This means you can get started very quickly with both variants. There are example projects for both in our [repository](https://github.com/ChilliCream/hotchocolate/tree/master/examples) on GitHub.
 
-# HTTP Usage
+## HTTP Usage
 
 Hot Chocolate has implemented the [recommendations](https://graphql.org/learn/serving-over-http/) for serving GraphQL over HTTP. We are also supporting request batching over HTTP and subscriptions over websocket.
 
-## HTTP POST
+### HTTP POST
 
 The post request is the most used variant for GraphQL request over HTTP.
 
@@ -62,20 +62,20 @@ The response in both cases will be JSON by default. The response serializers can
 }
 ```
 
-## HTTP GET
+### HTTP GET
 
 GraphQL can also be served through an HTTP GET request. You have the same options as with the POST request just that the request properties are provided as query parameters. GET request can be a good choice if you are looking to cache GraphQL requests.
 
 `http://localhost/graphql?query=query+getUser($id:ID){user(id:$id){name}}&variables={"id":"4"}`
 
-## HTTP GET Schema
+### HTTP GET Schema
 
 Although you can get access to the schema metadata through introspection, we also support fetching the GraphQL schema SDL. The GraphQL schema SDL is richer with information and easier to read.
 
 SDL schema available in v10 under:
 `https://yourserver/GraphQL/Schema`
 
-## HTTP POST Batching
+### HTTP POST Batching
 
 We support two kinds of batching variants.
 
@@ -165,15 +165,15 @@ By default, we are serializing the result as a JSON array, but you can change th
 
 More about batching can be found [here](../execution-engine/batching.md).
 
-# WebSocket Support
+## WebSocket Support
 
 We have implemented the [GraphQL over WebSocket Protocol](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md) specified by Apollo.
 
-# SignalR Support
+## SignalR Support
 
 > We are still working on SignalR support and will publish the documentation once we are finished.
 
-# ASP.Net Core
+## ASP.Net Core
 
 The ASP.Net Core implementation is implemented modular. This means that each protocol that we have implemented is represented by a specific middleware that is provided as a separate package. Fear not we also provide a meta-package that bundles all the middleware components together.
 
@@ -198,7 +198,7 @@ app.UseGraphQL();
 
 And we are done basically.
 
-## Supported Core Components
+### Supported Core Components
 
 It is also possible to setup only the components and services that you need. The following packages are available:
 
@@ -210,7 +210,7 @@ It is also possible to setup only the components and services that you need. The
 
 Instead of using `UseGraphQL` you can opt with these packages to use specific middleware components like `UseGraphQLHttpGet`.
 
-# ASP.Net Framework
+## ASP.Net Framework
 
 The ASP.Net Framework implementation is implemented modular on top of OWIN. This means that each protocol that we have implemented is represented by a specific middleware that is provided as a separate package. Fear not we also provide a meta-package that bundles all the middleware components together.
 
@@ -237,7 +237,7 @@ app.UseGraphQL(serviceProvider);
 
 And we are done basically.
 
-## Supported Framework Components
+### Supported Framework Components
 
 It is also possible to setup only the components and services that you need. The following packages are available:
 
@@ -248,7 +248,7 @@ It is also possible to setup only the components and services that you need. The
 
 Instead of using `UseGraphQL` you can opt with these packages to use specific middleware components like `UseGraphQLHttpGet`.
 
-# Custom Serializers
+## Custom Serializers
 
 There are two response serializers that can be customized. By default we have added JSON serializers. You can customize serialization by implementing the following interfaces:
 

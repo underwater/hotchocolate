@@ -6,7 +6,7 @@ title: Schema Stitching
 
 Schema stitching is the capability to merge multiple GraphQL schemas into one schema that can be queried.
 
-# Introduction
+## Introduction
 
 **So, for what is that useful?**
 
@@ -22,7 +22,7 @@ Hot Chocolate schema stitching allows us to really integrate services into one s
 
 With this we can create a consistent GraphQL schema that hides the implementation details of our backend services and provides the consumer of our endpoint with the capability to fetch the data they need with one call, no under- or over-fetching and most importantly no repeated fetching because we first needed to fetch that special id with which we now can fetch this other thingy.
 
-# Getting Started
+## Getting Started
 
 In order to showcase how schema stitching works and what the problems are let us assume we have a service like twitter, where a user can post messages.
 
@@ -122,7 +122,7 @@ Even worse for our UI team, in order to build a stream view that shows the messa
 
 This is actually one of the very things GraphQL tries to solve.
 
-# Setting up our server
+## Setting up our server
 
 Before we start with stitching itself let`s get into how to setup our server.
 
@@ -189,7 +189,7 @@ services.AddGraphQL(sp => SchemaBuilder.New().AddType<Query>().Create());
 services.AddGraphQLSubscriptions();
 ```
 
-# Stitching Builder
+## Stitching Builder
 
 The stitching builder is the main API to configure a stitched GraphQL schema (GraphQL gateway). In order to have a simple auto-merge we have just to provide all the necessary schema names and the stitching layer will fetch the remote schemas via introspection on the first call to the stitched schema.
 
@@ -292,7 +292,7 @@ enum CounterType {
 
 We have just achieved a simple schema merge without doing a lot of work. But honestly we would like to change some of the types. While the stitching result is nice, we would like to integrate the types with each other.
 
-# Schema Extensions
+## Schema Extensions
 
 So, the first thing that we would like to have is a new field on the query that is called `me`. The `me` field shall represent the currently signed in user of our service.
 
@@ -449,7 +449,7 @@ enum CounterType {
 }
 ```
 
-# Schema Transformations
+## Schema Transformations
 
 Though this is nice, we would like to go even further and enhance our `Message` type like the following:
 
@@ -588,7 +588,7 @@ type User {
 }
 ```
 
-# Query Rewriter
+## Query Rewriter
 
 As can be seen, it is quite simple to stitch multiple schemas together and enhance them with the stitching builder.
 
@@ -703,11 +703,11 @@ extend type Message {
 }
 ```
 
-# Extending the Schema Builder
+## Extending the Schema Builder
 
 The stitching builder can be extended on multiple levels by writing different kinds of schema syntax rewriter.
 
-## Source Schema Rewriter
+### Source Schema Rewriter
 
 The refactoring methods that we provide like `IgnoreField` or `RenameType` and so on rewrite the source schemas before they are merged.
 
@@ -736,7 +736,7 @@ field.AddDelegationPath("schemaName", path);
 
 > Information about our parser can be found [here](advanced/parser.md).
 
-## Merged Schema Rewriter
+### Merged Schema Rewriter
 
 Apart from the source schema rewriters we can also rewrite the schema document after it has been merged:
 
@@ -752,19 +752,19 @@ Also, if we just wanted to validate the schema for merge errors or collect infor
 IStitchingBuilder AddMergedDocumentVisitor(Action<DocumentNode> visit);
 ```
 
-## Merge Rules
+### Merge Rules
 
 In most cases the default merge rules should be enough. But with more domain knowledge about the source schemas one could write more aggressive merge rules.
 
 The merge rules are chained and pass along what they cannot handle. The types of the various schemas are bucketed by name and passed to the merge rule chain.
 
-# Error Handling
+## Error Handling
 
 Errors from remote schemas are automatically rewritten and exposed as an error of the stitched schema. In order to rewrite an error correctly we need the path collection to be set; otherwise, the error will be exposed as global error.
 
 Like with just any Hot Chocolate schema you can add error filters in order to provide more context data or to provide a better rewrite logic. Our initial rewrite logic will add the unmodified original error as property `remote` to the extensions.
 
-## Add an error filter
+### Add an error filter
 
 ```csharp
 serviceCollection.AddStitchedSchema(builder =>
@@ -780,7 +780,7 @@ serviceCollection.AddStitchedSchema(builder =>
         }));
 ```
 
-## Get the original error
+### Get the original error
 
 ```csharp
 serviceCollection.AddStitchedSchema(builder =>
@@ -805,7 +805,7 @@ serviceCollection.AddStitchedSchema(builder =>
 
 > More about error filter can be found [here](execution-engine/error-filter.md).
 
-# Authentication
+## Authentication
 
 In many cases schemas will be protected by some sort of authentication. In most cases http requests are authenticated with bearer tokens that are passed along as `Authorization` header.
 
@@ -842,7 +842,7 @@ Another variant can also be to store service tokens for the remote schemas with 
 
 How you want to implement authentication strongly depends on your needs. With the reliance on the HttpClient factory from the ASP.NET core foundation we are very flexible and can handle multiple scenarios.
 
-# Making HTTP clients resilient
+## Making HTTP clients resilient
 
 When using stitching in production environments it is important to configure the HTTP clients to be resilient against connection losses and other HTTP errors. Since we are using Microsoft HttpClient factory, we can use `Polly` to configure retry policies and more. This is especially important if you are using external services like the GitHub GraphQL schema.
 
@@ -861,7 +861,7 @@ services.AddHttpClient("GitHub", client =>
 
 Microsoft provides a great documentation for Polly and we recommend to check it out: [Use HttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-# Batching
+## Batching
 
 The stitching layer transparently batches queries to the remote schemas. So, if you extend types like the following:
 
@@ -929,7 +929,7 @@ We would merge those two queries into one:
 
 This lets the remote schema optimize the calls much better since now the remote schema could take advantage of things like _DataLoader_ etc.
 
-# Root Types
+## Root Types
 
 We are currently supporting stitching `Query` and `Mutation`.
 
@@ -998,7 +998,7 @@ type UserMutations {
 }
 ```
 
-# Stitching Context
+## Stitching Context
 
 The stitching engine provides a lot of extension points, but if we wanted to write the stitching for one specific resolver by ourselves then we could do that by using the `IStitchingContext` which is a scoped service and can be resolved through the resolver context.
 

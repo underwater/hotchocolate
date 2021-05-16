@@ -6,7 +6,7 @@ Hot Chocolate supports operation batching and request batching. But before we ge
 
 [![Batching](/img/batching.png)](https://youtu.be/ViXL0YQnioU?t=626)
 
-# Introduction
+## Introduction
 
 With batching we have added the capability run a sequence of operations. The batch is executed in order and the results of each request is yielded to the user once it has been computed. This means that we do not have to wait for the complete batch to be completed and can use the results as they are written to the response stream.
 
@@ -61,7 +61,7 @@ Batching combined with `@export` becomes really interesting if you think about m
 
 With operation batching you basically send in the same request as before. You can either opt to send plain GraphQL or send in the GraphQL-JSON-request.
 
-> More about the request structure can be read [here](../server/server.md).
+> More about the request structure can be read [here](../server/asp-net.md).
 
 Since we are sending in multiple operations, we specify the sequence with as a query parameter:
 
@@ -73,7 +73,7 @@ Currently we write the result as JSON-array into the HTTP-response-stream. Each 
 services.AddResponseStreamSerializer<CustomResponseStreamSerializer>();
 ```
 
-# Request Batching
+## Request Batching
 
 Request batching is essentially a way to send in multiple GraphQL-JSON-requests. These requests are basically wrapped into a JSON-array and send in the same way as the standard GraphQL-JSON-request.
 
@@ -126,7 +126,7 @@ Request batching is essentially a way to send in multiple GraphQL-JSON-requests.
 ]
 ```
 
-# Export Directive
+## Export Directive
 
 The export directive allows to export the results of a query into a global variable pool from which each query in the sequence can pull data in.
 
@@ -178,7 +178,7 @@ query NewsFeed {
 
 In the above example we would export a list of story objects that would be coerced and converted to fit into an input object.
 
-# IBatchQueryExecutor
+## IBatchQueryExecutor
 
 If you want to write tests or implement your own batching middleware, then you just have to inject `IBatchQueryExecutor`. The batch executor will return a `IBatchQueryExecutionResult` which is essentially a `IResponseStream`.
 

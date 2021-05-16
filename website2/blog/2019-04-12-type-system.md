@@ -208,7 +208,7 @@ Though `Extend` is very capable, in some cases we might want to limit what is av
 
 So, if we had a type like the following:
 
-```graphql
+```sdl
 type Foo {
   bar: String!
 }

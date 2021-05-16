@@ -30,7 +30,7 @@ TypeConversion.Default.Register<string, ObjectId>(from => ObjectId.Parse(from));
 TypeConversion.Default.Register<ObjectId, string>(from => from.ToString());
 ```
 
-# Dependency Injection Support
+## Dependency Injection Support
 
 You can also add your type converters to the dependency injection. Using dependency injection for the type converters lets you more easily write tests that verify behaviour of your API in various scenarious.
 

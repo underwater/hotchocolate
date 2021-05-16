@@ -3,7 +3,7 @@ title: Authorization
 slug: ./
 ---
 
-# Authentication
+## Authentication
 
 GraphQL as defined by the spec does not specify how a user has to authenticate against a schema in order to execute queries. GraphQL does not even specify how requests are sent to the server using HTTP or any other protocol. _Facebook_ specified GraphQL as transport agnostic, meaning GraphQL focuses on one specific problem domain and does not try to solve other problems like how the transport might work, how authentication might work or how a schema implements authorization. These subjects are considered out of scope.
 
@@ -13,7 +13,7 @@ We basically can do it in any way ASP.NET core allows us to.
 
 [Overview of ASP.NET Core authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-3.1)
 
-# Authorization
+## Authorization
 
 Authorization on the other hand is something Hot Chocolate can provide some value to by introducing a way to authorize access to fields with the `@authorize`-directive.
 
@@ -76,7 +76,7 @@ If no user is authenticated the field middleware will raise a GraphQL error and 
 
 > If the field is a non-null field the standard GraphQL non-null violation propagation rule is applied like with any other GraphQL error and the fields along the path are removed until the execution engine reaches a nullable field or the while result was removed.
 
-## Roles
+### Roles
 
 In many cases role based authorization is sufficient and was already available with ASP.NET classic on the .NET Framework.
 
@@ -117,7 +117,7 @@ public class PersonType : ObjectType<Person>
 }
 ```
 
-## Policies
+### Policies
 
 If we are using ASP.NET core then we can also opt-in using authorization policies.
 
@@ -205,7 +205,7 @@ public class PersonType : ObjectType<Person>
 }
 ```
 
-# Policy-based authorization in ASP.NET Core
+## Policy-based authorization in ASP.NET Core
 
 Policy-based authorization in ASP.NET Core does not any longer prescribe us in which way we describe our requirements. Now, with policy-based authorization we could just say that a certain field can only be accessed if the user is 21 or older or that a user did provide his passport as evidence of his/her identity.
 
@@ -258,7 +258,7 @@ The `@authorize`-directive essentially uses the provided policy and runs it agai
 More about policy-based authorization can be found in the Microsoft Documentation:
 [Policy-based authorization in ASP.NET Core | Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-2.1)
 
-# Query Requests
+## Query Requests
 
 Our query middleware creates a request and passes the request with additional meta-data to the query-engine. For example we provide a property called `ClaimsIdentity` that contains the user associated with the current request. These meta-data or custom request properties can be used within a field-middleware like the authorize middleware to change the default execution of a field resolver.
 

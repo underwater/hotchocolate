@@ -10,7 +10,7 @@ Persisted queries are stored close to your server either in the file system or i
 
 Hot Chocolate supports out of the box two flows how to handle persisted queries.
 
-# Ahead of Time Query Persistence
+## Ahead of Time Query Persistence
 
 The first approach is to store queries ahead of time (ahead of deployment of your application). This can be done by extracting the queries from you client application, hashing them and pushing them to the query storage.
 
@@ -67,7 +67,7 @@ Instead of doing that we can now just specify the request like the following:
 > Read more about how to do persisted queries with [Relay](https://relay.dev/docs/en/persisted-queries.html).
 > Read more about how to do persisted queries with [Apollo](https://blog.apollographql.com/persisted-graphql-queries-with-apollo-client-119fd7e6bba5).
 
-# Active Query Persistence
+## Active Query Persistence
 
 Active query persistence builds upon the query persistence pipeline and adds the ability to store queries on the fly.
 

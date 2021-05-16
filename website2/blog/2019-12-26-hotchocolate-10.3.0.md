@@ -74,7 +74,7 @@ When activated either setting the _MSBuild_ property `<Nullable>enable</Nullable
 
 Hence the above class is now correctly inferred and translates nicely into GraphQL types.
 
-```graphql
+```sdl
 type Query {
   "This field says hello."
   sayHello(name: String): String!
@@ -149,7 +149,7 @@ public interface IFoo
 }
 ```
 
-```graphql
+```sdl
 interface Foo {
   foos(skip: Int, take: Int): [Foo!]!
 }
@@ -165,7 +165,7 @@ public interface Bar : IFoo
 }
 ```
 
-```graphql
+```sdl
 type Bar implements Foo {
   foos(skip: Int, take: Int): [Foo!]!
 }
@@ -268,7 +268,7 @@ public class Foo
 
 The above example would automatically translate into a GraphQL schema where `Foo` would be represented by two types in the GraphQL schema.
 
-```graphql
+```sdl
 type Query {
   foo(input: FooInput): Foo
 }
@@ -339,7 +339,7 @@ SchemaBuilder.New()
 
 The above code would result in the following schema:
 
-```graphql
+```sdl
 type Query {
   hello: String
 }
@@ -385,7 +385,7 @@ SchemaBuilder.New()
     .Create();
 ```
 
-```graphql
+```sdl
 type Query {
   "Get my pet :)"
   pet(id: Int!): IPet

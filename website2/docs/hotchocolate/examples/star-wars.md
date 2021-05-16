@@ -5,7 +5,7 @@ slug: ./
 
 We have created the Star Wars sample in different versions in order to show different ways to build your GraphQL server off.
 
-# Pure Code-First
+## Pure Code-First
 
 Pure Code-First is our newest variant to build GraphQL by just using clean C#. You really do not need to deal with schema types directly and you still get all the power that you would have with schema types. You can split types use field middleware and all of this without any clutter.
 
@@ -66,7 +66,7 @@ Try a query like the following to get started:
 
 The template source code is located [here](https://github.com/ChilliCream/hotchocolate/tree/master/examples).
 
-# Code-First
+## Code-First
 
 Code-First or Code-First with schema types lets you use our fluent type API to describe your schema types. The resolver code and the actual types are disjunct you explicitly can express your schema types without even needing a C# backing type.
 
@@ -97,6 +97,6 @@ public class Query
 
 [Star Wars - Code-First](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/CodeFirst)
 
-# Schema-First
+## Schema-First
 
 We are currently working on a schema-first example. Example Coming Soon :)

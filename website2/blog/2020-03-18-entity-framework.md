@@ -248,7 +248,7 @@ public class Query
 
 Is translated to the following GraphQL type:
 
-```graphql
+```sdl
 type Query {
   """
   Gets all students
@@ -457,7 +457,7 @@ If we would print our schema it would now look like the following.
 
 > The schema SDL can be downloaded from http://localhost:5000/schema.
 
-```graphql
+```sdl
 schema {
   query: Query
 }

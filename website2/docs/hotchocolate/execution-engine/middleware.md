@@ -5,7 +5,7 @@ slug: ./
 
 Hot Chocolate has three kinds of middleware. The query middleware which allows to extend or rewrite the processing of a query request, the field middleware which allows to extend or rewrite the processing of field resolvers and the directive middleware which allows basically to add a field middleware to fields that are annotated with a specific directive.
 
-# Field Middleware
+## Field Middleware
 
 The most common way to extend the execution is to extend the pipeline that resolves data from a field.
 
@@ -155,7 +155,7 @@ descriptor.Field(t => Bar).UsePaging();
 
 The extension method hides the complexity of combining a middleware with arguments and so on and also reduces repetitive code.
 
-## Executor Bound Middleware
+### Executor Bound Middleware
 
 Field middleware components can also be declared on the `QueryExecutionBuilder`, this way the execution engine can be extended without having to declare field middleware components on a schema and query middleware components on the executor. The `UseField` method let you consistently extend the execution engine through one interface.
 
@@ -166,7 +166,7 @@ We should put anything on the schema level that is needed to make the schema wor
 > As a side note, the `IMiddlewareContext` implements also `IResolverContext` so in a middleware you have access to all the context information that the resolver context has.
 > You can even access all the results that the previous resolver in your path have produced by accessing the `Source` property which is exposed as a immutable stack of results.
 
-# Directive Middleware
+## Directive Middleware
 
 Directives can be used to annotate nearly everything in your schema or query. The annotation can than be used in a field middleware to change the way something is executed and so on.
 
@@ -224,7 +224,7 @@ Moreover, the middleware is only injected into the field resolver pipeline if ne
 
 More about directives in particular can be read [here](../schema/directives.md)
 
-# Query Middleware
+## Query Middleware
 
 The query execution process itself is just made up of many query middleware components.
 
