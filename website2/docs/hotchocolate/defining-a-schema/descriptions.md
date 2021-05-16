@@ -4,11 +4,11 @@ title: Schema Documentation
 
 As with any API, documentation is important for describing the data and queries available to a consumer. Hot Chocolate offers multiple ways to document your GraphQL application.
 
-# Code-First
+## Code-First
 
 In code-first schemas, there are multiple ways to describe the types and queries available in your API. The documentation options listed below are listed in order of specificity, meaning that options listed at the top will be overridden by options listed after it.
 
-## XML Documentation
+### XML Documentation
 
 Out of the box, Hot Chocolate has the ability to automatically generate API documentation from your existing [XML documentation comments](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc). For example, given the following C# code with XML documentation strings, you will have the following GraphQL schema.
 
@@ -117,7 +117,7 @@ services
     ...
 ```
 
-## Attributes
+### Attributes
 
 Hot Chocolate also provides a `GraphQLDescriptionAttribute` that can be used to provide descriptions for classes, properties, methods, and method parameters. For example, given the following C# code, you will have the following GraphQL schema.
 
@@ -167,7 +167,7 @@ type Query {
 
 > If the description provided to the `GraphQLDescriptionAttribute` is `null` or made up of only white space, Hot Chocolate will use XML documentation strings as a fallback (assuming you have the feature enabled).
 
-## Fluent APIs
+### Fluent APIs
 
 The `IObjecTypeDescriptor<T>` includes fluent APIs that enable setting descriptions through a declarative syntax. You can easily access these fluent APIs by creating a class that inherits from the `ObjectType<T>` class and overriding the `Configure(IObjectTypeDescriptor<T>)` method. For example, given the following C# code, you would have the following GraphQL schema.
 
@@ -255,7 +255,7 @@ type Query {
 
 > If the `Description()` methods are used, they will **always** override any descriptions provided from the previous options, regardless of being `null` or white space values.
 
-# Schema-first
+## Schema-first
 
 In schema-first scenarios, the schema parser supports the inclusion of description strings. When a schema string includes such descriptions, they will be available through your typically introspection queries.
 

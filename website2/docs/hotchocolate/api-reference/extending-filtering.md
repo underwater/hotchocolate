@@ -50,7 +50,7 @@ This operation should always have the same name.
 
 With this in mind, we can have a deeper dive into filtering. Buckle up, this might get exciting.
 
-# How everything fits together
+## How everything fits together
 
 At the core of the configuration API of filtering there sits a convention. The convention holds the whole
 configuration that filtering needs to create filter types and to translate them to the database.
@@ -63,20 +63,20 @@ During schema initialization, these handlers are bound, to the GraphQL fields. T
 During execution, the provider visits the incoming value node and executes the handler on the fields.
 This loose coupling allows defining the provider independently of the convention.
 
-# Filter Convention
+## Filter Convention
 
 A filter convention is a dotnet class that has to implement the interface `IFilterConvention`.
 Instead of writing a convention completely new, it is recommended to extend the base convention `FilterConvention`
 This convention is also configurable with a fluent interface, so in most cases you can probably just use the descriptor API.
 
-## Descriptor
+### Descriptor
 
 Most of the capabilities of the descriptor are already documented under `Fetching Data -> Filtering`.
 If you have not done this already, it is now the right time to head over to [Filtering](../fetching-data/filtering.md) and read the parts about the `FilterConventions`
 
 There are two things on this descriptor that are not documented in `Fetching Data`:
 
-### Operation
+#### Operation
 
 ```csharp
     IFilterOperationConventionDescriptor Operation(int operationId);
@@ -125,7 +125,7 @@ To apply this configuration to operations types, you can use the Configure metho
         x => x.Operation(CustomOperations.Like))
 ```
 
-### Provider
+#### Provider
 
 ```csharp
     IFilterConventionDescriptor Provider<TProvider>()
@@ -142,7 +142,7 @@ that you can configure the provider here. We will have a closer look at the prov
 conventionDescriptor.Provider<CustomProvider>();
 ```
 
-## Custom Conventions
+### Custom Conventions
 
 Most of the time the descriptor API should satisfy your needs. It is recommended to build extensions
 based on the descriptor API, rather than creating a custom convention.
@@ -164,7 +164,7 @@ public class CustomConvention : FilterConventio
 }
 ```
 
-# Providers
+## Providers
 
 Like the convention, a provider can be configured over a fluent interface.
 Every filter field or operation has a specific handler defined. The handler translates the operation to the database.
@@ -180,7 +180,7 @@ What a visitor is and how you can write you own visitor, you can find here: [Vis
 Visitors are a powerful yet complex concept, we tried our best to abstract it away.
 For most cases, you will not need to create a custom visitor.
 
-## Provider Descriptor
+### Provider Descriptor
 
 The descriptor of a provider is simple. It only has one method:
 
@@ -191,7 +191,7 @@ The descriptor of a provider is simple. It only has one method:
 
 With this method you can register field handlers on the provider.
 
-## Field Handler
+### Field Handler
 
 Every field or operation is annotated with an instance of a `FilterFieldHandler<TContext, T>`. When the provider is asked for a handler for a field, it iterates sequentially through the list of existing field handlers and calls the `CanHandle` method.
 The first field handler that can handle the field, is annotated on the field.
@@ -199,7 +199,7 @@ As the visitor traverses the input object, it calls `TryHandleEnter` as it enter
 
 > A field handler supports constructor injection and is a singleton. Do not store data on the field handler. use the `context` of the visitor for state management.
 
-### CanHandle
+#### CanHandle
 
 ```csharp
     bool CanHandle(
@@ -210,7 +210,7 @@ As the visitor traverses the input object, it calls `TryHandleEnter` as it enter
 
 Tests if this field handler can handle a field. If it can handle the field it will be attached to it.
 
-### TryHandleEnter
+#### TryHandleEnter
 
 ```csharp
 bool TryHandleEnter(
@@ -227,7 +227,7 @@ This method is called when the visitor encounters a field.
 - `node` is the field node of the input object. `node.Value` contains the value of the field.
 - `action` If `TryHandleEnter` returns true, the action is used for further processing by the visitor.
 
-### TryHandleLeave
+#### TryHandleLeave
 
 ```csharp
 bool TryHandleLeave(
@@ -244,12 +244,12 @@ This method is called when the visitor leave the field it previously entered.
 - `node` is the field node of the input object. `node.Value` contains the value of the field.
 - `action` If `TryHandleLeave` returns true, the action is used for further processing by the visitor.
 
-## Filter Operation Handlers
+### Filter Operation Handlers
 
 There is only one kind of field handler. To make it easier to handle operations, there also exists `FilterOperationHandler<TContext, T>`, a more specific abstraction.
 You can override `TryHandleOperation` to handle operations.
 
-## The Context
+### The Context
 
 As the visitor and the field handlers are singletons, a context object is passed along with the traversation of input objects.
 Field handlers can push data on this context, to make it available for other handlers further down in the tree.
@@ -331,7 +331,7 @@ A little simplified this is what happens during visitation:
 }
 ```
 
-# Extending IQueryable
+## Extending IQueryable
 
 The default filtering implementation uses `IQueryable` under the hood. You can customize the translation of queries by registering handlers on the `QueryableFilterProvider`.
 

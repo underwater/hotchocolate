@@ -7,7 +7,7 @@ Therefore you need to configure federations in two places: the gateway schema an
 
 The schemas can either be pushed to a Redis cache and then pulled from the gateway or directly be pulled by the gateway from the downstream service.
 
-# Federation with Redis
+## Federation with Redis
 
 HotChocolate uses the Redis cache as a pub/sub system to signal changes on the downstream services.
 With a cache, the gateway schema is also more stable and faster in bootstrapping, because it does not require to call all downstream services on startup.
@@ -18,7 +18,7 @@ You will need to add a package reference to `HotChocolate.Stitching.Redis` to al
 dotnet add package HotChocolate.Stitching.Redis
 ```
 
-## Configuration of a domain service
+### Configuration of a domain service
 
 A domain service has to _publish the schema definition_.
 The schema is published on the initialization of the schema.
@@ -52,7 +52,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Configuration of the gateway
+### Configuration of the gateway
 
 The gateway needs HttpClients to fetch the data from the domain services.
 You have to register them on the service collection.
@@ -87,11 +87,11 @@ services
     .AddRemoteSchemasFromRedis("Demo", sp => sp.GetRequiredService<ConnectionMultiplexer>());
 ```
 
-## Example
+### Example
 
 You can find a full schema federation example here [Federated Schema with Redis](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/Stitching/federated-with-hot-reload)
 
-# Federation with schema polling
+## Federation with schema polling
 
 You can also use federations without a Redis cache. In this case, you cannot hot reload the schema.
 The configuration is very much the same as in Redis except the `PublishToRedis` part.
@@ -103,7 +103,7 @@ You will need to add a package reference to `HotChocolate.Stitching.Redis` to al
 dotnet add package HotChocolate.Stitching
 ```
 
-## Configuration of a domain service
+### Configuration of a domain service
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -121,7 +121,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Configuration of the gateway
+### Configuration of the gateway
 
 With the polling approach, we need to make the schema aware of the domain services.
 We can just add the schema with `AddRemoteSchema`.
@@ -154,11 +154,11 @@ public void ConfigureServices(IServiceCollection services)
         .AddRemoteSchema(Reviews);
 ```
 
-## Example
+### Example
 
 You can find a full schema federation with polling example here [Federated Schema with polling](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/Stitching/federated-with-pull)
 
-# Configuration
+## Configuration
 
 By default, all the fields that are declared on `Mutation` and `Query` are exposed on the gateway.
 In case the schema you do not want to expose the root fields and prefer to define the extension points in an extension file, you can also ignore the root types for a schema on the domain service.

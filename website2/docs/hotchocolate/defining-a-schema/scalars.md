@@ -40,7 +40,7 @@ In addition to the scalars defined by the specification, HotChocolate also suppo
 | `Uuid`      | GUID                                                        |
 | `Any`       | This type can be anything, string, int, list or object etc. |
 
-# Using Scalars
+## Using Scalars
 
 HotChocolate will automatically detect which scalars are in use and will only expose those in the introspection. This keeps the schema definition small, simple and clean.
 
@@ -72,7 +72,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-# Uuid Type
+## Uuid Type
 
 The `Uuid` scalar supports the following serialization formats.
 
@@ -95,7 +95,7 @@ services
    .AddType(new UuidType('D'));
 ```
 
-# Any Type
+## Any Type
 
 The `Any` scalar is a special type that can be compared to `object` in C#.
 `Any` allows us to specify any literal or return any output type.
@@ -156,7 +156,7 @@ If you want to access an object dynamically without serializing it to a strongly
 
 Lists can be accessed generically by getting them as `IReadOnlyList<object>` or as `ListValueNode`.
 
-# Custom Converter
+## Custom Converter
 
 HotChocolate converts .Net types to match the types supported by the scalar of the field.
 By default, all standard .Net types have converters registered.
@@ -189,7 +189,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-# Custom Scalars
+## Custom Scalars
 
 All scalars in HotChocolate are defined though a `ScalarType`
 The easiest way to create a custom scalar is to extend `ScalarType<TRuntimeType, TLiteral>`.
@@ -353,7 +353,7 @@ By extending `ScalarType` you have full control over serialization and parsing.
     }
 ```
 
-# Additional Scalars
+## Additional Scalars
 
 HotChocolate provides additional scalars for more specific usecases.
 

@@ -20,14 +20,14 @@ We have now added the most common packages to the Hot Chocolate core. But there 
 | HotChocolate.PersistedQueries.FileSystem | This package provides a persisted query storage for the file system.                                                                                                 |
 | HotChocolate.PersistedQueries.Redis      | This package provides a persisted query storage for Redis.                                                                                                           |
 
-# ASP.NET Core
+## ASP.NET Core
 
 One of the main focuses of version 11 was to create a new configuration API that brings all our builders together into one unified API. This also means that we had to introduce breaking changes to the way we
 configure schemas.
 
 After you have cleaned up your packages, head over to the `Startup.cs` to start with the new configuration API migration.
 
-## ConfigureServices
+### ConfigureServices
 
 In your `Startup.cs` head over to the `ConfigureServices` methods.
 The configuration of a schema has slightly changed, and the new configuration API has replaced the `SchemaBuilder`.
@@ -67,7 +67,7 @@ services
     .ModifyRequestOptions(o => o.ExecutionTimeout = TimeSpan.FromSeconds(180));
 ```
 
-## Configure
+### Configure
 
 After migrating the schema configuration, the next area that has fundamentally changed is the schema middleware.
 
@@ -89,7 +89,7 @@ app.UseRouting();
 app.UseEndpoints(x => x.MapGraphQL());
 ```
 
-## Request Interceptor
+### Request Interceptor
 
 The query request interceptor was reworked and we renamed it to `IHttpRequestInterceptor`.
 
@@ -136,7 +136,7 @@ services.AddGraphQLServer()
 
 > A request interceptor is a service that is used by all hosted schemas.
 
-## Entity Framework Serial Execution
+### Entity Framework Serial Execution
 
 The serial execution for Entity Framework compatibility is gone. If you use Entity Framework Core we recommend using version 5 and the new context factory in combination with context pooling. This allows the execution engine to execute in parallel and still be memory efficient since context objects are pooled.
 
@@ -144,7 +144,7 @@ Another variant here is to use our scoped service feature that scopes services f
 
 https://github.com/ChilliCream/graphql-workshop
 
-# Schema / Resolvers
+## Schema / Resolvers
 
 ### Field ordering
 
@@ -155,7 +155,7 @@ makes migrations harder because the schema snapshot looks different compared to 
     builder.ModifyOptions(x => x.SortFieldsByName = true)
 ```
 
-## DataLoaders
+### DataLoaders
 
 With Hot Chocolate server 11, we have embraced the new DataLoader spec version 2. With that, we have decoupled the scheduler from the DataLoader itself, meaning you now have to pass on the `IBatchScheduler` to the base implementation of the DataLoader.
 Apart from that, DataLoader now uses `ValueTask` instead of `Task` when doing async work.
@@ -211,7 +211,7 @@ public class FooDataLoader : DataLoaderBase<Guid, Foo>
 }
 ```
 
-## Node Resolver
+### Node Resolver
 
 With version 11, we have reworked how Relay node types are defined. Furthermore, we added pure code-first (annotation-based) support.
 
@@ -283,7 +283,7 @@ public class MyEntityResolver
 
 There are more variants possible, but to give an impression of the new convenience and flexibility around nodes. As a side note, if you do not want the node attribute on the domain objects, you can also now add your very own attribute or interface to mark this and rewrite that in the schema building process to the `NodeAttribute`.
 
-## Pagination
+### Pagination
 
 The first thing to note around pagination is that we listened to a lot of feedback and have removed the `PaginationAmountType`.
 
@@ -309,7 +309,7 @@ Further, you can override the paging option on the resolver level.
 descriptor.Field(...).UsePaging(maxPageSize = 100)...
 ```
 
-## Projections
+### Projections
 
 The selection middleware, that was available in `HotChocolate.Types.Selections` was replaced by the projection middleware from `HotChocolate.Data`.
 
@@ -335,7 +335,7 @@ services.AddGraphQLServer()
   .AddProjections();
 ```
 
-## Enum Type
+### Enum Type
 
 HotChocolate server 11 now follows the spec recommendation with the new enum name conventions and formats the enum values by default as UPPER_SNAIL_CASE.
 
@@ -366,7 +366,7 @@ To avoid breaking changes to your schema, you will have to override the naming c
     }
 ```
 
-## IResolverContext.Source
+### IResolverContext.Source
 
 The source result stack was removed from the resolver context for performance reasons. If you need such a functionality, you can write a middleware that aggregates the resulting path on the scoped context.
 
@@ -450,7 +450,7 @@ The source result stack was removed from the resolver context for performance re
     }
 ```
 
-## Authorization
+### Authorization
 
 If you use authorization, you need to add a package reference to `HotChocolate.AspNetCore.Authorization`.
 
@@ -466,7 +466,7 @@ If you use authorization, you need to add a package reference to `HotChocolate.A
     builder.AddAuthorization()
 ```
 
-## TypeBinding
+### TypeBinding
 
 We have renamed the binding method from `BindClrType` to `BindRuntimeType` to make it more clear what it does.
 
@@ -482,7 +482,7 @@ We have renamed the binding method from `BindClrType` to `BindRuntimeType` to ma
     builder.BindRuntimeType<DateTime, DateTimeType>()
 ```
 
-## FieldMiddleware
+### FieldMiddleware
 
 Since all configuration APIs were integrated into one, we needed to make it more specific for what a middleware is defined. `UseField` defines a middleware that is applied to the resolver pipeline / field pipeline whereas `UseRequest` defines a middleware that is defined for the request processing.
 
@@ -498,11 +498,11 @@ Since all configuration APIs were integrated into one, we needed to make it more
     builder.UseField<CustomMiddleware>()
 ```
 
-# Stitching
+## Stitching
 
 The schema stitching configuration API has been completely integrated into the new configuration API. This means that a Gateway is nothing more than a GraphQL schema, which will make it easier for new users. However, you will need to completely rewire your stitching configuration.
 
-## Configuration
+### Configuration
 
 The stitching builder no longer exists in version 11 and you need to use the new configuration API to configure your gateway.
 
@@ -534,7 +534,7 @@ Registering a remote schema has slightly changed in version 11 to make it more c
     builder.AddRemoteSchema("SomeSchema", ignoreRootTypes: true);
 ```
 
-## AddSchemaConfiguration
+### AddSchemaConfiguration
 
 In version 11 it is now much easier to configure the gateway schema.
 
@@ -552,7 +552,7 @@ In version 11 it is now much easier to configure the gateway schema.
         .AddType<FooType>();
 ```
 
-## IgnoreField
+### IgnoreField
 
 The order of the parameters in ignore field and ignore type has changed since we moved optional parameters to the end.
 
@@ -570,7 +570,7 @@ The order of the parameters in ignore field and ignore type has changed since we
         .IgnoreField("TypeName, "FieldName", "SchemaName")
 ```
 
-## SetExecutionOptions
+### SetExecutionOptions
 
 Execution options can now be configured on the root schema directly like for any other schema:
 
@@ -593,7 +593,7 @@ Execution options can now be configured on the root schema directly like for any
         .ModifyRequestOptions(x => x.TracingPreference = TracingPreference.OnDemand);
 ```
 
-## Configuring a downstream schema
+### Configuring a downstream schema
 
 In case you want to configure a downstream schema, you can now just use the new configuration API since all downstream schemas have an in-memory representation.
 
@@ -607,7 +607,7 @@ In case you want to configure a downstream schema, you can now just use the new 
         .AddType(new IntType("SpecialIntegerType"));
 ```
 
-## PaginationAmount
+### PaginationAmount
 
 The `PaginationAmount` scalar was removed since it caused a lot of issues with clients and only provided limited benefit. The arguments `first` and `last` use now `Int` as a type. To avoid breaking schemas on a stitched schema, you can add a rewriter that rewrites all
 `first: Int` and `last: Int` on a connection to `first: PaginationAmount` and `last: PaginationAmount`.
@@ -691,7 +691,7 @@ downstream schemas.
     }
 ```
 
-## Batch responses
+### Batch responses
 
 In v10, responses to batched operations were returned as a JsonArray. In v11 the default is to return MultiPartChunked responses. To switch back to JsonArray, configure the HttpResult serializer as follows:
 
@@ -701,11 +701,11 @@ services.AddHttpResultSerializer(
 );
 ```
 
-# Testing
+## Testing
 
 We have added a couple of test helpers to make the transition to the new configuration API easier.
 
-## Schema Snapshot Tests
+### Schema Snapshot Tests
 
 **Old:**
 
@@ -729,7 +729,7 @@ We have added a couple of test helpers to make the transition to the new configu
     schema.Print().MatchSnapshot();
 ```
 
-## Request Tests
+### Request Tests
 
 **Old:**
 
@@ -768,7 +768,7 @@ Or you can directly build and execute:
     result.ToJson().MatchSnapshot();
 ```
 
-## DataLoader Testing
+### DataLoader Testing
 
 Due to the changed constructor you now need to also create a scheduler for the dataloaders
 

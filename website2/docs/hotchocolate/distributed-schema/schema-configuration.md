@@ -5,9 +5,9 @@ title: "Schema Configuration"
 Schema stitching and federations do have a lot more potential than just merging root types.
 You can remove and rename types and fields, extend types with new resolvers and delegate these resolvers to a domain service.
 
-# Schema Transformation
+## Schema Transformation
 
-## Rename Types
+### Rename Types
 
 The name of a GraphQL type has to be unique.
 When you build a standalone GraphQL server, the schema validation will make sure that no name is duplicated.
@@ -59,7 +59,7 @@ type ProductCategory @source(name: "Category", schema: "products") {
 }
 ```
 
-### Schema Stitching
+#### Schema Stitching
 
 In schema stitching type renames can be defined on the gateway:
 
@@ -71,7 +71,8 @@ services
     .RenameType("Category","ProductCategory", Products);
 ```
 
-##Schema Federations
+### Schema Federations
+
 In a federated approach, type renames can be done on the domain service:
 
 ```csharp{9}
@@ -90,7 +91,7 @@ services
                 sp => sp.GetRequiredService<ConnectionMultiplexer>()));
 ```
 
-## Rename Fields
+### Rename Fields
 
 Similar to type names, also fields can collide. A type can only declare a field once.
 When you bundle domain services together, multiple domain services may declare the same field on the query type.
@@ -127,7 +128,7 @@ type Query {
 }
 ```
 
-### Schema Stitching
+#### Schema Stitching
 
 In schema stitching field renames can be defined on the gateway:
 
@@ -139,7 +140,7 @@ services
     .RenameField("Query", "categories", "productCategories", schemaName: Products)
 ```
 
-### Schema Federations
+#### Schema Federations
 
 In a federated approach, type renames can be done on the domain service:
 
@@ -159,7 +160,7 @@ services
                 sp => sp.GetRequiredService<ConnectionMultiplexer>()));
 ```
 
-## Ignore Types
+### Ignore Types
 
 By default, all types of remote schemas are added to the gateway schema.
 This can produce types that are not reachable.
@@ -175,7 +176,7 @@ services
 
 If you want to remove a specific type from the schema you can also use `IgnoreType`
 
-### Schema Stitching
+#### Schema Stitching
 
 ```csharp{5}
 services
@@ -185,7 +186,7 @@ services
     .IgnoreType("Category", schemaName: Products);
 ```
 
-### Schema Federations
+#### Schema Federations
 
 ```csharp{9}
 services
@@ -203,12 +204,12 @@ services
                 sp => sp.GetRequiredService<ConnectionMultiplexer>()));
 ```
 
-## Ignore Field
+### Ignore Field
 
 HotChocolate has a convenience API to ignore fields of types.
 This can be useful when you want to merge root fields of domain services, but ignore some specific fields
 
-### Schema Stitching
+#### Schema Stitching
 
 ```csharp{5-6}
 services
@@ -219,7 +220,7 @@ services
     .IgnoreField("Query", "categories", Inventory);
 ```
 
-# Delegation of Resolvers
+## Delegation of Resolvers
 
 The real power of schema stitching is the delegation of resolvers.
 You can extend types with fields and redirect calls to a domain service
@@ -283,7 +284,7 @@ type Query {
 }
 ```
 
-## Delegate Directive
+### Delegate Directive
 
 The `@delegate` directive describes where the remote data is found.
 
@@ -298,7 +299,7 @@ directive @delegate(
 
 The `path` argument can contain references to context data or fields.
 
-### Field Reference ($fields)
+#### Field Reference ($fields)
 
 ```sdl
 @delegate(path: "inventoryInfo(upc: $fields:upc).isInStock")
@@ -317,7 +318,7 @@ extend type Product {
 }
 ```
 
-### Argument Reference ($arguments)
+#### Argument Reference ($arguments)
 
 ```sdl
 @delegate(path: "inventoryInfo(upc: $arguments:sku).isInStock")
@@ -331,7 +332,7 @@ extend type Query {
 }
 ```
 
-### Context Data Reference ($contextData)
+#### Context Data Reference ($contextData)
 
 Every request contains context data. Context data can be set in resolvers or with a `IHttpRequestInterceptor`
 
@@ -391,7 +392,7 @@ services
     ...
 ```
 
-### Scoped Context Data Reference ($scopedContext)
+#### Scoped Context Data Reference ($scopedContext)
 
 Scoped context data can be set in a resolver and will be available in all resolvers in the subtree.
 You have to use scoped context data when a resolver depends on a field that is higher up than just the parent.
@@ -488,7 +489,7 @@ public class MessageMiddlwareInterceptor : TypeInterceptor
 }
 ```
 
-## Configuration
+### Configuration
 
 You can configure the schema extensions either on the gateway or on the domain service if you use federations.
 Type extensions can either be strings, files or resources
@@ -497,7 +498,7 @@ Type extensions can either be strings, files or resources
 - `AddTypeExtensionFromResource(assembly, key);`
 - `AddTypeExtensionFromString("extend type Product {foo : String}");`
 
-### Schema Stitching
+#### Schema Stitching
 
 **Gateway:**
 
@@ -510,7 +511,7 @@ services
     .AddTypeExtensionsFromFile("./Stitching.graphql")
 ```
 
-### Schema Federations
+#### Schema Federations
 
 **Inventory Domain Service:**
 

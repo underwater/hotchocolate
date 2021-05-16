@@ -150,7 +150,7 @@ public class Startup
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-# Extension
+## Extension
 
 The GraphQL SDL supports extending object types, this means that we can add fields to an existing object type without changing the code of our initial type definition.
 

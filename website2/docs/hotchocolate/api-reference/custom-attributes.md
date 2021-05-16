@@ -16,13 +16,13 @@ public class QueryType : ObjectType<Query>
 
 This is where descriptor attributes come in. Descriptor attributes allow us to package descriptor configurations into an attribute that can be used to decorate our .NET types. Descriptor attributes act like an interceptor into the configuration of the inferred schema type.
 
-# Built-In Attributes
+## Built-In Attributes
 
 We have prepared the following set of built-in descriptor attributes.
 
 > ⚠️ **Note:** As middleware comprises the stages of a sequential _pipeline_, the ordering is important. The correct order to use is `UsePaging`, `UseFiltering`, `UseSorting`.
 
-## UsePagingAttribute
+### UsePagingAttribute
 
 The `UsePagingAttribute` allows us to use the paging middleware by annotating it to a property or method.
 
@@ -37,7 +37,7 @@ public class Query
 }
 ```
 
-## UseFilteringAttribute
+### UseFilteringAttribute
 
 The `UseFilteringAttribute` allows us to apply the filtering middleware to a property or method.
 
@@ -54,7 +54,7 @@ public class Query
 
 > ⚠️ **Note**: Be sure to install the `HotChocolate.Types.Filters` NuGet package.
 
-## UseSortingAttribute
+### UseSortingAttribute
 
 The `UseSortingAttribute` allows us to apply the sorting middleware to a property or method.
 
@@ -71,7 +71,7 @@ public class Query
 
 > ⚠️ **Note**: Be sure to install the `HotChocolate.Types.Sorting` NuGet package.
 
-## AuthorizeAttribute
+### AuthorizeAttribute
 
 The `AuthorizeAttribute` allows to apply the authorize directives to a class, struct, interface, property or method. The attribute will only be applied if the inferred type is an object type.
 
@@ -86,7 +86,7 @@ public class Query
 }
 ```
 
-# Attribute Chaining
+## Attribute Chaining
 
 Attributes can by default be chained, meaning that the attributes are applied in order from the top one to the bottom one.
 
@@ -121,7 +121,7 @@ public class QueryType
 }
 ```
 
-# Custom Descriptor Attributes
+## Custom Descriptor Attributes
 
 It is super simple to create custom descriptor attributes and package complex functionality in simple to use attributes.
 

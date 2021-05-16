@@ -4,25 +4,25 @@ title: "Automatic persisted queries"
 
 This guide will walk you through how automatic persisted queries work and how you can set them up with the Hot Chocolate GraphQL server.
 
-# How it works
+## How it works
 
 The automatic persisted queries protocol was originally specified by Apollo and represent an evolution of the persisted query feature that many GraphQL servers implement. Instead of storing persisted queries ahead of time, the client can store queries dynamically. This preserves the original proposal's performance benefits but removes the friction of setting up build processes that post-process the client applications source code.
 
 When the client makes a request to the server, it will optimistically send a short cryptographic hash instead of the full query text.
 
-## Optimized Path
+### Optimized Path
 
 Hot Chocolate server will inspect the incoming request for a query id or a full GraphQL query. If the request has only a query id the execution engine will first try to resolve the full query from the query storage. If the query storage contains a query that matches the provided query id, the request will be upgraded to a fully valid GraphQL request and will be executed.
 
-## New Query Path
+### New Query Path
 
 If the query storage does not contain a query that matches the sent query id, the Hot Chocolate server will return an error result that indicates that the query was not found (this will only happen the first time a client asks for a certain query). The client application will then send in a second request with the specified query id and the complete GraphQL query. This will trigger Hot Chocolate server to store this new query in its query storage and, at the same time, execute the query and returning the result.
 
-# Setup
+## Setup
 
 In the following tutorial, we will walk you through creating a Hot Chocolate GraphQL server and configuring it to support automatic persisted queries.
 
-## Step 1: Create a GraphQL server project
+### Step 1: Create a GraphQL server project
 
 Open your preferred terminal and select a directory where you want to add the code of this tutorial.
 
@@ -44,7 +44,7 @@ dotnet new graphql
 dotnet add package HotChocolate.PersistedQueries.InMemory
 ```
 
-## Step 2: Configure automatic persisted queries
+### Step 2: Configure automatic persisted queries
 
 Next, we want to configure our GraphQL server to be able to handle automatic persisted query requests. For this, we need to register the in-memory query storage and configure the automatic persisted query request pipeline.
 
@@ -93,7 +93,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Step 3: Verify server setup
+### Step 3: Verify server setup
 
 Now that our server is set up with automatic persisted queries, let us verify that it works as expected. We can do that by just using our console and a tool called `curl`. For our example, we will use a dummy query `{__typename}` with an MD5 hash serialized to base64 as a query id `71yeex4k3iYWQgg9TilDIg==`. We will test the full automatic persisted query flow and walk you through the responses.
 
@@ -168,7 +168,7 @@ This time the server knows the query and will respond with the simple result of 
 
 > In this example, we used GraphQL HTTP GET requests, which are also useful in caching scenarios with CDNs. But the automatic persisted query flow can also be used with GraphQL HTTP POST requests.
 
-## Step 4: Configure the hashing algorithm
+### Step 4: Configure the hashing algorithm
 
 Hot Chocolate server is configured to use by default the MD5 hashing algorithm, which is serialized to a base64 string. Hot Chocolate server comes out of the box with support for MD5, SHA1, and SHA256 and can serialize the hash to base64 or hex. In this step, we will walk you through changing the hashing algorithm to SHA256 with a hex serialization.
 
@@ -219,7 +219,7 @@ curl -g 'http://localhost:5000/graphql/?query={__typename}&extensions={"persiste
 }
 ```
 
-## Step 4: Use Redis as a query storage
+### Step 5: Use Redis as a query storage
 
 If you run multiple Hot Chocolate server instances and want to preserve stored queries after a server restart, you can opt to use a file system based query storage or opt to use a Redis cache. Hot Chocolate server supports both.
 

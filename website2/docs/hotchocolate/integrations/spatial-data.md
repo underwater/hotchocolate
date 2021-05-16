@@ -19,7 +19,7 @@ NetToplogySuite as its data representation.
 The package `HotChocolate.Spatial` integrates NetTopologySuite into HotChocolate. With this package your resolvers
 can return NetTopologySuite shapes and they will be transformed into GeoJSON.
 
-# Getting Started
+## Getting Started
 
 You first need to add the package reference to your project. You can do this with the `dotnet` cli:
 
@@ -119,11 +119,11 @@ type Query {
 }
 ```
 
-# Spatial Types
+## Spatial Types
 
 HotChocolate supports GeoJSON input and output types. There is also a GeoJSON scalar to make generic inputs possible.
 
-## Output Types
+### Output Types
 
 The following mappings are available by default:
 
@@ -152,7 +152,7 @@ interface GeoJSONInterface {
 
 A `NetTopologySuite.Gemeotry` is mapped to this interface by default.
 
-## Input Types
+### Input Types
 
 For each output type there is a corresponding input type
 
@@ -165,7 +165,7 @@ For each output type there is a corresponding input type
 | Polygon          | GeoJSONPolygonInput         |
 | MultiPolygon     | GeoJSONMultiPolygonInput    |
 
-## Scalar
+### Scalar
 
 With interfaces or unions it is possible to have multiple possible return types.
 Input types do not yet have a way of defining multiple possibilities.
@@ -177,7 +177,7 @@ This scalar should be used with caution. Input and output types are much more ex
 scalar Geometry
 ```
 
-# Projections
+## Projections
 
 To project spatial types, a special handler is needed. This handler can be registered on the schema with `.AddSpatialProjections()`
 
@@ -221,7 +221,7 @@ SELECT p."Id", p."Location", p."Name"
 FROM "Pubs" AS p
 ```
 
-# Filtering
+## Filtering
 
 Entity framework supports filtering on NetTopologySuite objects.
 `HotChocolate.Spatial` provides handlers for filtering spatial types on `IQueryable`.
@@ -296,7 +296,7 @@ input PointFilterInput {
 }
 ```
 
-## Distance
+### Distance
 
 The `distance` filter is an implementation of [`Geometry.Within`](http://nettopologysuite.github.io/NetTopologySuite/api/NetTopologySuite.Geometries.Geometry.html#NetTopologySuite_Geometries_Geometry_Within_NetTopologySuite_Geometries_Geometry_)
 
@@ -352,7 +352,7 @@ FROM "Counties" AS c
 WHERE NOT ST_Within(c."Area", @__p_0)
 ```
 
-## Contains
+### Contains
 
 The `contains` filter is an implementation of [`Geometry.Contains`](http://nettopologysuite.github.io/NetTopologySuite/api/NetTopologySuite.Geometries.Geometry.html#NetTopologySuite_Geometries_Geometry_Contains_NetTopologySuite_Geometries_Geometry)
 
@@ -393,7 +393,7 @@ FROM "Counties" AS c
 WHERE NOT ST_Contains(c."Area", @__p_0)
 ```
 
-## Touches
+### Touches
 
 The `touches` filter is an implementation of [`Geometry.Touches`](http://nettopologysuite.github.io/NetTopologySuite/api/NetTopologySuite.Geometries.Geometry.html#NetTopologySuite_Geometries_Geometry_Touches_NetTopologySuite_Geometries_Geometry_)
 
@@ -440,7 +440,7 @@ FROM "Counties" AS c
 WHERE NOT ST_Touches(c."Area", @__p_0)
 ```
 
-## Intersects
+### Intersects
 
 The `intersects` filter is an implementation of [`Geometry.Intersects`](http://nettopologysuite.github.io/NetTopologySuite/api/NetTopologySuite.Geometries.Geometry.html#NetTopologySuite_Geometries_Geometry_Intersects_NetTopologySuite_Geometries_Geometry_)
 
@@ -487,7 +487,7 @@ FROM "Roads" AS r
 WHERE NOT ST_Intersects(r."Road", @__p_0)
 ```
 
-## Overlaps
+### Overlaps
 
 The `overlaps` filter is an implementation of [`Geometry.Overlaps`](http://nettopologysuite.github.io/NetTopologySuite/api/NetTopologySuite.Geometries.Geometry.html#NetTopologySuite_Geometries_Geometry_Overlaps_NetTopologySuite_Geometries_Geometry_)
 
@@ -532,7 +532,7 @@ FROM "Counties" AS c
 WHERE NOT ST_Overlaps(c."Area", @__p_0)
 ```
 
-## Within
+### Within
 
 The `within` filter is an implementation of [`Geometry.Within`](http://nettopologysuite.github.io/NetTopologySuite/api/NetTopologySuite.Geometries.Geometry.html#NetTopologySuite_Geometries_Geometry_Within_NetTopologySuite_Geometries_Geometry_)
 
@@ -573,11 +573,11 @@ FROM "Counties" AS c
 WHERE NOT ST_Within(c."Area", @__p_0)
 ```
 
-# What's next?
+## What's next?
 
 In upcoming releases spatial data will get reprojection features and sorting capabilities.
 
-## Reprojection
+### Reprojection
 
 At the moment the coordinate reference system (crs) is fixed. The user has to know the crs of the backend
 to do spatial filtering. The API will furthermore always return the data in the crs it was stored in the database.
@@ -587,7 +587,7 @@ backend should reproject the incoming data automatically to the correct crs.
 
 Additionally we want to provide a way for users, to specify in what CRS they want to receive the data.
 
-## Sorting
+### Sorting
 
 Currently we only support filtering for spatial data. We also want to provide a way for users to sort results.
 This can e.g. be used to find the nearest result for a given point.

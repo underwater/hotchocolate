@@ -9,7 +9,7 @@ import { ExampleTabs } from '@site/src/components/ExampleTabs';
 
 The schema in GraphQL represents the type system and exposes your business model in a strong and rich way. The schema fully describes the shape of your data and how you can interact with it.
 
-# Object Type
+## Object Type
 
 The most important type in a GraphQL schema is the object type which lets you consume data. Every object type has to have at least one field which holds the data of an object. Fields can return simple scalars like String, Int, or again object types.
 
@@ -20,7 +20,7 @@ type Book {
 }
 ```
 
-## Operations
+### Operations
 
 In GraphQL, we have three root types from which only the Query type has to be defined. Root types provide the entry points that let you fetch data, mutate data, or subscribe to events. Root types themselves are object types.
 
@@ -176,7 +176,7 @@ public class Startup
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-## Fields
+### Fields
 
 Fields of object types can be compared to methods in C# and allow us to pass in arguments.
 
@@ -344,7 +344,7 @@ public class Startup
 > - [Object Types](../api-reference/object-type.md).
 > - [Resolvers](../fetching-data/resolver.md).
 
-# Input Objects
+## Input Objects
 
 In GraphQL we distinguish between input- and output-types. We already learned about object types which is the most prominent output-type and lets us consume data. Further, we used simple scalars like `String` to pass data into a field as an argument. In order to define complex structures of raw data that can be used as input data GraphQL defines input objects.
 
@@ -504,8 +504,8 @@ public class Startup
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-# Lists
+## Lists
 
-# Nullability
+## Nullability
 
 GraphQL has a concept of nun-null types. Basically any type can be a non-nullable type, in the SDL we decorate non-nullable types with the `Bang` token `!`. In order to describe this in C# we can use attributes, use C# nullable reference types or use the underlying schema types to describe our GraphQL type explicitly.

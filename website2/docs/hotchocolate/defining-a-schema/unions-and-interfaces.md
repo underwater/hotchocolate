@@ -7,7 +7,7 @@ import { ExampleTabs } from '@site/src/components/ExampleTabs';
 Similar to most type systems, GraphQL knows abstract types. There are two kinds of abstract types:
 [Interfaces](https://graphql.org/learn/schema/#interfaces) and [Unions](https://graphql.org/learn/schema/#unions)
 
-# Interfaces
+## Interfaces
 
 An interface type can be used for abstract types that share fields.
 
@@ -52,7 +52,7 @@ type VideoMessage implements Message & HasMediaType {
 }
 ```
 
-## Querying Interfaces
+### Querying Interfaces
 
 All fields declared on the interface type are available to query directly.
 [Inline Fragments 📄](https://spec.graphql.org/June2018/#sec-Inline-Fragments) allow to query for fields of a specific implementation.
@@ -101,7 +101,7 @@ All fields declared on the interface type are available to query directly.
 }
 ```
 
-## Interface Definition
+### Interface Definition
 
 HotChocolate tries to infer interfaces from the .Net types.
 When a resolver returns an interface, you just have to register the implementation on the schema builder.
@@ -264,7 +264,7 @@ public void ConfigureServices(IServiceCollection services)
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-# Unions
+## Unions
 
 Unions are very similar to interfaces. The difference is that members of an unions do not have fields in common.
 Unions are useful if you have completely disjunct structured types.
@@ -282,7 +282,7 @@ type User {
 union GroupMember = User | Group
 ```
 
-## Querying Unions
+### Querying Unions
 
 Union types do not have fields in common.  
 You have to use [Inline Fragments 📄](https://spec.graphql.org/June2018/#sec-Inline-Fragments) to query for fields of a specific implementation.
@@ -320,7 +320,7 @@ You have to use [Inline Fragments 📄](https://spec.graphql.org/June2018/#sec-I
 }
 ```
 
-## Union Definition
+### Union Definition
 
 <ExampleTabs>
 <ExampleTabs.Annotation>

@@ -30,7 +30,7 @@ FROM "Users" AS "u"
 LEFT JOIN "Address" AS "a" ON "u"."AddressId" = "a"."Id"
 ```
 
-# Getting Started
+## Getting Started
 
 Filtering is part of the `HotChocolate.Data` package. You can add the dependency with the `dotnet` cli
 
@@ -93,7 +93,7 @@ public class Query
 
 > ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjection > UseFiltering > UseSorting
 
-# FirstOrDefault / SingleOrDefault
+## FirstOrDefault / SingleOrDefault
 
 If you want to limit the response to a single result, you would have to declare a resolver.
 Without returning an `IQueryable<>` you lose the ability to use filtering.
@@ -126,7 +126,7 @@ type User {
 }
 ```
 
-# Sorting Filtering and Paging
+## Sorting Filtering and Paging
 
 Projections can be used together with sorting, filtering and paging. The order of the middlewares must be correct.
 Make sure to have the following order: UsePaging > UseProjection > UseFiltering > UseSorting
@@ -197,7 +197,7 @@ ORDER BY "t"."Name" DESC, "t"."Email" DESC, "t"."Id", "a"."Id"
 
 <!-- todo: the below two sections could be merged and simplified -->
 
-# Always Project Fields
+## Always Project Fields
 
 Resolvers on types often access data of the parent, e.g. uses the `Email` member of the parent to fetch some
 related data from another service. With projections, this resolver could only work when the user also queries
@@ -255,7 +255,7 @@ FROM "Users" AS "u"
 LEFT JOIN "Address" AS "a" ON "u"."AddressId" = "a"."Id"
 ```
 
-# Exclude fields
+## Exclude fields
 
 If a projected field is requested, the whole subtree is processed. Sometimes you want to opt out of projections.
 The projections middleware skips a field in two cases. Either the visitor encounters a field that is a `UseProjection` field

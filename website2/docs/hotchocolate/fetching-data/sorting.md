@@ -4,7 +4,7 @@ title: Sorting
 
 import { ExampleTabs } from '@site/src/components/ExampleTabs';
 
-# What is sorting
+## What is sorting
 
 Ordering results of a query dynamically is a common case. With Hot Chocolate sorting, you can expose a sorting argument, that abstracts the complexity of ordering logic.
 With little configuration your GraphQL API has sorting capabilities which translates to native database queries.
@@ -54,7 +54,7 @@ enum SortEnumType {
 }
 ```
 
-# Getting started
+## Getting started
 
 Sorting is part of the `HotChocolate.Data` package. You can add the dependency with the `dotnet` cli
 
@@ -113,7 +113,7 @@ public class Query
 
 > ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
 
-# Customization
+## Customization
 
 Under the hood, sorting is based ontop of normal Hot Chocolate input types. You can easily customize them with a very familiar fluent interface. The sorting input types follow the same `descriptor` scheme as you are used to from the normal input types. Just extend the base class `SortInputType<T>` and override the descriptor method.
 
@@ -216,11 +216,11 @@ public class Query
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-# Sorting Conventions
+## Sorting Conventions
 
 If you want to change the behavior sorting globally, you want to create a convention for sorting. The sorting convention comes with a fluent interface that is close to a type descriptor.
 
-## Get Started
+### Get Started
 
 To use a sort convention you have to extend `SortConvention` and override the `Configure` method. Alternatively, you can directly configure the convention over the constructor argument.
 You then have to register your custom convention on the schema builder with `AddConvention`.
@@ -266,7 +266,7 @@ services.AddGraphQLServer()
     }))
 ```
 
-## Argument Name
+### Argument Name
 
 With the convention descriptor, you can easily change the argument name of the `FilterInputType`.
 
@@ -284,11 +284,11 @@ type Query {
 }
 ```
 
-## Binding of SortTypes
+### Binding of SortTypes
 
 `SortInputType`'s **cannot** just be registered on the schema. You have to bind them to the runtime type on the convention.
 
-### SortInputType bindings
+#### SortInputType bindings
 
 By default only the `string` type is bound explicitly. If you want to configure sorting globally you are free to bind additional types.
 
@@ -335,7 +335,7 @@ enum SortEnumType {
 }
 ```
 
-### Default bindings
+#### Default bindings
 
 For fields all fields where no explicit binding is found, a default is applied. This default is `DefaultSortEnumType`.
 This can be configured with the method `DefaultBinding`.
@@ -372,9 +372,9 @@ enum AscOnlySortEnumType {
 }
 ```
 
-## Extend Types
+### Extend Types
 
-### SortEnumType
+#### SortEnumType
 
 When you build extensions for sorting, you may want to modify or extend the `DefaultSortEnumType`.
 
@@ -391,7 +391,7 @@ enum SortEnumType {
 }
 ```
 
-### SortType
+#### SortType
 
 In case you want to change a specific sort type you can do this too.
 You can use `Configure<TSortType>()` to alter the configuration of a type.

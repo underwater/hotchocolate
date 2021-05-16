@@ -4,7 +4,7 @@ title: Custom Context Data
 
 When implementing custom middleware, it can be useful to be able to store some custom state on the context. This could be to build up a cache or other state data. Hot Chocolate has two types of context stores that we can use.
 
-# Global Context Data
+## Global Context Data
 
 The global context data is a thread-safe dictionary that is available though the `IQueryContext` and the `IResolverContext`. This means we are able to share context data between query middleware components and field middleware components.
 
@@ -63,7 +63,7 @@ public Task<string> MyResolver([State("Foo")]Foo foo)
 }
 ```
 
-# Scoped Context Data
+## Scoped Context Data
 
 The scoped context data is a immutable dictionary and is only available through the `IResolverContext`.
 

@@ -88,7 +88,7 @@ extend type Query {
 >    .AddTypeExtension<QueryExtensions>();
 > ```
 
-# Extending types with the annotation-based approach
+## Extending types with the annotation-based approach
 
 Extending types can be beneficial even with non-root types. Let's say we are building a schema with the annotation-based approach where we use pure C# to describe our types.
 
@@ -110,7 +110,7 @@ public class Session
 }
 ```
 
-## Replace a field
+### Replace a field
 
 We could start adding our GraphQL concerns to this type directly. But often, we want to keep our entity clean from any graph concerns.
 
@@ -125,7 +125,7 @@ public class SessionResolvers
 }
 ```
 
-## Remove a field
+### Remove a field
 
 We also easily can remove properties that we do not like on our initial type. For instance, let us omit the `Abstract`.
 
@@ -138,7 +138,7 @@ public class SessionResolvers
 }
 ```
 
-## Add a field
+### Add a field
 
 Further, might we want to be able to add new fields to our entity.
 
@@ -150,7 +150,7 @@ public class SessionResolvers
 }
 ```
 
-## Select types to extend
+### Select types to extend
 
 Moreover, we can extend multiple types at once by extending upon base types or interfaces.
 
@@ -176,7 +176,7 @@ public class SessionResolvers
 
 Instead of using `typeof(object)` as a selector for extending types you can also use interfaces or other base types.
 
-## Select types to extend with schema types
+### Select types to extend with schema types
 
 We also can use schema types as a type selector.
 

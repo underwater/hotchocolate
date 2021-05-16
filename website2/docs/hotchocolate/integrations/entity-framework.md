@@ -12,7 +12,7 @@ It provides helpers that make EF integration with HotChocolate a breeze.
 
 The package was build on the foundation of EntityFramework Core v5.0.0.
 
-# Getting Started
+## Getting Started
 
 You first need to add the package reference to your project. You can do this with the `dotnet` cli:
 
@@ -31,7 +31,7 @@ services.AddPooledDbContextFactory<SomeDbContext>(b => b /*your configuration */
 > ⚠️ **Note:** The configuration of `AddPooledDbContextFactory` replaces the `OnConfiguring` method of the `DBContext`.
 > You have to move the configuration to the factory method if you use `OnConfiguring`
 
-# Using the DBContext
+## Using the DBContext
 
 A resolver has to get a database context from the pool, execute the query and then return the context back to the
 pool.

@@ -8,7 +8,7 @@ import { ExampleTabs } from '@site/src/components/ExampleTabs';
 
 In GraphQL, there are three root types from which only the Query type has to be defined. Root types provide the entry points that lets us fetch data, mutate data, or subscribe to events. Root types themselves are object types and are commonly referred to as operations.
 
-# Query
+## Query
 
 The query type is how we can read data. It is described as a way to access read-only data in a side-effect free way. This means that the GraphQL engine is allowed to parallelize data fetching.
 
@@ -21,7 +21,7 @@ query {
 }
 ```
 
-## Defining a query
+### Defining a query
 
 A query type can be represented like the following:
 
@@ -129,7 +129,7 @@ public class Startup
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-# Mutation
+## Mutation
 
 The mutation type in GraphQL is used to mutate/change data. This means that when we are doing mutations, we are causing side-effects to the system.
 
@@ -171,7 +171,7 @@ In one GraphQL request we can execute multiple mutations. Each of these mutation
 }
 ```
 
-## Defining a Mutation
+### Defining a Mutation
 
 A mutation type can be represented like the following:
 
@@ -281,7 +281,7 @@ public class Startup
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-## Mutation Transactions
+### Mutation Transactions
 
 With multiple mutations executed serially in one request it sometimes would be great to put these into a transactions scope that we can control.
 
@@ -339,7 +339,7 @@ services
     .AddTransactionScopeHandler<CustomTransactionScopeHandler>();
 ```
 
-# Subscription
+## Subscription
 
 The subscription type in GraphQL is used to add real-time capabilities to our applications. Clients can subscribe to events and receive the event data in real-time, as soon as the server publishes it.
 
@@ -355,7 +355,7 @@ subscription {
 
 HotChocolate implements Subscriptions via WebSockets and uses the pub/sub approach of [Apollo](https://www.apollographql.com/docs/apollo-server/data/subscriptions/#the-pubsub-class) for triggering subscriptions.
 
-## Defining a Subscription
+### Defining a Subscription
 
 A subscription type can be represented like the following:
 
@@ -461,7 +461,7 @@ public class Startup
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-## Transport
+### Transport
 
 After defining the subscription type, we need to add the WebSockets middleware to our request pipeline.
 
@@ -486,7 +486,7 @@ public class Startup
 
 To make pub/sub work, we also have to register a subscription provider. A subscription provider represents a pub/sub implementation used to handle events. Out of the box we support two subscription providers.
 
-### In-Memory Provider
+#### In-Memory Provider
 
 The In-Memory subscription provider does not need any configuration and is easily setup:
 
@@ -494,7 +494,7 @@ The In-Memory subscription provider does not need any configuration and is easil
 services.AddInMemorySubscriptions();
 ```
 
-### Redis Provider
+#### Redis Provider
 
 The Redis subscription provider enables us to run multiple instances of our HotChocolate GraphQL server and handle subscription events reliably.
 
@@ -509,7 +509,7 @@ services.AddRedisSubscriptions((sp) =>
 
 Our Redis subscription provider uses the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) Redis client underneath.
 
-## Publishing Events
+### Publishing Events
 
 To publish events and trigger subscriptions, we can use the `ITopicEventSender`. The `ITopicEventSender` is an abstraction for the registered event publishing provider. Using this abstraction allows us to seamlessly switch between subscription providers, when necessary.
 

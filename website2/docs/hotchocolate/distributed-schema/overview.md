@@ -61,7 +61,7 @@ type Address {
 }
 ```
 
-# Schema Stitching
+## Schema Stitching
 
 In the scenario of schema stitching, the configuration of the gateway schema is on the gateway itself.
 The gateway pulls the schema from the downstream services and can be extended with SDL.
@@ -82,7 +82,7 @@ graph TD;
     Gateway-->Person;
 ```
 
-# Federated Schema
+## Federated Schema
 
 The major difference between schema federation and schema stitching is where the extensions are stored.
 In the federated approach, the schema extensions are defined on the federated service.
@@ -117,7 +117,7 @@ graph TD;
     Redis-->Gateway
 ```
 
-# A real world example
+## A real world example
 
 To showcase how schema stitching works and what the problems are let us assume we have a service like Twitter, where a user can post messages.
 

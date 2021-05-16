@@ -16,7 +16,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-# GraphQL over HTTP Spec
+## GraphQL over HTTP Spec
 
 The following GraphQL requests follow the current GraphQL over HTTP spec draft.
 
@@ -28,7 +28,7 @@ If no path is specified, the GraphQL middleware will follow the spec recommendat
 
 `http://example.com/product/graphql`
 
-## GraphQL HTTP POST requests
+### GraphQL HTTP POST requests
 
 The GraphQL HTTP POST request is the most commonly used variant for GraphQL requests over HTTP and is specified [here](https://github.com/graphql/graphql-over-http/blob/master/spec/GraphQLOverHTTP.md#post).
 
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 ```
 
-## GraphQL HTTP GET request
+### GraphQL HTTP GET request
 
 GraphQL can also be served through an HTTP GET request. You have the same options as the HTTP POST request, just that the request properties are provided as query parameters. GraphQL HTTP GET requests can be a good choice if you are looking to cache GraphQL requests.
 
@@ -148,7 +148,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-## Incremental Delivery over HTTP
+### Incremental Delivery over HTTP
 
 The Hot Chocolate GraphQL server supports incremental delivery over HTTP, which essentially uses HTTP chunked transfer encoding combined with the [specification of multipart content defined by the W3 in rfc1341](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
 
@@ -156,13 +156,13 @@ The incremental delivery is at the moment at the RFC stage and is specified [her
 
 Incremental delivery is used with `@defer`, `@stream`, and with request batching.
 
-# Additional Requests
+## Additional Requests
 
 Apart from the requests defined by the GraphQL over HTTP spec, Hot Chocolate allows you to batch requests, download the GraphQL SDL, and many more things.
 
 > Many of the request types stated in this section are on their way into the GraphQL over HTTP spec, and we will update this document as the spec, and its RFCs change.
 
-## GraphQL Schema request
+### GraphQL Schema request
 
 Although you can access and query the schema definition through introspection, we support fetching the GraphQL schema SDL as a file. The GraphQL schema SDL is richer with more information and easier to read.
 
@@ -184,7 +184,7 @@ type Query {
 }
 ```
 
-## GraphQL HTTP POST batching request
+### GraphQL HTTP POST batching request
 
 We support two kinds of batching variants.
 
@@ -287,7 +287,7 @@ services.AddHttpResultSerializer(
 <!-- todo: link to v10 -->
 <!-- > More about batching can be found [here](batching). -->
 
-## GraphQL multipart request specification
+### GraphQL multipart request specification
 
 Hot Chocolate implements the GraphQL multipart request specification which allows for file upload streams in your browser. The GraphQL multipart request specification can be found [here](https://github.com/jaydenseric/graphql-multipart-request-spec).
 
@@ -327,17 +327,17 @@ services.Configure<FormOptions>(options =>
 
 Based on your WebServer you might need to configure these limits elsewhere as well. [Kestrel](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size) and [IIS](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads#iis) are covered in the ASP.NET Core Documentation.
 
-# Subscription Transport
+## Subscription Transport
 
 Subscriptions are by default delivered over WebSocket. We have implemented the [GraphQL over WebSocket Protocol](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md) specified by Apollo.
 
-## Alternative Transport Protocols
+### Alternative Transport Protocols
 
 With version 11.1, we will add alternative transport protocols like the [new proposal for the GraphQL over HTTP spec](https://github.com/graphql/graphql-over-http/pull/140).
 
 Moreover, we are working on allowing this protocol to be used over SignalR, which gives more flexibility to use subscriptions.
 
-# Tooling
+## Tooling
 
 The Hot Chocolate GraphQL server comes right out of the gate with excellent tooling. By default, we are mapping our GraphQL IDE Banana Cake Pop to the GraphQL endpoint. This means you just need to open your browser and navigate to the configured endpoint to send requests to your server, explore your schema, or build-up tests.
 
@@ -355,7 +355,7 @@ endpoints
         }));
 ```
 
-# Serialization
+## Serialization
 
 The Hot Chocolate GraphQL server has abstracted the result serialization with the `IHttpResultSerializer` interface. The server uses the registered implementation to resolve the HTTP status code, the HTTP content type, and the serialized response from a GraphQL execution result.
 
@@ -434,7 +434,7 @@ public class MyCustomHttpResultSerializer : DefaultHttpResultSerializer
 }
 ```
 
-# GraphQL request customization
+## GraphQL request customization
 
 The GraphQL server allows you to customize how the GraphQL request is created. For this, you need to implement the `IHttpRequestInterceptor`. For convenience reasons, we provide a default implementation (`DefaultHttpRequestInterceptor`) that can be extended.
 
@@ -489,7 +489,7 @@ public string MyResolver([HttpContext] HttpContext context)
 }
 ```
 
-# Subscription session handling
+## Subscription session handling
 
 The Hot Chocolate GraphQL server allows you to interact with the server's socket session handling by implementing `ISocketSessionInterceptor`. For convenience reasons, we provide a default implementation (`DefaultSocketSessionInterceptor`) that can be extended.
 

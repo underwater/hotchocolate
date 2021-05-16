@@ -83,7 +83,7 @@ services
     .AddTypeExtension<UserQueries>()
 ```
 
-# Method-Level Dependency Injection
+## Method-Level Dependency Injection
 
 Hot Chocolate also allows for method-level dependency injection. This allows you to create side-effect free resolvers regarding the dependency injection. We in general advise to use method-level dependency injection on resolvers for better execution performance and simpler maintenance.
 
@@ -108,7 +108,7 @@ This also benefits the execution engine since it knows which services are used a
 
 > Note: For method-level dependency injection we also allow to reuse the `FromServicesAttribute` from ASP.NET core.
 
-# Custom Dependency Injection Container
+## Custom Dependency Injection Container
 
 In order to override the default dependency injection container you need to override the `DefaultHttpRequestInterceptor` and the `DefaultSocketSessionInterceptor`.
 

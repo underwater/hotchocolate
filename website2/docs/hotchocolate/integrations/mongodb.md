@@ -7,7 +7,7 @@ With this integration, you can translate paging, filtering, sorting, and project
 
 You can find a example project in [HotChocolate Examples](https://github.com/ChilliCream/hotchocolate-examples/tree/master/misc/MongoDB)
 
-# Get Started
+## Get Started
 
 To use the MongoDB integration, you need to install the package `HotChocolate.Data.MongoDb`.
 
@@ -15,7 +15,7 @@ To use the MongoDB integration, you need to install the package `HotChocolate.Da
 dotnet add package HotChocolate.Data.MongoDb
 ```
 
-# MongoExecutable
+## MongoExecutable
 
 The whole integration builds around `IExecutable<T>`.
 The integration provides you the extension method `AsExecutable` on `IMongoCollection<T>`, `IAggregateFluent<T>` and `IFindFluent<T>`
@@ -41,7 +41,7 @@ public IExecutable<Person> GetPersonById(
 }
 ```
 
-# Filtering
+## Filtering
 
 To use MongoDB filtering you need to register the convention on the schema builder:
 
@@ -89,7 +89,7 @@ _Mongo Query_
 }
 ```
 
-# Sorting
+## Sorting
 
 To use MongoDB sorting you need to register the convention on the schema builder:
 
@@ -130,7 +130,7 @@ _Mongo Query_
 }
 ```
 
-# Projections
+## Projections
 
 To use MongoDB projections you need to register the convention on the schema builder:
 
@@ -172,11 +172,11 @@ _Mongo Query_
 }
 ```
 
-# Paging
+## Paging
 
 The integration comes with providers for offset and cursor-based pagination
 
-## Cursor Pagination
+### Cursor Pagination
 
 To use cursor based pagination annoate you resolver with `[UseMongoDbPaging]` or `.UseMongoDbPaging()`
 
@@ -209,7 +209,7 @@ query GetPersons {
 }
 ```
 
-## Offset Pagination
+### Offset Pagination
 
 To use cursor based pagination annoate you resolver with `[UseMongoDbPaging]` or `.UseMongoDbPaging()`
 
@@ -240,7 +240,7 @@ query GetPersons {
 }
 ```
 
-# FirstOrDefault / SingleOrDefault
+## FirstOrDefault / SingleOrDefault
 
 Sometimes you may want to return only a single object of a collection.
 To limit the response to one element you can use the `UseFirstOrDefault` or `UseSingleOrDefault` middleware.

@@ -9,7 +9,7 @@ all _GraphQL_ servers.
 
 > Tracing results are by default hidden in **Playground**. You have to either click on the _TRACING_ button in the bottom right corner or enable it with the `tracing.hideTracingResponse` flag in the settings.
 
-# Enabling Apollo Tracing
+## Enabling Apollo Tracing
 
 Due to built-in _Apollo Tracing_ support it's actually very simple to enable
 this feature. There is an option named `TracingPreference` which takes one of

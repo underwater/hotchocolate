@@ -8,7 +8,7 @@ Pagination is one of the most common problems that we have to solve when impleme
 
 Pagination solves this problem by giving the consumer the ability to fetch a set in chunks.
 
-# Connections
+## Connections
 
 _Connections_ are a standardized way to expose pagination to clients.
 
@@ -42,7 +42,7 @@ You can learn more about this in the [GraphQL Cursor Connections Specification](
 
 > Note: _Connections_ are often associated with _cursor-based_ pagination, due to the use of a _cursor_. Since the specification describes the _cursor_ as opague though, it can be used to faciliate an _offset_ as well.
 
-## Usage
+### Usage
 
 Adding pagination capabilties to our fields is a breeze. All we have to do is add the `UsePaging` middleware.
 
@@ -108,7 +108,7 @@ descriptor.UsePaging(options: new PagingOptions
 
 For the `UsePaging` middleware to work, our resolver needs to return an `IEnumerable<T>` or an `IQueryable<T>`. The middleware will then apply the pagination arguments to what we have returned. In the case of an `IQueryable<T>` this means that the pagination operations can be directly translated to native database queries, through database drivers like EntityFramework or the MongoDB client.
 
-## Customization
+### Customization
 
 If we need more control over the pagination process we can do so, by returning a `Connection<T>`.
 
@@ -180,7 +180,7 @@ If we need to work on an even lower level, we could also use `descriptor.AddPagi
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-## Total count
+### Total count
 
 Sometimes we might want to return the total number of pageable entries.
 
@@ -265,7 +265,7 @@ type PageInfo {
 }
 ``` -->
 
-# Offset Pagination
+## Offset Pagination
 
 > Note: While we support _offset-based_ pagination, we highly encourage the use of [_Connections_](#connections) instead. _Connections_ provide an abstraction which makes it easier to switch to another pagination mechanism later on.
 
@@ -287,7 +287,7 @@ type CollectionSegmentInfo {
 }
 ```
 
-## Usage
+### Usage
 
 To add _offset-based_ pagination capabilties to our fields we have to add the `UseOffsetPaging` middleware.
 
@@ -353,7 +353,7 @@ descriptor.UseOffsetPaging(options: new PagingOptions
 
 For the `UseOffsetPaging` middleware to work, our resolver needs to return an `IEnumerable<T>` or an `IQueryable<T>`. The middleware will then apply the pagination arguments to what we have returned. In the case of an `IQueryable<T>` this means that the pagination operations can be directly translated to native database queries, through database drivers like EntityFramework or the MongoDB client.
 
-## Customization
+### Customization
 
 If we need more control over the pagination process we can do so, by returning a `CollectionSegment<T>`.
 
@@ -425,7 +425,7 @@ If we need to work on an even lower level, we could also use `descriptor.AddOffs
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-## Total count
+### Total count
 
 Sometimes we might want to return the total number of pageable entries.
 
@@ -477,7 +477,7 @@ var collectionSegment = new CollectionSegment<User>(
     getTotalCount: cancellationToken => ValueTask.FromResult(0));
 ```
 
-# Pagination defaults
+## Pagination defaults
 
 If we want to enforce consistent pagination defaults throughout our app, we can do so, by setting the global `PagingOptions`.
 
@@ -497,13 +497,13 @@ public class Startup
 }
 ```
 
-# Types of pagination
+## Types of pagination
 
 In this section we will look at the most common pagination approaches and their downsides. There are mainly two concepts we find today: _offset-based_ and _cursor-based_ pagination.
 
 > Note: This section is intended as a brief overview and should not be treated as a definitive guide or recommendation.
 
-## Offset Pagination
+### Offset Pagination
 
 _Offset-based_ pagination is found in many server implementations whether the backend is implemented in SOAP, REST or GraphQL.
 
@@ -515,7 +515,7 @@ ORDER BY Id
 LIMIT %limit OFFSET %offset
 ```
 
-### Problems
+#### Problems
 
 But whilst _offset-based_ pagination is simple to implement and works relatively well, there are also some problems:
 
@@ -523,7 +523,7 @@ But whilst _offset-based_ pagination is simple to implement and works relatively
 
 - If new entries are written to or removed from our database at high frequency, the _offset_ becomes unreliable, potentially skipping or returning duplicate entries.
 
-## Cursor Pagination
+### Cursor Pagination
 
 Contrary to the _offset-based_ pagination, where we identify the position of an entry using an _offset_, _cursor-based_ pagination works by returning the pointer to the next entry in our pagination.
 
@@ -566,7 +566,7 @@ ORDER BY Birthday, Id
 LIMIT %limit
 ```
 
-### Problems
+#### Problems
 
 Even though _cursor-based_ pagination can be more performant than _offset-based_ pagination, it comes with some downsides as well:
 

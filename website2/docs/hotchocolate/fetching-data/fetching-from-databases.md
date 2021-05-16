@@ -13,7 +13,7 @@ The GraphQL server only knows its schema, types and resolvers, what you do in th
 
 In this example, we will directly fetch data from MongoDB in a resolver.
 
-# Setting up the Query
+## Setting up the Query
 
 The query type in a GraphQL schema is the root type. Each field defined on this type is available at the root of a query.
 If a field is requested, the resolver of the field is called.

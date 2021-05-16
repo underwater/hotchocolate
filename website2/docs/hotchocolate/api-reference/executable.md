@@ -40,9 +40,9 @@ The `IExecutable` is known to the execution engine. The engine calls `ToListAsyn
 `SingleOrDefault` on the executable. The executable shall execute it in the most efficient way for the
 database.
 
-# API
+## API
 
-## Source
+### Source
 
 ```csharp
     object Source { get; }
@@ -55,7 +55,7 @@ In the EnittyFramework executable this property holds the `IQueryable`. In the `
 of `IExecutable` and you want to set the `Source`, you should create a method that returns a new executable
 with the new source
 
-## ToListAsync
+### ToListAsync
 
 ```csharp
     ValueTask<IList> ToListAsync(CancellationToken cancellationToken);
@@ -63,7 +63,7 @@ with the new source
 
 Should return a list of `<T>`.
 
-## FirstOrDefault
+### FirstOrDefault
 
 ```csharp
     ValueTask<IList> FirstOrDefault(CancellationToken cancellationToken);
@@ -71,7 +71,7 @@ Should return a list of `<T>`.
 
 Should return the first element of a sequence, or a default value if the sequence contains no elements.
 
-## SingleOrDefault
+### SingleOrDefault
 
 ```csharp
     ValueTask<IList> SingleOrDefault(CancellationToken cancellationToken);
@@ -80,7 +80,7 @@ Should return the first element of a sequence, or a default value if the sequenc
 Should return the only element of a default value if no such element exists. This method
 should throw an exception if more than one element satisfies the condition.
 
-## Print
+### Print
 
 ```csharp
 string Print();
@@ -88,7 +88,7 @@ string Print();
 
 Prints the executable in its current state
 
-# Example
+## Example
 
 ```csharp
 public class EntityFrameworkExecutable<T> : QueryableExecutable<T>

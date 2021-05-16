@@ -40,7 +40,7 @@ input StringOperationFilterInput {
 }
 ```
 
-# Getting started
+## Getting started
 
 Filtering is part of the `HotChocolate.Data` package. You can add the dependency with the `dotnet` cli
 
@@ -102,7 +102,7 @@ public class QueryType : ObjectType<Query>
 
 > ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjections > UseFiltering > UseSorting
 
-# Customization
+## Customization
 
 Under the hood, filtering is based on top of normal Hot Chocolate input types. You can easily customize them with a very familiar fluent interface. The filter input types follow the same `descriptor` scheme as you are used to from the normal input types. Just extend the base class `FilterInputType<T>` and override the descriptor method.
 
@@ -199,7 +199,7 @@ public class QueryType : ObjectType<Query>
 </ExampleTabs.Schema>
 </ExampleTabs>
 
-# AND / OR Filter
+## AND / OR Filter
 
 There are two built in fields.
 
@@ -246,7 +246,7 @@ query {
 
 In this case the filters are applied like `title.Contains("John") && title.Contains("Doe")` rather than `title.Contains("John") || title.Contains("Doe")` how you probably intended it.
 
-## Removing AND / OR
+### Removing AND / OR
 
 If you do not want to expose `AND` and `OR` you can remove these fields with the descriptor API:
 
@@ -261,9 +261,9 @@ public class UserFilterType : FilterInputType<User>
 }
 ```
 
-# Filter Types
+## Filter Types
 
-## Boolean Filter
+### Boolean Filter
 
 Defined the filter operations of a `bool` field.
 
@@ -299,7 +299,7 @@ input UserFilterInput {
 }
 ```
 
-## Comparable Filter
+### Comparable Filter
 
 Defines filters for `IComparables` like: `bool`, `byte`, `shot`, `int`, `long`, `float`, `double` `decimal`, `Guid`, `DateTime`, `DateTimeOffset` and `TimeSpan`
 
@@ -345,7 +345,7 @@ input UserFilterInput {
 }
 ```
 
-## String Filter
+### String Filter
 
 Defines filters for `string`
 
@@ -391,7 +391,7 @@ input UserFilterInput {
 }
 ```
 
-## Enum Filter
+### Enum Filter
 
 Defines filters for C# enums
 
@@ -435,7 +435,7 @@ input UserFilterInput {
 }
 ```
 
-## Object Filter
+### Object Filter
 
 An object filter is generated for all nested objects. The object filter can also be used to filter over database relations.
 For each nested object, filters are generated.
@@ -501,7 +501,7 @@ input UserFilterInput {
 }
 ```
 
-## List Filter
+### List Filter
 
 List filters are generated for all nested enumerations.
 
@@ -583,11 +583,11 @@ input UserFilterInput {
 }
 ```
 
-# Filter Conventions
+## Filter Conventions
 
 If you want to change the behavior filtering globally, you want to create a convention for your filters. The filter convention comes with a fluent interface that is close to a type descriptor.
 
-## Get Started
+### Get Started
 
 To use a filter convention you can extend `FilterConvention` and override the `Configure` method. Alternatively, you can directly configure the convention over the constructor argument.
 You then have to register your custom convention on the schema builder with `AddConvention`.
@@ -631,7 +631,7 @@ services.AddGraphQLServer()
     }));
 ```
 
-## Argument Name
+### Argument Name
 
 With the convention descriptor, you can easily change the argument name of the `FilterInputType`.
 
@@ -649,7 +649,7 @@ type Query {
 }
 ```
 
-## Binding of FilterTypes
+### Binding of FilterTypes
 
 `FilterInputType`'s **cannot** just be registered on the schema. You have to bind them to the runtime type on the convention.
 
@@ -708,7 +708,7 @@ input UserFilterInput {
 }
 ```
 
-## Extend FilterTypes
+### Extend FilterTypes
 
 Instead of defining your own operation type, you can also just change the configuration of the built
 in ones.

@@ -11,7 +11,7 @@ The easiest way to integrate a REST API is, to define an OpenAPI specification f
 OpenAPI describes what data a REST endpoint returns.
 You can automatically generate a dotnet client for this API and integrate it into your schema.
 
-# OpenAPI in .NET
+## OpenAPI in .NET
 
 If you do not have an OpenAPI specification for your REST endpoint yet, you can easily add it to your API.
 There are two major OpenAPI implementations in dotnet: [NSwag](http://nswag.org) and [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
@@ -23,7 +23,7 @@ When you start this project, you can navigate to the [Swagger UI](http://localho
 This REST API covers a simple Todo app.
 We will expose `todos` and `todoById` in our GraphQL API.
 
-# Generating a client
+## Generating a client
 
 Every REST endpoint that supports OpenAPI, can easily be wrapped with a fully typed client.
 Again, you have several options on how you generate your client.
@@ -68,7 +68,7 @@ Make sure to also add this package by executing:
 dotnet add package Newtonsoft.Json
 ```
 
-# Exposing the API
+## Exposing the API
 
 You will have to register the client in the dependency injection of your GraphQL service.
 To expose the API you can inject the generated client into your resolvers.

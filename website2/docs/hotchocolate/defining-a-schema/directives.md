@@ -4,13 +4,13 @@ title: "Directives"
 
 Here we will learn what GraphQL directives are and how we can build custom directives.
 
-# Introduction
+## Introduction
 
 Directives provide a way to add metadata for client tools such as code generators and IDEs or alternate a GraphQL server's runtime execution and type validation behavior. There are two kinds of directives, executable directives to annotate executable parts of GraphQL documents and type-system directives to annotate SDL types. Typically, any GraphQL server implementation should provide the following directives `@skip`, `@include`, and `@deprecated`. `@skip` and `@include`, for example, are executable directives used in GraphQL documents to exclude or include fields, whereas `@deprecated` is a type-system directive used in SDL types to inform client tools that a particular part such as a field is deprecated.
 
 > **Hint:** Directives in GraphQL are pretty similar to Attributes in .Net
 
-## Structure
+### Structure
 
 Directives consist of a name and a list of arguments that contain zero or more arguments. `@skip`, for example, has the name **skip** and a mandatory argument named **if**. Also, `@skip` carries a piece of hidden information only examinable in SDL, namely the location, which specifies where a directive is applicable. Let's take a look at the SDL of the `@skip` directive.
 
@@ -23,7 +23,7 @@ directive @skip(if: Boolean!) on
 
 The `directive` keyword in SDL indicates that we're dealing with a directive type declaration. The `@` sign also indicates that this is a directive but more from a usage perspective. The word `skip` represents the directive's name followed by a pair of parentheses that includes a list of arguments, consisting, in our case, of one argument named `if` of type non-nullable boolean (means it's required). The `on` keyword indicates the location where or at which part a directive is applicable, followed by a list of exact locations separated by pipes `|`. In the case of `@skip`, we can see that we're dealing with an executable directive because this directive is only applicable to fields, fragment-spreads, and inline-fragments.
 
-## Usage
+### Usage
 
 Let's say we have a GraphQL document and want to exclude details under certain circumstances; it would probably look something like this.
 
@@ -57,7 +57,7 @@ With `@skip`, we've successfully altered the GraphQL's runtime execution behavio
 
 Now that we know how to use directives in GraphQL, let's head over to the next section, which is about one crucial aspect of directives.
 
-### Order Matters
+#### Order Matters
 
 **Directives' order is significant** because the execution is in **sequential order**, which means one after the other. If we have something like the following example, we can see how directives can affect each other.
 
@@ -94,7 +94,7 @@ sequenceDiagram
 
 Now that we have a basic understanding of what directives are, how they work, and what we can do with them, let's have fun and create a custom directive.
 
-# Custom Directives
+## Custom Directives
 
 To create a directive, we need to create a new class that inherits from `DirectiveType` and also to override the `Configure` method. Okay, here is a simple example.
 
@@ -129,7 +129,7 @@ query foo {
 
 As of now, our custom directive provides no functionality. We will handle that part under the [Middleware](#middleware) section. But before we do that, let's talk about the repeatable directive and typed arguments.
 
-## Repeatable Directives
+### Repeatable Directives
 
 By default, directives are not repeatable, which means directives are unique and can be applied once at a specific location. For example, if we use the `my` directive twice at the field `bar`, we will encounter a validation error. So the following GraphQL query request results in an error if the directive is not repeatable.
 
@@ -162,7 +162,7 @@ directive @my repeatable on FIELD
 
 That was easy! Let's head over to the next section, where we talk about typed arguments!
 
-## Typed Arguments
+### Typed Arguments
 
 A directive can provide additional information through attributes. Arguments might also come in handy in combination with repeatable directives for reusability purposes. To add an argument we just use a single line of code `descriptor.Argument("name").Type<NonNullType<StringType>>();`. In this line of code, we tell the descriptor that we want to add an argument named `name`, and it's of type non-nullable string (means it's required).
 
@@ -185,7 +185,7 @@ This configuration will translate into the following SDL.
 directive @my(name: String!) on FIELD
 ```
 
-### Type Safety
+#### Type Safety
 
 We could associate the `MyDirective` with an object like this:
 
@@ -237,7 +237,7 @@ public class FooType
 
 Since the directive instance that we have added to our type is now a strong .NET type, we don't have to fear changes to the directive structure or name anymore.
 
-## Middleware
+### Middleware
 
 What makes directive with Hot Chocolate very useful is the ability to associate a middleware with it. A middleware can alternate the result or even produce the result of a field. A directive middleware is only added to a field middleware pipeline when the directive was annotated to the object definition, the field definition or the field.
 
@@ -269,7 +269,7 @@ public class MyDirective
 
 Directives with middleware or executable directives can be put on object types and on their field definitions or on the field selection in a query. Executable directives on an object type will replace the field resolver of every field of the annotated object type.
 
-### Order
+#### Order
 
 In GraphQL the directive order is significant and with our middleware we use the order of directives to create a resolver pipeline through which the result flows.
 

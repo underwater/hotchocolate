@@ -10,7 +10,7 @@ One further way to raise an error are non-terminating field errors. This can be 
 
 > If you do want to log errors head over to our diagnostic source [documentation](../../../versioned_docs/version-v10.5/hotchocolate/execution-engine/instrumentation.md) and see how you can hook up your logging framework of choice to it.
 
-# Error Builder
+## Error Builder
 
 Since, errors can have a lot of properties depending on your case we have introduced a new error builder which provides a nice API without thousands of overloads.
 
@@ -21,7 +21,7 @@ return ErrorBuilder.New()
     .Build();
 ```
 
-# Exceptions
+## Exceptions
 
 If some other exception is thrown during the query execution, then the execution engine will create an instance of `IError` with the message **Unexpected Execution Error** and the actual exception assigned to the error. However, the exception details will not be serialized so by default the user will only see the error message **Unexpected Execution Error**.
 
@@ -65,7 +65,7 @@ return ErrorBuilder.FromError(error)
     .Build();
 ```
 
-# Exception Details
+## Exception Details
 
 In order to automatically add exception details to your GraphQL error you can switch the execution option to include exception details. By default we will switch this on if the debugger is attached. You can overwrite the behavior by setting the option.
 

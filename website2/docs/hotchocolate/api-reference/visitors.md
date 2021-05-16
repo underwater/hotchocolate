@@ -14,7 +14,7 @@ To start the visitation of a _GraphQL_ syntax tree, you have to pass the node an
 
 ---
 
-# Visitation
+## Visitation
 
 To start the visitation of a _GraphQL_ syntax tree, you have to pass the node and the context the visitation should start from to the visitors `Visit` method. On its way down the syntax tree, the visitor _enters_ a node. The visitor then gets the children of the current node and _enters_ its children. Once the visitor reached a leaf node, it starts walking back up the tree and _leaves_ all the nodes. The visitor provides a virtual `Enter` and a virtual `Leave` method for all _GraphQL_ AST nodes. These methods are called from the visitor as it _enters_ or _leaves_ a node.
 
@@ -72,11 +72,11 @@ autonumber
 
 ---
 
-# Visitor Actions
+## Visitor Actions
 
 The _Enter_ and _Leave_ methods return visitor actions. These methods control the visitors' next step in the visitation. Visitor actions can be used to _skip_ further visitation and step back up, or to _continue_ and walk the current branch of the tree further down.
 
-## Continue
+### Continue
 
 If `Continue` is returned from the `Enter` or `Leave` method visitation on the current branch continues.
 
@@ -94,7 +94,7 @@ query {
 }
 ```
 
-## Skip
+### Skip
 
 If `Skip` is returned from the `Enter` or `Leave` method, further visitation on this node stops.
 
@@ -112,7 +112,7 @@ query {
 }
 ```
 
-## SkipAndLeave
+### SkipAndLeave
 
 If `SkipAndLeave` is returned from the `Enter` method, further visitation on this node stops. Instead of directly calling the next `Enter` method. The visitor calls the `Leave` method of the current node first.
 
@@ -130,7 +130,7 @@ query {
 }
 ```
 
-## Break
+### Break
 
 If `Break` is returned from the `Enter` or `Leave` method, further visitation on this branch stops.
 

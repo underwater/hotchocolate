@@ -7,7 +7,7 @@ import { ExampleTabs } from '@site/src/components/ExampleTabs';
 
 Here we will learn what resolvers are, how they are defined, and what else we could do with them in Hot Chocolate.
 
-# Introduction
+## Introduction
 
 When it comes to fetching data in a GraphQL server, you will always end up with a resolver.
 **A resolver is a generic function that fetches data from an arbitrary data source for a particular field.**
@@ -31,7 +31,7 @@ It's not exactly how it's implemented in Hot Chocolate, but it serves here basic
 
 > **Note:** The parent value represents the parent resolver's inner value, or in the case of a root resolver, the root value, which means the root type's value (query, mutation, or subscription). It has nothing to do with the result type of a resolver and is specific to the business logic.
 
-## Resolver Tree
+### Resolver Tree
 
 A resolver tree is a projection of a GraphQL operation that is prepared for execution. The execution engine takes the resolver tree and follows the path of resolvers from top to down. For better understanding, let's imagine we have a simple GraphQL query like the following, where we select the currently logged-in user's name.
 
@@ -83,13 +83,13 @@ Then the `name()` resolver can just access the `Name` property of the parent val
 
 Excellent, now that we know what resolvers are and how they work in a bigger picture, how can we start writing one. Let's jump to the next section and find out.
 
-# Defining a resolver
+## Defining a resolver
 
 A resolver is a function that takes zero or many arguments and returns one value. The simplest resolver to write is a resolver that takes zero arguments and returns a simple value type (e.g., a string). For simplicity, we will do precisely that in our first example. Creating a resolver named `Say` with no arguments, which returns just a static string value `Hello World!`.
 
 > **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](../api-reference/coding-approaches.md).
 
-## Basic resolver example
+### Basic resolver example
 
 <ExampleTabs>
 <ExampleTabs.Annotation>
@@ -197,11 +197,11 @@ type Query {
 
 Let's get back to where the approaches differentiate—the `Startup` class, which contains the service configuration that slightly differs in each approach. In the **annotation-based** approach, we bind the `Query` type to the GraphQL schema. Easy, quick, and without writing any GraphQL specific binding code. Hot Chocolate will do the hard part and infer everything from the type itself. In the **code-first** approach, we bind a meta-type, the `QueryType` type, which contains the GraphQL configuration for the `Query` type, to the GraphQL schema. Instead of inferring the GraphQL type, Hot Chocolate will take our specific GraphQL configuration and creates the GraphQL schema out of it. In the **schema-first** approach, we provide Hot Chocolate the `SDL` directly, and Hot Chocolate will match that to our resolver. Now that we know how to define a resolver in all three approaches, it's time to learn how to pass arguments into a resolver. Let's head to the next section.
 
-# Resolver Arguments
+## Resolver Arguments
 
 A resolver argument, not to be confused with a field argument in GraphQL, can be a field argument value, a DataLoader, a DI service, state, or even context like a parent value. We will go through a couple of examples where we see all types of resolver argument in action. For that, we will use the annotation-based approach because it makes no difference.
 
-## Field argument example
+### Field argument example
 
 ```csharp
 // Query.cs
@@ -231,7 +231,7 @@ type Query {
 }
 ```
 
-## DataLoader argument example
+### DataLoader argument example
 
 ```csharp
 // Query.cs
@@ -285,13 +285,13 @@ type Person {
 }
 ```
 
-# Naming Rules
+## Naming Rules
 
 - How should we name things
 - How is a method name translated
 
-# Best Practices
+## Best Practices
 
-# Resolver Pipeline
+## Resolver Pipeline
 
-# Error Handling
+## Error Handling
