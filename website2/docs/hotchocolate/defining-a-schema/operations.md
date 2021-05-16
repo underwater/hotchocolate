@@ -26,7 +26,7 @@ query {
 A query type can be represented like the following:
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -47,8 +47,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class Query
@@ -93,8 +93,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 public class Query
@@ -126,7 +126,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ## Mutation
@@ -176,7 +176,7 @@ In one GraphQL request we can execute multiple mutations. Each of these mutation
 A mutation type can be represented like the following:
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Mutation
@@ -201,8 +201,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class Mutation
@@ -235,8 +235,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 public class Mutation
@@ -278,7 +278,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ### Mutation Transactions
@@ -360,7 +360,7 @@ HotChocolate implements Subscriptions via WebSockets and uses the pub/sub approa
 A subscription type can be represented like the following:
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Subscription
@@ -383,8 +383,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class SubscriptionType : ObjectType
@@ -422,8 +422,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 public class Subscription
@@ -458,7 +458,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ### Transport

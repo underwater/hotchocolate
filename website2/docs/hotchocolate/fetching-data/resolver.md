@@ -92,7 +92,7 @@ A resolver is a function that takes zero or many arguments and returns one value
 ### Basic resolver example
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 // Query.cs
@@ -116,8 +116,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 // Query.cs
@@ -154,8 +154,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 // Query.cs
@@ -184,7 +184,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 When comparing all three approaches side-by-side, we can see very quickly that they all look nearly the same. They all have the `Query` type in common, which is identical in all three approaches. Regardless, the `Query` type contains a method named `Say`, which is our resolver, in fact, the most significant bit here. The `Say` method will be translated into the `say` field on the schema side as soon as Hot Chocolate is initialized. As a small side note here, all three approaches will result in the same `SDL`.

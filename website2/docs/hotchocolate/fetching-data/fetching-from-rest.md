@@ -74,7 +74,7 @@ You will have to register the client in the dependency injection of your GraphQL
 To expose the API you can inject the generated client into your resolvers.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 // Query.cs
@@ -112,8 +112,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 // Query.cs
@@ -185,8 +185,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 // Query.cs
@@ -235,7 +235,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 You can now head over to your Banana Cake Pop on your GraphQL Server (/graphql) and query todos:

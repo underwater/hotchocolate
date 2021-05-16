@@ -38,7 +38,7 @@ pool.
 If you annotate a field with `UseDbContext()` all of this is handled for you
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -50,8 +50,8 @@ public class Query
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType
@@ -69,12 +69,12 @@ public class QueryType : ObjectType
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support DbContext integration!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 > ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UseDbContext > UsePaging > UseProjections > UseFiltering > UseSorting

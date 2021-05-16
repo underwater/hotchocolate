@@ -21,7 +21,7 @@ extend type Query {
 > **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](../api-reference/coding-approaches.md).
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -36,8 +36,8 @@ public class QueryExtensions
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType<Query>
@@ -63,8 +63,8 @@ public class QueryExtensions
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```graphql
 type Query {
@@ -76,7 +76,7 @@ extend type Query {
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 > Note: Type extensions need to be registered with the GraphQL configuration. If you are using ASP.NET core head over to your `Startup.cs` and add the type extension with `AddTypeExtension` to your schema.

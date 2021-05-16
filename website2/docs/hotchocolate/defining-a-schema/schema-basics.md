@@ -46,7 +46,7 @@ In Hot Chocolate, there are three ways to define an object type.
 > **Note:** Every single code example will be shown in three different approaches, annotation-based (previously known as pure code-first), code-first, and schema-first. However, they will always result in the same outcome on a GraphQL schema perspective and internally in Hot Chocolate. All three approaches have their pros and cons and can be combined when needed with each other. If you would like to learn more about the three approaches in Hot Chocolate, click on [Coding Approaches](../api-reference/coding-approaches.md).
 
 <ExampleTabs>
-<ExampleTabs.Annotation value="annotation-based">
+<ExampleTabs.Tab value="annotation-based" value="annotation-based">
 
 ```csharp
 // Query.cs
@@ -78,8 +78,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 // Query.cs
@@ -138,8 +138,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 // Query.cs
@@ -173,7 +173,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ### Fields
@@ -200,7 +200,7 @@ type Book {
 ```
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 // Query.cs
@@ -235,8 +235,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 // Query.cs
@@ -298,8 +298,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 // Query.cs
@@ -336,7 +336,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 > Further reading:
@@ -358,7 +358,7 @@ input BookInput {
 If we wanted for instance to create a new book with a mutation we could do that like the following.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 // Query.cs
@@ -400,8 +400,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 // Query.cs
@@ -463,8 +463,8 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```csharp
 // Query.cs
@@ -501,7 +501,7 @@ public class Startup
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ## Lists

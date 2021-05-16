@@ -30,6 +30,4 @@ function Schema({ children }) {
   return <TabItem value="schema-first">{children}</TabItem>;
 }
 
-ExampleTabs.Annotation = Annotation;
-ExampleTabs.Code = Code;
-ExampleTabs.Schema = Schema;
+ExampleTabs.Tab = TabItem;

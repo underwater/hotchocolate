@@ -47,7 +47,7 @@ You can learn more about this in the [GraphQL Cursor Connections Specification](
 Adding pagination capabilties to our fields is a breeze. All we have to do is add the `UsePaging` middleware.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -66,8 +66,8 @@ The `UsePaging` attribute also allows us to configure some other properties, lik
 [UsePaging(MaxPageSize = 50)]
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType
@@ -98,12 +98,12 @@ descriptor.UsePaging(options: new PagingOptions
 });
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support pagination!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 For the `UsePaging` middleware to work, our resolver needs to return an `IEnumerable<T>` or an `IQueryable<T>`. The middleware will then apply the pagination arguments to what we have returned. In the case of an `IQueryable<T>` this means that the pagination operations can be directly translated to native database queries, through database drivers like EntityFramework or the MongoDB client.
@@ -113,7 +113,7 @@ For the `UsePaging` middleware to work, our resolver needs to return an `IEnumer
 If we need more control over the pagination process we can do so, by returning a `Connection<T>`.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -136,8 +136,8 @@ public class Query
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType
@@ -172,12 +172,12 @@ public class QueryType : ObjectType
 
 If we need to work on an even lower level, we could also use `descriptor.AddPagingArguments()` and `descriptor.Type<ConnectionType<UserType>>()` to get rid of the `UsePaging` middleware.
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support pagination!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ### Total count
@@ -187,14 +187,14 @@ Sometimes we might want to return the total number of pageable entries.
 For this to work we need to enable the `IncludeTotalCount` flag on the `UsePaging` middleware.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 [UsePaging(IncludeTotalCount = true)]
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 descriptor.UsePaging(options: new PagingOptions
@@ -203,12 +203,12 @@ descriptor.UsePaging(options: new PagingOptions
 });
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support pagination!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 This will add a new field called `totalCount` to our _Connection_.
@@ -292,7 +292,7 @@ type CollectionSegmentInfo {
 To add _offset-based_ pagination capabilties to our fields we have to add the `UseOffsetPaging` middleware.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -311,8 +311,8 @@ The `UseOffsetPaging` attribute also allows us to configure some other propertie
 [UseOffsetPaging(MaxPageSize = 50)]
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType
@@ -343,12 +343,12 @@ descriptor.UseOffsetPaging(options: new PagingOptions
 });
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support pagination!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 For the `UseOffsetPaging` middleware to work, our resolver needs to return an `IEnumerable<T>` or an `IQueryable<T>`. The middleware will then apply the pagination arguments to what we have returned. In the case of an `IQueryable<T>` this means that the pagination operations can be directly translated to native database queries, through database drivers like EntityFramework or the MongoDB client.
@@ -358,7 +358,7 @@ For the `UseOffsetPaging` middleware to work, our resolver needs to return an `I
 If we need more control over the pagination process we can do so, by returning a `CollectionSegment<T>`.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -381,8 +381,8 @@ public class Query
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType
@@ -417,12 +417,12 @@ public class QueryType : ObjectType
 
 If we need to work on an even lower level, we could also use `descriptor.AddOffsetPagingArguments()` and `descriptor.Type<CollectionSegmentType<UserType>>()` to get rid of the `UseOffsetPaging` middleware.
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support pagination!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ### Total count
@@ -432,14 +432,14 @@ Sometimes we might want to return the total number of pageable entries.
 For this to work we need to enable the `IncludeTotalCount` flag on the `UseOffsetPaging` middleware.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 [UseOffsetPaging(IncludeTotalCount = true)]
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 descriptor.UseOffsetPaging(options: new PagingOptions
@@ -448,12 +448,12 @@ descriptor.UseOffsetPaging(options: new PagingOptions
 });
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support pagination!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 This will add a new field called `totalCount` to our _CollectionSegment_.

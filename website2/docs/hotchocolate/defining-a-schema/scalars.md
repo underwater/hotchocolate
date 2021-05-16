@@ -367,7 +367,7 @@ These scalars cannot be mapped by HotChocolate to a field.
 You need to specify them manually.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class User
@@ -377,8 +377,8 @@ public class User
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class UserType : ObjectType<User>
@@ -391,8 +391,8 @@ public class UserType : ObjectType<User>
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```sdl
 type User {
@@ -400,7 +400,7 @@ type User {
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 You will also have to add the Scalar to the schema:

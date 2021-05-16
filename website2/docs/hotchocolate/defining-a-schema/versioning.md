@@ -15,7 +15,7 @@ In GraphQL it is possible to deprecate fields.
 You can mark a field as deprecated to signal API consumers that a field is obsolete and will be removed in the future.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -27,8 +27,8 @@ public class Query
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class Query : QueryType<Query>
@@ -40,8 +40,8 @@ public class Query : QueryType<Query>
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ```sdl
 type Query {
@@ -50,5 +50,5 @@ type Query {
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>

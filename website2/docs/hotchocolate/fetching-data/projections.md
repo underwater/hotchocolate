@@ -53,7 +53,7 @@ are members of a type will be projected. Fields that define a customer resolver 
 to the database. If the middleware encounters a field that specifies `UseProjection()` this field will be skipped.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class Query
@@ -64,8 +64,8 @@ public class Query
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class QueryType : ObjectType<Query>
@@ -83,12 +83,12 @@ public class Query
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support projections!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 > ⚠️ **Note:** If you use more than one middleware, keep in mind that **ORDER MATTERS**. The correct order is UsePaging > UseProjection > UseFiltering > UseSorting
@@ -204,7 +204,7 @@ related data from another service. With projections, this resolver could only wo
 for the `email` field. To ensure a field is always projected you have to use `IsProjected(true)`.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class User
@@ -217,8 +217,8 @@ public class User
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class UserType : ObjectType<User>
@@ -231,12 +231,12 @@ public class UserType : ObjectType<User>
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support projections!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ```graphql
@@ -262,7 +262,7 @@ The projections middleware skips a field in two cases. Either the visitor encoun
 itself, or it defines `IsProjected(false)`.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 ```csharp
 public class User
@@ -275,8 +275,8 @@ public class User
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 ```csharp
 public class UserType : ObjectType<User>
@@ -289,12 +289,12 @@ public class UserType : ObjectType<User>
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 ⚠️ Schema-first does currently not support projections!
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ```graphql

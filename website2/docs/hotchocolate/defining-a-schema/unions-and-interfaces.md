@@ -108,7 +108,7 @@ When a resolver returns an interface, you just have to register the implementati
 HotChocolate will register the types as implementations of the interface.
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 In the annotation based approach, you most likely do not need to worry about interfaces at all.
 
@@ -166,8 +166,8 @@ public abstract class Message
 }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 HotChocolate provides a fluent configuration API for interfaces that is very similar to the `ObjectType` interface.
 
@@ -207,8 +207,8 @@ public class VideoMessageType : ObjectType<VideoMessage>
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 In schema first interfaces can be declared directly in SDL:
 
@@ -261,7 +261,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
 
 ## Unions
@@ -323,7 +323,7 @@ You have to use [Inline Fragments 📄](https://spec.graphql.org/June2018/#sec-I
 ### Union Definition
 
 <ExampleTabs>
-<ExampleTabs.Annotation>
+<ExampleTabs.Tab value="annotation-based">
 
 In the annotation based approach, HotChocolate tries to infer union types from the .Net types.
 You can manage the membership of union types with a marker interface.
@@ -370,8 +370,8 @@ _Configure Services_
   }
 ```
 
-</ExampleTabs.Annotation>
-<ExampleTabs.Code>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="code-first">
 
 HotChocolate provides a fluent configuration API for union types that is very similar to the `ObjectType` interface.
 
@@ -391,8 +391,8 @@ public class GroupMemberType : UnionType
 }
 ```
 
-</ExampleTabs.Code>
-<ExampleTabs.Schema>
+</ExampleTabs.Tab>
+<ExampleTabs.Tab value="schema-first">
 
 In schema first unions can be declared directly in SDL:
 
@@ -425,5 +425,5 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-</ExampleTabs.Schema>
+</ExampleTabs.Tab>
 </ExampleTabs>
