@@ -1,0 +1,302 @@
+{
+  "version-v11.2/hotchocolateSidebar": [
+    {
+      "type": "doc",
+      "id": "version-v11.2/hotchocolate/introduction"
+    },
+    {
+      "type": "doc",
+      "id": "version-v11.2/hotchocolate/get-started"
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Defining a schema",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/schema-basics"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/descriptions"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/operations"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/versioning"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/unions-and-interfaces"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/extending-types"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/scalars"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/defining-a-schema/directives"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Fetching data",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/resolver"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/fetching-from-databases"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/fetching-from-rest"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/dataloader"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/pagination"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/filtering"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/sorting"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/fetching-data/projections"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Distributed schemas",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/distributed-schema/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/distributed-schema/schema-stitching"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/distributed-schema/schema-federations"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/distributed-schema/schema-configuration"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Integrations",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/integrations/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/integrations/entity-framework"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/integrations/mongodb"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/integrations/spatial-data"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Performance",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/performance/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/performance/persisted-queries"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/performance/automatic-persisted-queries"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "API Reference",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/object-type"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/custom-attributes"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/language"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/extending-filtering"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/visitors"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/aspnetcore"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/dependency-injection"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/executable"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/apollo-tracing"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/hotchocolate/api-reference/migrate-from-10-to-11"
+        }
+      ]
+    }
+  ],
+  "version-v11.2/strawberryshakeSidebar": [
+    {
+      "type": "doc",
+      "id": "version-v11.2/strawberryshake/introduction"
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Get Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/get-started/blazor"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/get-started/xamarin"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/get-started/console"
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "version-v11.2/strawberryshake/subscriptions"
+    },
+    {
+      "type": "doc",
+      "id": "version-v11.2/strawberryshake/tooling"
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Caching",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/caching/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/caching/entities"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/caching/invalidation"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Performance",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/performance/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/performance/persisted-queries"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/performance/persisted-state"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Networking",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/networking/protocols"
+        },
+        {
+          "type": "doc",
+          "id": "version-v11.2/strawberryshake/networking/authentication"
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "version-v11.2/strawberryshake/scalars"
+    }
+  ],
+  "version-v11.2/bananacakepopSidebar": [
+    {
+      "type": "doc",
+      "id": "version-v11.2/bananacakepop/introduction"
+    }
+  ]
+}
