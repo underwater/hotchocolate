@@ -1,3 +1,4 @@
+const versions = require("./versions.json");
 const repoUrl = "https://github.com/ChilliCream/hotchocolate";
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -107,9 +108,10 @@ module.exports = {
           showLastUpdateTime: true,
           versions: {
             current: {
-              label: "Preview 🚧",
+              label: "Next 🚧",
             },
           },
+          lastVersion: versions[0],
         },
         blog: {
           showReadingTime: true,

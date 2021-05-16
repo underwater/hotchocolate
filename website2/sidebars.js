@@ -1,77 +1,67 @@
 module.exports = {
   hotchocolateSidebar: [
     "hotchocolate/introduction",
-    "hotchocolate/code-first",
-    "hotchocolate/schema-first",
+    "hotchocolate/get-started",
     {
-      Schema: [
-        "hotchocolate/schema/schema",
-        "hotchocolate/schema/object-type",
-        "hotchocolate/schema/interface-type",
-        "hotchocolate/schema/union-type",
-        "hotchocolate/schema/input-object-type",
-        "hotchocolate/schema/enum-type",
-        "hotchocolate/schema/descriptions",
-        "hotchocolate/schema/custom-scalar-types",
-        "hotchocolate/schema/descriptor-attributes",
-        "hotchocolate/schema/extending-types",
-        "hotchocolate/schema/directives",
-        "hotchocolate/schema/resolvers",
-        "hotchocolate/schema/relay",
-        "hotchocolate/schema/conventions",
-        "hotchocolate/schema/options",
+      "Defining a schema": [
+        "hotchocolate/defining-a-schema/schema-basics",
+        "hotchocolate/defining-a-schema/descriptions",
+        "hotchocolate/defining-a-schema/operations",
+        "hotchocolate/defining-a-schema/versioning",
+        "hotchocolate/defining-a-schema/unions-and-interfaces",
+        "hotchocolate/defining-a-schema/extending-types",
+        "hotchocolate/defining-a-schema/scalars",
+        "hotchocolate/defining-a-schema/directives",
       ],
     },
     {
-      "Data Fetching": [
-        "hotchocolate/data-fetching/data-loaders",
-        "hotchocolate/data-fetching/pagination",
-        "hotchocolate/data-fetching/filters",
+      "Fetching data": [
+        "hotchocolate/fetching-data/resolver",
+        "hotchocolate/fetching-data/fetching-from-databases",
+        "hotchocolate/fetching-data/fetching-from-rest",
+        "hotchocolate/fetching-data/dataloader",
+        "hotchocolate/fetching-data/pagination",
+        "hotchocolate/fetching-data/filtering",
+        "hotchocolate/fetching-data/sorting",
+        "hotchocolate/fetching-data/projections",
       ],
     },
     {
-      Security: [
-        "hotchocolate/security/authorization",
-        "hotchocolate/security/security",
+      "Distributed schemas": [
+        "hotchocolate/distributed-schema/overview",
+        "hotchocolate/distributed-schema/schema-stitching",
+        "hotchocolate/distributed-schema/schema-federations",
+        "hotchocolate/distributed-schema/schema-configuration",
       ],
     },
     {
-      "Execution Engine": [
-        "hotchocolate/execution-engine/middleware",
-        "hotchocolate/execution-engine/validation-rules",
-        "hotchocolate/execution-engine/instrumentation",
-        "hotchocolate/execution-engine/apollo-tracing",
-        "hotchocolate/execution-engine/batching",
-        "hotchocolate/execution-engine/persisted-queries",
-        "hotchocolate/execution-engine/custom-context-data",
-        "hotchocolate/execution-engine/subscriptions",
-        "hotchocolate/execution-engine/type-conversion",
-        "hotchocolate/execution-engine/error-filter",
-        "hotchocolate/execution-engine/execution-options",
+      Integrations: [
+        "hotchocolate/integrations/overview",
+        "hotchocolate/integrations/entity-framework",
+        "hotchocolate/integrations/mongodb",
+        "hotchocolate/integrations/spatial-data",
       ],
     },
     {
-      Server: [
-        "hotchocolate/server/asp-net",
-        "hotchocolate/server/dependency-injection",
-      ],
-    },
-    "hotchocolate/stitching",
-    "hotchocolate/tooling",
-    {
-      Advanced: [
-        "hotchocolate/advanced/parser",
-        "hotchocolate/advanced/dotnet-cli",
+      Performance: [
+        "hotchocolate/performance/overview",
+        "hotchocolate/performance/persisted-queries",
+        "hotchocolate/performance/automatic-persisted-queries",
       ],
     },
     {
-      Tutorials: ["hotchocolate/tutorials/entity-framework"],
-    },
-    {
-      Examples: [
-        "hotchocolate/examples/star-wars",
-        "hotchocolate/examples/slack-clone",
-        "hotchocolate/examples/other-examples",
+      "API Reference": [
+        "hotchocolate/api-reference/overview",
+        "hotchocolate/api-reference/object-type",
+        "hotchocolate/api-reference/custom-attributes",
+        "hotchocolate/api-reference/language",
+        "hotchocolate/api-reference/extending-filtering",
+        "hotchocolate/api-reference/visitors",
+        "hotchocolate/api-reference/aspnetcore",
+        "hotchocolate/api-reference/dependency-injection",
+        "hotchocolate/api-reference/executable",
+        "hotchocolate/api-reference/apollo-tracing",
+        "hotchocolate/api-reference/migrate-from-10-to-11",
       ],
     },
   ],
