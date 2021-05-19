@@ -1,9 +1,10 @@
 namespace FSharp.StarWars
 
+[<ReferenceEquality>]
 type Episode =
-    | NewHope = 1
-    | Empire = 2
-    | Jedi = 3
+    | NewHope of int
+    | Empire of int
+    | Jedi of int
 
 [<ReferenceEquality>]
 type Human =
@@ -14,4 +15,4 @@ type Human =
 type Query() =
     member this.Human =
         { Id = "1000"
-          AppearsIn = [ Episode.NewHope; Episode.Empire; Episode.Jedi ] }
+          AppearsIn = [ Episode.Empire 1; Episode.Jedi 2; Episode.NewHope 3 ] }
